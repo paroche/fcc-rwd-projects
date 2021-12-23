@@ -295,6 +295,7 @@ a:active {
   /* some transparency */
   box-shadow: 0 0 55px 15px rgb(144, 144, 144, 0.5);
   padding: 0.8em;
+  padding: 5rem;
   text-shadow: 1px 1px white;
   border-radius: 7px;
   transition: all 1.2s ease-in;

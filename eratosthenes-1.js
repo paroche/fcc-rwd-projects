@@ -12,18 +12,23 @@ const clickDelay = 300; // ms. Apparently 500ms is standard for a double click, 
 let rotateClassIndex = 0;
 let rotateClasses;
 
+// Don't show screen until all images loaded. Otherwise sometimes awkward transition
+Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => activateDOM()); 
+
 // Fade in transform if coming from portfolio
-let fromPortfolio = false;
-if (sessionStorage.getItem('portfolio') == 'true') fromPortfolio = true;
-// body.style.setProperty('--transform-time', '0s')
-if (fromPortfolio) {
-  // body.style.setProperty('--transform-time', '1s')
-  body.classList.add('invisible');
-  setTimeout(()=> {
-    body.classList.remove('invisible'); 
-  } , 1); // wout some delay doesn't do transform
+function activateDOM() {
+  let fromPortfolio = false;
+  if (sessionStorage.getItem('portfolio') == 'true') fromPortfolio = true;
+  // body.style.setProperty('--transform-time', '0s')
+  if (fromPortfolio) {
+    // body.style.setProperty('--transform-time', '1s')
+    body.classList.add('invisible');
+    setTimeout(()=> {
+      body.classList.remove('invisible'); 
+    } , 1); // wout some delay doesn't do transform
+  }
+  body.hidden=false; // seemed to be necessary to have hidden=true in html, otherwise displayed before opacity from .invisible took effect (since script is loaded after body, I guess)
 }
-body.hidden=false; // seemed to be necessary to have hidden=true in html, otherwise displayed before opacity from .invisible took effect (since script is loaded after body, I guess)
 
 linksImageEl.addEventListener('click', handleFirstClick);
 
