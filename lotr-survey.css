@@ -1,0 +1,310 @@
+/* Alt method for background image. Didn't seem to allow for any opacity adjustment:
+
+body {
+  background-image: url('https://www.indiewire.com/wp-content/uploads/2017/08/andy-serkis-e2809cthe-lord-of-the-ringse2809d.png?w=780');
+  /*height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}/**/
+
+
+/* Body fade in */
+
+body {
+  transition: all 3s linear;
+  opacity: 1;
+  filter: blur(0px);
+}
+
+body.invisible {
+  opacity: 0;
+  filter: blur(5px);
+}
+
+.bg-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-container img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  /*max-width: 100%; /*Makes responsive, but I prefer w/out */
+  opacity: .85;
+  /* w/ negative z-index seems this has to be higher to show thru? */
+  z-index: -2;
+  /* or form won't be active */
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5px 0 60px 0;
+}
+
+.headers {
+  border-radius: 10px;
+  padding: 8px;
+  color: gold;
+  --back-col: rgba(25, 15, 50, .8);
+  background-color: var(--back-col);
+  box-shadow: 0 0 60px 45px var(--back-col);
+  /*box-shadow: 0 0 100px 40px var(--back-col);/* */
+  margin: 0 auto;
+  text-align: center;
+  opacity: 1;
+}
+
+#description {
+  box-shadow: 0 4px 18px 9px var(--back-col);
+  /*box-shadow: 0 0 30px 10px var(--back-col); /* a little smaller so won't overlap title */
+}
+
+#survey-form {
+  background-color: #F6F7F8;
+  background-color: rgba(245, 250, 255, .93);
+  /**/
+  border: 1px solid #D6D9DC;
+  border-radius: 3px;
+  width: 85%;
+  padding: 20px 0;
+  margin: 40px auto;
+}
+
+.form-row {
+  margin: 15px 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  /*why?*/
+  /*font-size: 14px; /**/
+  /*border: solid 1px green; */
+}
+
+.form-row label {
+  text-align: right;
+  width: 240px;
+  margin: auto 0;
+  padding-right: 10px;
+  opacity: 1.0;
+}
+
+.form-row input {
+  font-size: 14px;
+  padding: 7px 0 7px 5px;
+  border: 1px solid #D6D9DC;
+  border-radius: 3px;
+}
+
+.form-row input[type='text'] {
+  background-color: #FFFFFF;
+  width: 250px;
+  max-width: 100%;
+}
+
+.form-row input[type='email'] {
+  width: 200px;
+}
+
+.radio-row {
+  margin: 25px 25px;
+  margin: 15px 5%;
+  /* If want all blocks to line up */
+  padding: 10px 15px;
+}
+
+.radio-row input {
+  margin-right: 6px;
+}
+
+.radio-row label {
+  display: flex;
+  align-items: baseline;
+  /* To keep label aligned w/ self if wraps*/
+  align-items: flex-start;
+  /* for this, either will work? */
+}
+
+.radio-parents-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.radio-parents-item {
+  border: none;
+  /* just to get error to go away for empty set */
+}
+
+.radio-parents-item label {
+  padding: 0 5px 0 2px;
+  /*color: purple;*/
+}
+
+.form-row-checkbox {
+  margin: 25px 25px;
+  margin: 25px 5%;
+  /* If I want blocks to line up */
+  padding: 5px 15px 5px 15px;
+  border: 1px solid;
+  overflow: hidden
+}
+
+.checkbox-items {
+  padding: 10px 15px;
+}
+
+.checkbox-items:last-of-type {
+  padding-right: 0;
+}
+
+.checkbox-item {
+  margin-bottom: 3px;
+  float: left;
+  /* w/out this bottom margin not consistent, or only applied to 1st item?*/
+}
+
+.checkbox-item input {
+  margin-right: 4px;
+}
+
+.checkbox-item label {
+  padding: 0 10px 0 3px;
+  float: left;
+}
+
+.checkbox-item input {
+  float: left;
+  /*"Doesn't work if have input.checkbox-item {???"*/
+  /* Also, maybe could use flexbox? Float left doesn't seem to work for radio buttons, but flexbox does (see above) */
+}
+
+.form-row-essay {
+  margin: 15px 5%;
+}
+
+textarea {
+  margin-top: 8px;
+  max-width: 98%;
+}
+
+#submission-container {
+  margin-top: 25px;
+  height: 70px;
+  width: auto;
+}
+
+.submission {
+  --sub-height1: 50px;
+  --sub-width1: 150px;
+  --sub-height2: 55px;
+  --sub-width2: 165px;
+  height: var(--sub-height1);
+  width: var(--sub-width1);
+  margin-top: 10px;
+  padding: 5px 5px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 3px 5px 4px;
+  display: flex;
+  margin: auto;
+  background-color: gold;
+  font-weight: bold;
+  transition: all 3s;
+}
+
+.submission:hover {
+  color: gold;
+  outline: none;
+  /* I don't know if this has any effect -- haven't noticed an outline on hover */
+  --submit-hover-background: #180030;
+  /* Dark purple */
+  background-color: var(--submit-hover-background);
+  color: crimson;
+  padding: 10px 18px;
+  overflow: hidden;
+  border: solid gold;
+  border-width: 6px 10px 8px 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 6px gold inset, 5px 0 15px 15px black;
+  /* */
+  animation: hover-pulse 3s infinite;
+  animation-delay: 4s;
+  /* to start after transition */
+}
+
+@keyframes hover-pulse {
+  from {
+    color: crimson;
+    height: var(--sub-height1);
+    width: var(--sub-width1);
+    font-size: 5px;
+    font-weight: bold;
+    padding-top: 16px;
+    padding-left: 35px;
+  }
+  to {
+    color: red;
+    height: var(--sub-height2);
+    width: var(--sub-width2);
+    font-size: 7px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-left: 24px;
+  }
+}
+
+@media(max-width: 1000px) {
+  .header-container {
+    margin-bottom: 5px;
+  }
+}
+
+@media(max-width: 750px) {
+  .bg-container img {
+    height: 0;
+    /* Just to make it disappear */
+  }
+  body {
+    background-image: url('https://www.indiewire.com/wp-content/uploads/2017/08/andy-serkis-e2809cthe-lord-of-the-ringse2809d.png?w=780');
+    /*width: 100%;
+      height: auto;*/
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    opacity: 0.9;
+  }
+  /**/
+  #description {
+    box-shadow: 0 0 20px 10px var(--back-col);
+    /* */
+  }
+  #survey-form {
+    width: 92%;
+    margin-top: 15px;
+  }
+  .form-row {
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .form-row label {
+    text-align: left;
+  }
+}
+
+#ruler {
+  margin: 0 0 0 0;
+  background-color: orange;
+  height: 25px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(14, 100px);
+  border: 1px solid yellow;
+}

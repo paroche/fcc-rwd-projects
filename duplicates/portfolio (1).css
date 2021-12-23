@@ -1,0 +1,919 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* w/ heavy dependency on variables, not sure how will look in IE */
+
+body {
+  --test-border-width: 0px;
+  --half-bold: 540;
+  /* doesn't work for default font-type -- just goes to normal or bold, whichever is closer */
+  --max-container-width: 1400px;
+  --header-height: 117px;
+  --neg-header-height: calc(-1 * var(--header-height));
+  background: linear-gradient(to bottom right, #ECFFEC, #DDFFDD);
+  /* attempts to solve over-wide slide-bar problem */
+  margin-right: 0;
+  /* didn't solve problem */
+  overflow-x: hidden;
+  /* This worked, but don't know why I needed it. Only very slight overflow at narrowest possible screen (in browser). Nothing in it but background. Might have to do w/ hidden popup stuff */
+  border: var(--test-border-width) solid black;
+}
+
+#container {
+  max-width: 100%;
+  /* */
+  margin: 0;
+  padding: 0;
+  /* */
+  --light-green: #E5FFE5;
+  /* very light green */
+  --lighter-green: #F0FFF0;
+  /* */
+  --body-background-color: var(--light-green);
+  background-color: #E5FFE5;
+  /* fallback */
+  background-color: var(--body-background-color);
+  /* */
+  background: linear-gradient(to bottom right, var(--light-green) 35%, var(--lighter-green), #CCFFAA, var(--lighter-green), var(--light-green));
+  /* */
+  --container-border-color: lightgreen;
+  --container-border-color: var(--light-green);
+  /* Same as background */
+  border: 5px solid #E5FFE5;
+  /* fallback */
+  border: 5px solid var(--container-border-color);
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* */
+  right: 0;
+  margin: 0 0;
+  padding: 0 0 5px 0;
+  padding-bottom: 17px;
+  /* new 1/18 (10px), 1/23 */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  --header-background-color: #DFD;
+  /* new experiment 1/18 */
+  border-top: 5px solid var(--container-border-color);
+  border-left: 5px solid var(--container-border-color);
+  /* */
+  border-right: 5px solid var(--container-border-color);
+  border: 5px solid var(--header-background-color);
+  /* new 1/18 */
+  border-bottom: 3px solid green;
+  /*border-bottom: 4px groove #0F0; /* sticking w/ solid? */
+  background-color: var(--body-background-color);
+  /* */
+  /*background-color: var(--header-background-color); /* new 1/17 */
+  z-index: 5;
+}
+
+#header-company {
+  margin: 15px 0 10px 4%;
+  display: flex;
+  flex-direction: row;
+  /* default */
+  justify-content: center;
+  border: var(--test-border-width) solid;
+}
+
+.header-img {
+  max-height: 25px;
+  padding: 12px 10px 0 15px;
+  border: var(--test-border-width) solid;
+}
+
+#header-img {
+  display: block;
+  margin-top: 2px;
+  /*visibility: visible;*/
+}
+
+#header-img-2 {
+  display: none;
+  /*visibility: hidden;
+  max-height: 0;*/
+}
+
+#header-img-3 {
+  display: none;
+  /* visibility: hidden;
+  max-height: 0; */
+}
+
+#company-text {
+  margin: 0 0 0 3px;
+  font-size: 48px;
+  /* */
+  font-size: 4vw;
+  /* */
+  color: green;
+  color: #00AA00;
+  border: var(--test-border-width) solid;
+  flex-wrap: wrap;
+  /* ? */
+}
+
+#nav-bar {
+  margin: 0px 5% 0 5px;
+  padding-top: 10px;
+  padding-bottom: 18px;
+  display: flex;
+  justify-content: space-around;
+  border: var(--test-border-width) dashed green;
+  /* */
+}
+
+.nav-link {
+  color: #090;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  height: 1.2em;
+  margin: 1px 0 0 15px;
+  padding: 2px 1px 0 1px;
+  /*background-image: linear-gradient(to bottom right, #aFa, #DFD, #DFD, #EFE, #efe, #efe, #aFa); /* */
+  /* background-image: linear-gradient(to bottom right, #ECFFEC, #DDFFDD, rgb(0,255,0,.2));/* */
+  /* background-color: rgb(120,255,120,0.02); /* Decided best without*/
+  /*border: 1px solid #aFa; /* */
+  border-radius: 5px;
+  box-shadow: 0 0 1px 1px rgb(120, 255, 120, 0.07) inset;
+  /* */
+}
+
+.nav-link:visited {
+  /*color: #00A700;
+  color: #00CC44;
+  color: #00CC44; */
+  background-image: linear-gradient (to bottom right, #EFE, #EFE, #FF0, red);
+  /* Not working? */
+}
+
+.nav-link:hover {
+  /*color: #00CC44; /* */
+  /*background: #DDFFDD; /* */
+  color: #00c400;
+  /* */
+  /*border-top: 1px solid #CCFFCC; /* makes it drop a px */
+  /*border-box: 0 0 8px 8px #CCFFCC;*/
+  /*background: linear-gradient(to bottom ,#DFD, #EFE, #DFD); /* */
+}
+
+#main-body {
+  position: relative;
+  /* Was hoping would provide a basis for popups. Apparently not? */
+}
+
+#image-pool {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: var(--header-height);
+  margin-top: 120px;
+  /* looks better w/ more when full. Bumped from 100 to 120 when added border to header */
+  margin-top: calc(var(--header-height) + 29px);
+  /* test 1/19 */
+  margin-bottom: 40px;
+  border: var(--test-border-width) solid red;
+  /* */
+}
+
+figure {}
+
+.image {
+  margin: 5px;
+  max-height: 150px;
+  max-width: 100%;
+  width: auto;
+  border: var(--test-border-width) solid black
+}
+
+#intro {
+  max-width: 65%;
+  margin: 20px auto 45px auto;
+  margin: 1.25em auto 3.5em auto;
+  /* test 1/18/19 */
+  font-family: 'Times New Roman';
+  font-weight: normal;
+  /*font-weight: bold; /* */
+  font-size: 18px;
+}
+
+#sections {
+  border: var(--test-border-width) solid blue;
+  /* */
+  margin: 20px 3% 50px 5%;
+  font-family: Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-weight: bold;
+  font-size: 16px;
+  /* ? */
+}
+
+.anchor {
+  /* to compensate for fixed nav bar covering the section: */
+  display: block;
+  height: var(--header-height);
+  margin-top: var(--neg-header-height);
+  /* Otherwise will be a header-sized gap above anchor spot. Still, such a work-around shouldn't be necessary */
+  visibility: hidden;
+}
+
+
+/* */
+
+.section-item {
+  margin: 15px 0 1.5em 5%;
+  /* */
+  border: var(--test-border-width) solid orange;
+}
+
+.section-regular {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.section-regular-name {
+  margin-left: 2px;
+  margin-left: 5px;
+  width: 90px;
+  font-weight: bold;
+  font-family: Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-size: 16px;
+  font-size: 17px;
+  border: var(--test-border-width) solid purple;
+}
+
+.section-name-with-image {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-image {
+  margin-top: 2px;
+  margin-left: 1px;
+  max-height: 100%;
+  max-width: 80px;
+}
+
+#philosophy-image-1 {
+  max-height: 0;
+  /* does make a difference */
+  margin: 0;
+  visibility: hidden;
+  display: none;
+}
+
+#philosophy-image-2 {
+  margin-top: 8px;
+  margin-left: 7px;
+  visibility: visible;
+}
+
+.section-blurb {
+  font-weight: var(--half-bold);
+  font-family: Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-weight: bold;
+  max-width: 80%;
+  margin: 1px 0 0 14px;
+  border: var(--test-border-width) solid green;
+}
+
+.list-with-picture {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-block {}
+
+.section-list-name {
+  border: var(--test-border-width) solid yellow;
+}
+
+.section-list {
+  margin-top: 10px;
+  margin-left: 80px;
+}
+
+.section-r-side-image {
+  display: flex;
+  /* ? */
+  margin-left: 60px;
+  /* */
+  height: 200px;
+  width: auto;
+  /*flex-shrink: 2; /* doesn't seem to do anything */
+  border: var(--test-border-width) solid green;
+}
+
+#sample-products {
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 16%;
+  margin-bottom: 25px;
+  justify-content: flex-start;
+  border: var(--test-border-width) solid yellow;
+}
+
+.product {
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* no */
+  align-items: flex-start;
+  /* doesn't do it either */
+  max-width: 300px;
+  border: var(--test-border-width) solid green;
+}
+
+.product-image {
+  height: 200px;
+  max-width: 300px;
+  margin-bottom: 5px;
+}
+
+.product-link {
+  margin: 0 auto;
+  color: #1A3;
+  justify-self: center;
+  align-self: center;
+  /* just won't center! */
+}
+
+.video-container {
+  position: relative;
+  width: 50%;
+  height: 0;
+  padding-bottom: 56.25%;
+  padding-top: 0;
+  overflow: hidden;
+  margin: 0 auto;
+  border: var(--test-border-width) solid purple;
+  /* */
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-caption {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  border: var(--test-border-width) solid green;
+}
+
+.sup {
+  font-size: 6px;
+}
+
+.video-caption-footer {
+  margin: 30px auto 0 auto;
+  height: 10px;
+  width: 80px;
+  margin-left: auto;
+  font-size: 8px;
+  border: var(--border-test-width) solid;
+}
+
+video-caption-footer:hover {
+  font-size: 16px;
+}
+
+#form {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 25px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* */
+  border: var(--test-border-width) solid gold;
+}
+
+#email-container {
+  margin: 15px 0;
+  max-width: 100%;
+  /* */
+  padding: 0 2px;
+  display: flex;
+  flex-direction: row;
+  /*align-items: center; /* this made email input box normal again , then I gave it a fixed height instead*/
+  font-weight: bold;
+  border: var(--test-border-width) solid blue;
+}
+
+#email-label {
+  margin-top: 1px;
+  padding: 0 2px;
+  border: var(--test-border-width) solid red;
+}
+
+#email {
+  margin-left: 10px;
+  margin-top: 0px;
+  padding: 3px;
+  padding-left: 5px;
+  height: 25px;
+  height: 15px;
+  width: 250px;
+  max-width: 96%;
+  border: 1px solid green;
+  /*var(--test-border-width) solid red; /* */
+}
+
+#submission-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* */
+  align-content: center;
+  /* */
+  margin: 15px 20px;
+  border: var(--test-border-width) solid orange;
+}
+
+#submit-container {
+  width: 120px;
+  text-align: center;
+  /* */
+  margin: 0px auto;
+  /* only way I was able to center #submit -- flex align didn't seem to work */
+}
+
+#submit {
+  width: 100px;
+  padding: 3px;
+  border-radius: 3px;
+  box-shadow: 0.5px -0.5px 1px 1px green;
+  /* */
+  transition: all 50ms;
+  --box-shadow-color: green;
+  --box-shadow-color: #449900;
+  /* a more yellow green */
+}
+
+#submit:hover {
+  color: #009900;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: yellow;
+  background-color: var(--body-background-color);
+  /* OR */
+  color: #006600;
+  /* background-color: #A5FFA5; /* */
+  --border-inset-shadow-color: #99FF99;
+  --border-inset-shadow-color: var(--box-shadow-color);
+  --border-gold-color: #FFD700;
+  /* --border-gold-color: #FFBF00; /* */
+  /* --border-gold-color: yellow; /* */
+  --border-top-color: var(--box-shadow-color);
+  border: 2px solid var(--border-top-color);
+  /*var(--border-shadow-color); /* gold; */
+  box-shadow: 2px 18px 4px 5px var(--box-shadow-color), 0px 0px 2px 2px inset var(--border-inset-shadow-color), 0px 0px 5px 5px var(--border-top-color);
+  /* */
+  transition: all 1s;
+}
+
+#submit:active {
+  font-style: italic;
+  font-style: oblique;
+  box-shadow: 0px 18px 4px 5px var(--box-shadow-color), 0px 0px 2px 2px inset var(--border-inset-shadow-color), 0px 0px 5px 5px var(--border-top-color), 0 40px 4px 5px var(--box-shadow-color);
+  /*Extend bottom shadow*/
+}
+
+#sub-submit {
+  /*height: 100px;*/
+  line-height: 18px;
+  margin-top: 3px;
+  font-size: 12px;
+  text-align: center;
+  color: var(--body-background-color);
+  /*color: blue; /* temp so could see where it was*/
+}
+
+@media(min-width: 1400px) {
+  /*}var(--max-container-width)) {*/
+  #container,
+  #header {
+    max-width: 1400px;
+    /* fallback */
+    max-width: var(--max-container-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media(max-width: 1025px) {
+  .header-img {
+    padding-top: 2px;
+    padding-right: 5px;
+  }
+  #header-img {
+    display: none;
+  }
+  #header-img-2 {
+    display: block;
+    max-height: 40px;
+    margin-right: 2px;
+  }
+  #form {
+    margin-left: 5px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  #email-container {
+    width: 96%;
+    /* Don't know why I needed this to get box to widen when it could */
+    align-content: center;
+    align-items: center;
+  }
+  #email {
+    margin: 8px 2%;
+    border: 1px solid lightgreen;
+  }
+  #submission-container {
+    margin: 0;
+    /* Now in own row */
+  }
+  #sub-submit {
+    font-size: 10px;
+  }
+}
+
+#bottom-links {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  /* margin-bottom: 36px; /* Was only useful if hover:before on bottom links went over link rather than above*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: var(--test-border-width) solid;
+}
+
+.popup-box {
+  border: var(--test-border-width) solid red;
+}
+
+.popup-button {
+  border: var(--test-border-width) solid green;
+  margin: 0 auto;
+  color: #001100;
+  text-decoration: none;
+  position: relative;
+  /* relative (or absolute) position here, or in container popup-box, made buttons show through popup background, until gave popup-overlay z-index: 1 */
+}
+
+.popup-button:hover {
+  color: #00AA00;
+}
+
+.popup-button::before {
+  position: absolute;
+  z-index: 1;
+  z-index: 0;
+  /* if not overlaying button */
+  top: var(--before-top);
+  text-align: center;
+  border-radius: 10%;
+  content: '';
+  /* */
+  opacity: 0;
+  /* Seem to need both content and opacity set to get transition? Weird */
+  /*transition: all 1s ; /* just for when stop hovering */
+}
+
+.popup-button:hover::before {
+  content: attr(data-desc);
+  opacity: 1;
+  height: var(--before-height);
+  background-color: #DFD;
+  color: #005500;
+  transition: all .8s linear .5s;
+  /*  */
+}
+
+
+/* The JS-free popup functionality for the bottom links in the CSS below is based on / inspired by "Popup/Modal Windows with JavaScript" by Prakash:
+https://codepen.io/imprakash/pen/GgNMXO
+*/
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: opacity .8s;
+  background: rgba(225, 255, 225, 0);
+  /* Going w/ no background - border on .popup instead */
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1;
+  /* This fixed transparancy issue created by making button position: relative */
+}
+
+.popup-overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 110px auto;
+  /* fallback */
+  margin-top: var(--header-height);
+  /* Aiming for bottom of header */
+  margin-left: var(--popup-l-offset);
+  margin-right: var(--popup-r-offset);
+  z-index: 2;
+  /* Doesn't cover background */
+  padding: 6px 10px;
+  background: #FAFFFA;
+  border-radius: 5px;
+  width: 40%;
+  width: var(--popup-width);
+  height: auto;
+  /* prob doesn't do anything? */
+  position: relative;
+  overflow: auto;
+  /* doesn't work in Code Pen, but does in Chrome and Opera, except off by header height, maybe */
+  transition: all 5s ease-in-out;
+  /* not having an effect */
+  border: 1px solid green;
+}
+
+.popup h2 {
+  font-size: 16px;
+  margin-top: 0;
+  padding: 0;
+}
+
+.close-popup {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  transition: all 100ms;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.close-popup:hover {
+  color: #0F0;
+}
+
+.popup-content {
+  z-index: 2;
+  z-index: 10;
+  /* ? */
+  margin-top: 10px;
+  margin-bottom: 3px;
+  max-height: 100%;
+  /* was 30%. Don't know why */
+  overflow: auto;
+  /* Doesn't work? */
+  border: var(--test-border-width) solid;
+}
+
+
+/* End of Prakesh-related CSS */
+
+#testimonial-ul {
+  margin-left: 10px;
+  /* ? */
+}
+
+.attribution {
+  /*margin-left: auto; /* */
+  padding-left: 25px;
+  padding-bottom: 5px;
+}
+
+@media(max-width: 1105px) {
+  body {
+    --header-height: 125px;
+    --neg-header-height: calc(-1 * var(--header-height));
+  }
+  #header {
+    padding-bottom: 10px;
+    /* new 1/23 */
+  }
+  #company-text {
+    font-size: 5.5vw;
+  }
+  #nav-bar {
+    margin-top: 3px;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 0px;
+    /* */
+    padding: 0 1px 5px 1px;
+  }
+  .nav-link {
+    margin: 1px auto 0 0;
+    /* background: #AFA /* */
+    background-color: var(--light-green);
+    border: none;
+    box-shadow: none;
+  }
+  #image-pool {
+    margin-top: var(--header-height);
+    margin-bottom: 20px;
+    /* ? */
+  }
+  #intro {
+    max-width: 85%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+  .section-r-side-image {
+    align-self: flex-end;
+  }
+  #sample-products {
+    margin-bottom: 15px;
+  }
+  #email-container {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    flex-direction: column;
+  }
+}
+
+@media(max-width: 840px) {
+  #company-text {
+    margin: 0;
+  }
+  #nav-bar {
+    margin: 0px 1% 0 5px;
+  }
+  .list-with-picture {
+    flex-direction: column;
+  }
+  .section-r-side-image {
+    margin-top: 15px;
+    margin-left: 17%;
+  }
+  #sample-products {
+    flex-direction: column;
+    height: auto;
+    margin-left: 25%;
+    border: var(--test-border-width) solid blue;
+  }
+  .product {
+    margin-bottom: 25px;
+  }
+  .product.last {
+    margin-bottom: 0px;
+  }
+  .video-container {
+    width: 65%;
+  }
+}
+
+@media(max-width: 650px) {
+  body {
+    --header-height: 110px;
+    --neg-header-height: calc(-1 * var(--header-height));
+  }
+  h1 {
+    font-size: 25px;
+  }
+  .header-img {
+    padding-top: 4px;
+    padding-right: 5px;
+  }
+  #header-img-2 {
+    display: none;
+  }
+  #header-img-3 {
+    display: block;
+    max-height: 30px;
+    padding-right: 5px;
+  }
+  .nav-bar {
+    margin-bottom: 0;
+    /* ? */
+    padding-bottom: 0;
+    /* ? */
+  }
+  .nav-link {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+  #image-pool {
+    margin-top: var(--header-height);
+  }
+  .section-item {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .section-list-name {
+    margin-left: -2%;
+  }
+  .section-list {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .section-r-side-image {
+    margin-left: 6%;
+    align-self: flex-end;
+  }
+  #sample-products {
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .product {
+    margin-right: 0;
+  }
+}
+
+@media(max-width: 485px) {
+  body {
+    --header-height: 145px;
+    --neg-header-height: calc(-1 * var(--header-height));
+  }
+  #nav-bar {
+    width: 115px;
+    margin-left: 0;
+  }
+  .nav-link {
+    margin-top: 0;
+    padding: 1px;
+  }
+  #image-pool {
+    margin-top: var(--header-height);
+  }
+}
+
+@media(max-width: 420px) {
+  h1 {
+    font-size: 22px;
+  }
+  #nav-bar {
+    margin-right: 2%;
+    margin-bottom: 0px;
+    /* Why is this not overriding setting above?? */
+    padding: 0;
+  }
+  .nav-link {
+    font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* ? */
+    padding: 1px;
+  }
+  #form {
+    flex-direction: column;
+  }
+  #email-container {
+    margin-left: 10px;
+    padding: 5px;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 385px) {
+  /* for Phones. LG seems to be 322px */
+  body {
+    --header-height: 115px;
+    /* (1/21/19) */
+    --neg-header-height: calc(-1 * var(--header-height));
+  }
+  #header-company {
+    margin-top: 8px;
+  }
+  #company-text {
+    font-size: 25px;
+  }
+  #image-pool {
+    margin-top: var(--header-height);
+    /* to get it right for Moto */
+  }
+  .popup-button {
+    font-size: 12px;
+  }
+}

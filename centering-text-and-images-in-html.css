@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* First time using this on project */
+  --test-border-width: 0px;
+  --nav-bar-width: 325px;
+  --nav-bar-width: 25%;
+  --main-start-pos: 335px;
+  --main-start-pos: 26%;
+  --code-background: #EDEDED;
+  list-style: none;
+  /* since I have to use 'li' items but don't want their formatting */
+}
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  /*font-weight: 300; /* */
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--nav-bar-width);
+  border-right: 3px solid lightgray;
+  overflow-y: auto;
+  /* So can see whole table of contents w/out scrolling main body? */
+  z-index: -1;
+  /* looking to have it under text if is overlap */
+}
+
+#navbar header {
+  font-size: 24px;
+  margin-top: 20px;
+  padding: 0 .25em;
+  text-align: center;
+  border: var(--test-border-width) solid blue;
+}
+
+.nav-links-container {
+  /*margin-top: 20px; /* Doesn't work, though L & R margins work */
+  padding: 20px 0px;
+  /* This works */
+  margin-right: -0px;
+  /* Was using -1px, but led to overflow. Adjust R borders instead? */
+  border: var(--test-border-width) solid green;
+}
+
+[class|='nav-link'] {
+  display: flex;
+  /* was maybe 'span' before? */
+  padding: 4px 1em 4px 20px;
+  /* Didn't work until I made it flex???*/
+  color: black;
+  text-decoration: none;
+  /*This works*/
+  border: 1px solid;
+  /*Now works. Before was flex, did not surround, just made vertical bars that take up a lot of vertical space*/
+  border-width: 0 0 1px 0;
+  /* But only want it on bottom */
+}
+
+.nav-link.first {
+  border-top-width: 1px;
+}
+
+#first-link {
+  border-top-width: 1px;
+}
+
+.sub-links {
+  border: var(--test-border-width) solid purple;
+}
+
+.nav-link-sub {
+  padding-left: 40px;
+}
+
+.nav-link-sub-sub {
+  padding-left: 60px;
+}
+
+#navbar a {
+  cursor: pointer;
+}
+
+#navbar ul {
+  margin-top: 0px;
+}
+
+#navbar li {
+  padding-top: 5px;
+  border: var(--test-border-width) solid;
+  /* THIS works. But not for .nav-links */
+}
+
+
+/* ************************************************ */
+
+#main-doc {
+  position: absolute;
+  left: var(--main-start-pos);
+  padding-bottom: 50px;
+  margin-right: 1em;
+  background-color: white;
+  z-index: 1;
+}
+
+#top-of-form-link {
+  margin-top: 5px;
+  /*margin-right: 1em; /* */
+  float: right;
+  /*margin-left: auto didn't work -- check into;/* */
+  position: sticky;
+  /* */
+  top: 0;
+  /* */
+  text-decoration: none;
+  color: gray;
+  opacity: 0;
+}
+
+#top-of-form-link:hover {
+  cursor: default;
+}
+
+[class*='section'] header {
+  font-size: 25px;
+  margin-bottom: 15px;
+  margin-right: 5px;
+}
+
+[class*='section'] p {
+  margin-top: 10px;
+  margin-left: 1.55%;
+  margin-left: 15px;
+  /* */
+  margin-right: 5%;
+}
+
+.main-section {
+  margin-top: 37px;
+  margin-left: 20px;
+  background: white;
+  /* allows to overlay nav bar w/ z-index: -1 if is overlap */
+}
+
+.sub-section {
+  margin-top: 25px;
+  margin-left: 40px;
+}
+
+.sub-section header {
+  font-size: 22px;
+}
+
+code {
+  display: block;
+  /* W/out this background color doesn't fill block */
+  width: 92%;
+  /* not sure why this works at moment */
+  background-color: var(--code-background);
+  white-space: pre-wrap;
+  margin: 1em;
+  padding: 1em 2em;
+  line-height: 1.33em;
+}
+
+.notes {
+  margin-left: 1em;
+  margin-top: 1.5em;
+}
+
+#Some_Other_Resources li {
+  margin-top: 4px;
+  margin-left: 18px;
+}
+
+#Some_Other_Resources a {
+  text-decoration: none;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.footnote {
+  padding-left: 1em;
+}
+
+.end-padding {
+  margin-top: 1000px;
+  /* So when link to last items they go to top. May be a better way? */
+}
+
+@media(max-width: 850px) {
+  .nav-link-sub {
+    padding-left: 30px;
+    padding-right: 7px;
+  }
+}
+
+@media(max-width: 700px) {
+  #navbar {
+    position: static;
+    width: 100%;
+    border-right: 3px solid lightgray;
+    /*overflow-y: auto; /* So can see whole table of contents w/out scrolling main body? */
+  }
+  #main-doc {
+    position: relative;
+    left: 0;
+    padding-bottom: 50px;
+  }
+  #top-of-form-link {
+    opacity: .1;
+  }
+  #top-of-form-link:hover {
+    top: 6px;
+    opacity: 1;
+    cursor: pointer;
+    background-color: #F0F0F0;
+    padding: 4.5px;
+  }
+  #top-of-form-link:visited {
+    color: gray;
+  }
+}
