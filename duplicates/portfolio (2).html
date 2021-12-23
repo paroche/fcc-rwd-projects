@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+<!--To Do: How to make checkbox labels wrap to be directly below label rather than checkbox itself (see long checkbox item - backyard)  
+Done, but...? For checkboxes, how to keep checkbox w/ label, and responsive formatting in columns -- accomplished by putting <label/> inside <div>, but don't know why was necessary
+-->
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name="viewport" content="width=device-width, initital-scale=1.0">
+  <title>LOTR Advanced Geek Survey</title>
+  <link rel="stylesheet" href="lotr-survey.css" />
+</head>
+
+<body hidden='true'>
+  <div class='bg-container'>
+    <img class='bg-image' src='https://www.indiewire.com/wp-content/uploads/2017/08/andy-serkis-e2809cthe-lord-of-the-ringse2809d.png?w=780' />
+    <!-- -->
+    <div class='form-container'>
+      <!-- -->
+      <header class='header-container'>
+        <h1 id='title' class='headers'>Give Me a Ring Some Once Upon a Time</h1>
+        <p id='description' class='headers'>A Geeky LOTR Mini-Survey</p>
+      </header>
+
+      <form id='survey-form' action='' method='get' target='_top'>
+        <div class='form-row'>
+          <label for='name' id='name-label'>Name</label>
+          <input id='name' name='name' type='text' required placeholder='Fraudo B. Baggins' />
+        </div>
+        <div class='form-row'>
+          <label for='email' id='email-label'>Email</label>
+          <input id='email' name='email' type='email' required placeholder='spamme@iservein.mydomain' />
+        </div>
+        <div class='form-row'>
+          <label for='number' id='number-label'>Number of Times I've Read LOTR (including all appendices)</label>
+          <input id='number' name='number' type='number' required step='1' min='17' max='1000000' placeholder='Min of 17  ' />
+        </div>
+
+        <div class='form-row'>
+          <label class='dropdown-label' for='dropdown' id='dropdown-label'>Favorite LOTR Orc</label>
+          <select id='dropdown' name='fav-orc' required>
+              <option value='gorbag'>Gorbag</option>
+              <option value='grishnakh'>Grishnákh</option>
+              <option value='goulash'>Goulásh</option>
+              <option value='lagduf'>Lagduf</option>
+              <option value='mahur'>Mauhúr</option>
+              <option value='muzgash'>Muzgash</option>
+              <option value='radbug'>Radbug</option>
+              <option value='shagrat'>Shagrat</option>
+              <option value='rugrat'>Rugrat</option>
+              <option value='ufthak'>Ufthak</option>
+              <option value='ugluk'>Uglúk</option>
+              <option value='upurs'>Upúrs</option>
+              <option value='bandersnatch'>Bandersnatch</option>
+              <option value='blatherskite'>Blatherskite</option>
+              <option value='balzac'>Balzac</option>
+              <option value='anncoulter'>Anncoulter</option>
+            </select>
+        </div>
+
+        <fieldset class='radio-row' id='radios'>
+          <legend>I am a:</legend>
+          <label for='virgin'> 
+              <input id='virgin' type='radio' name='virginity' required value='Virgin'>Virgin</label>
+          <label for='other'>
+              <input id='other' type='radio' name='virginity' checked value='Claims-Other'>Other</label>
+          <label for='dontknow'>
+              <input id='dontknow' type='radio' name='virginity' value='DontKnow'>I don't know what that means</label>
+        </fieldset>
+
+        <fieldset class='radio-row'>
+          <legend>I am:</legend>
+          <label for='lying'>
+              <input id='lying' type='radio' name='lyingono' value='Lying' checked>Lying</label>
+          <label for='not-lying'>
+              <input id='not-lying' type='radio' name='lyingono' value='Claims-not-lying'>Not-lying</label>
+        </fieldset>
+
+        <fieldset class='radio-row'>
+          <legend>Currently living in parents' </legend>
+          <div class='radio-parents-row'>
+            <div class='radio-parents-item'><label for='basement'>
+                <input id='basement' type='radio' name='residence' value='basement' checked>Basement</label></div>
+            <div class='radio-parents-item'><label for='garage'>
+                <input id='garage' type='radio' name='residence' value='garage'>Garage</label></div>
+            <div class='radio-parents-item'><label for='backyard'>
+                <input id='backyard' type='radio'  name='residence' value='yard'>Shed/Shack/Tent in back yard</label></div>
+            <div class='radio-parents-item'><label for='room'>
+                <input id='room' type='radio' name='residence' value='room'>Still have my old room</label></div>
+          </div>
+        </fieldset>
+
+        <div class='form-row-checkbox'>
+          <legend>Characters I most identify with:</legend>
+          <div class='checkbox-items'>
+            <div class='checkbox-item'><label for='aragorn'><input id='aragorn' type='checkbox' name='characters' value='Aragorn'>Aragorn</label></div>
+            <div class='checkbox-item'><label for='gandalf'><input id='gandalf' type='checkbox' name='characters' value='Gandalf'>Gandalf</label></div>
+            <div class='checkbox-item'><label for='frodo'><input id='frodo' type='checkbox' name='characters' value='Frodo'>Frodo</label></div>
+            <div class='checkbox-item'><label for='gollum'><input id='gollum' type='checkbox' name='characters' value='Gollum'>Gollum</label></div>
+            <div class='checkbox-item'><label for='sam'><input id='sam' type='checkbox' name='characters' value='Samwise'>Sam</label></div>
+            <div class='checkbox-item'><label for='merry'><input id='merry' type='checkbox' name='characters' value='Meriadoc'>Merry</label></div>
+            <div class='checkbox-item'><label for='pippin'><input id='pippin' type='checkbox' name='characters' value='Peregrin'>Pippin</label></div>
+            <div class='checkbox-item'><label for='snaga'><input id='snaga' type='checkbox' name='characters' value='Snaga'>Snaga</label></div>
+            <div class='checkbox-item'><label for='sauron'><input id='sauron' type='checkbox'                           name='characters' value='Sauron'>Sauron the Great</label></div>
+            <div class='checkbox-item'><label for='saruman'><input id='saruman' type='checkbox' name='characters' value='Sauruman'>Saruman the Slippery</label></div>
+            <div class='checkbox-item'><label for='serutan'><input id='serutan' type='checkbox' name='characters' value='Serutan'>Serutan the Regular</label></div>
+            <div class='checkbox-item'><label for='radagast'><input id='radagast' type='checkbox' name='characters' value='Radagast' >Radagast the Ripe</label></div>
+            <div class='checkbox-item'><label for='mouth'>
+                <input id='mouth' type='checkbox' name='characters' value='Mouth of Sauron'>The Mouth of Sauron</label></div>
+            <div class='checkbox-item'><label for='orifice'>
+                <input id='orifice' type='checkbox' name='characters' value='Other Orifice of Sauron'>Some Other Orifice of Sauron</label></div>
+          </div>
+          <!--Checkbox items -->
+        </div>
+        <!--Checkbox -->
+
+        <div class='form-row-essay'>
+          <div><strong>Essay section</strong>: In 5000 words or more, please explain why the eagles never show up until the last minute when, if they had been more team players, and if anyone had thought of it, the whole "get the Ring to Mount Doom and throw
+            it in to the fire" thing could have been accomplished in a day or two, with much better odds and with much less fuss. Also, explain why they should care.</div>
+          <textarea name='comment' required rows='20' cols='145' maxlength='10000' placeholder='Enter your essay here (in Elvish)...'></textarea>
+        </div>
+        <!-- form-row-essay -->
+
+        <div id='submission-container'>
+          <button id='submit' type='submit' class='submission'>Submit to the Lure of the Ring</button>
+        </div>
+      </form>
+    </div>
+    <!-- form container -->
+  </div>
+  <!-- bg-container -->
+  <script src='lotr-survey.js'></script>
+</body>
+
+</html>

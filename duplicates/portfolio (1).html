@@ -1,0 +1,261 @@
+<DOCTYPE html>
+  <!-- To use style sheet portfolio-b.css -->
+  <html lang='en'>
+
+  <head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript HTML CSS React WordPress MongoDB Node.js Mongoose MySQL Web Developer Portfolio">
+    <title>Peter Roche Web Development Portfolio</title>
+    <link rel='stylesheet' href='./portfolio.css' />
+  </head>
+
+  <body class="san-serif rice">
+    <div id="container" class="back-image">
+      <div id="main">
+
+        <div id='nav-header'>
+          <nav id='navbar'>
+            <a class='nav-item' href='#welcome-section' rel='internal'>Welcome</a>
+            <a class='nav-item' href='#projects' rel='internal'>Projects</a>
+            <a class='nav-item' href='#contact' rel='internal'>Contact</a>
+          </nav>
+        </div>
+
+        <div id="welcome-container">
+          <div id='welcome-section'>
+            <div class='bg-container'>
+            </div>
+            <div id="welcome-body-container">
+              <div id='welcome-body'>
+                <h1 class="main-header">Peter Roche</h1>
+
+                <h2 class="main-header">Portfolio of Student Projects</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="projects">
+          <div class='projects__inner-container'>
+
+            <section id="dynamic-sites" class="section">
+              <div class="section__header">
+                <span id="dynamic">Dynamic Sites</span>
+              </div>
+              <div class="dynamic-sites-container">
+                <div class='project-container-desc-tile'>
+                  <div class="project__description">
+                    <div class="project__description__content">
+                      <div class="project__description__content__header">
+                        Recipe Lookup Site -- Pure JS</div>
+                      <p>"Menutopia" is a pure vanilla <strong>JavaScript</strong> site built using the <strong>MVC model</strong> in the course of completing Jonas Schmedtmann's "<a class="udemy-link" href='https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/12567774#overview'>The Complete JavaScript Course 2020: Build Real Projects!</a>"
+                        (Where it is called "forkify"). It uses an <strong>API</strong> to pull recipes from a wide variety of websites, parses the ingredient lists, allows users to track favorite recipes, adjust portions, and add recipe ingredients to
+                        their shopping list. (The purpose of the course was to teach JavaScript, not HTML & CSS, so the templates for the HTML and the CSS were mostly provided -- and the site is not responsive).</p>
+                    </div>
+                  </div>
+                  <div class="project-tile" id='menutopia'>
+                    <a href='https://jolly-kowalevski-6c011b.netlify.app/#47923' alt='Menutopia JavaScript App for Recipe Lookup'>
+                      <figure class='img-with-caption'>
+                        <img src='./img/menutopia.png' class='header-images' alt='Menutopia JavaScript Recipe Site Image' />
+                        <figcaption class='captions'>Menutopia Recipe Lookup</figcaption>
+                      </figure>
+                    </a>
+                  </div>
+                </div>
+
+                <div class='project-container-desc-tile'>
+                  <div class="project__description">
+
+                    <div class="project__description__content">
+                      <div class="project__description__content__header">
+                        Tour Site -- Node/Express & MongoDB/Mongoose</div>
+                      <p>"Natours" is a fictional nature tours site built in the course of taking Jonas Schemedtmann's tutorial "<a class="udemy-link" href="https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/learn/lecture/15080914?start=165#overview">Node.js, Express, MongoDB & More: The Complete Bootcamp 2020</a>".
+                        It uses <strong>JavaScript / Node.js / Express / MongoDB / Mongoose</strong> for the <strong>RESTful API</strong> and back end, and <strong>Pug templates</strong> to render the front end. The site API is used to handle requests
+                        from the front-end user (as well as providing access to its data from other sites). It is also organized on the <strong>MVC</strong> model. It allows users to look at the tours, see embedded maps of tour destinations, read and
+                        create reviews of tours, book tours through Stripe credit card processing, etc. The site has multiple security features to protect itself and its users against unverified access and various common attacks. </p>
+                    </div>
+                  </div>
+                  <div class="project-tile" id='natours' data-tiledesc='natours'>
+                    <a href='https://natours-blue.herokuapp.com/' alt='Natours JavaScript-Node.js-Express-MongoDB-Mongoose Site'>
+                      <figure class='img-with-caption'>
+                        <img src='./img/natours.png' class='header-images' alt='Natours JavaScript-Node.js-Express-MongoDB-Mongoose Site Image' />
+                        <figcaption class='captions'>Natours - Tours in Nature</figcaption>
+                      </figure>
+                    </a>
+                  </div>
+                </div>
+
+                <div class='project-container-desc-tile'>
+                  <div class="project__description">
+                    <div class="project__description__content">
+                      <div class="project__description__content__header">
+                        University Web Site -- WordPress</div>
+                      <p>"Fictional University" is a, well, fictional university site built in <strong>WordPress</strong> w/ <strong>PHP</strong> for the Brad Schiff' tutorial "<a class="udemy-link" href='https://www.udemy.com/course/become-a-wordpress-developer-php-javascript/learn/lecture/22417904#overview'>Become a WordPress Developer: Unlocking Power with Code</a>",
+                        where visitors can create accounts and log in, view upcoming events and blog posts, create their own blog posts, view programs, professors, and campuses (with Google Maps interface).
+                        <p>
+
+                    </div>
+                  </div>
+                  <div class="project-tile" id='fictional-university' data-tiledesc="fictional-university">
+                    <a alt='WordPress Fictional University Site'>
+                      <!--href='http://peterr1.sgedu.site/' -->
+                      <figure class='img-with-caption'>
+                        <img src='./img/fictional-university.png' class='header-images' alt='WordPress Fictional University Site Image' />
+                        <figcaption class='captions'>Fictional University</figcaption>
+                      </figure>
+                    </a>
+                  </div>
+                </div>
+
+                <div class='project-container-desc-tile'>
+                  <div class="project__description">
+                    <div class="project__description__content">
+                      <div class="project__description__content__header">
+                        Social Networking Site -- React.js</div>
+                      <p>"Reactions" is a simple social media site built for Brad Schiff's "<a class="udemy-link" href="https://www.udemy.com/course/react-for-the-rest-of-us/learn/lecture/18775922?start=15#overview">React for the Rest of Us</a>" course.
+                        It is a <strong>single-page</strong> app built using modern <strong>React</strong> features (e.g. hooks) in a <strong>Node.js</strong> environment. It provides users the ability to log in, create and modify posts, follow other
+                        users, search for posts by key words, view their own and others' profiles, and enter the site chat room. The site is reasonably, though not perfectly, responsive.</p>
+                    </div>
+                  </div>
+                  <div class="project-tile" id='reactions'>
+                    <a href='https://elated-brattain-021507.netlify.app/' alt='Reactions JavaScript React Based Site'>
+                      <figure class='img-with-caption'>
+                        <img src='./img/reactions.png' class='header-images' alt='Reactions JavaScript React Based Site Image' />
+                        <figcaption class='captions'>Reactions - Simple Social Media Site</figcaption>
+                      </figure>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="section__footer">The above were developed in the course of following various tutorials on Udemy, where since the goal was to teach the specific technologies, much of the HTML and CSS was already provided, so I am responsible for only parts of their visual
+                layouts.
+              </div>
+            </section>
+
+            <section id="static-sites" class="section">
+              <div class="section__header"><span id="static">Static Sites</span></div>
+              <div class='project-container-desc-tile'>
+                <div class="project__description">
+                  <div class="project__description__content">
+                    <div class="project__description__content__header">
+                      uHost - Web Hosting Service Sales Site</div>
+                    <p>"uHost" is a sales site for a fictional web hosting service, developed as part of Maximilian Schwarzmüller's <a class="udemy-link" href="https://www.udemy.com/course/css-the-complete-guide-incl-flexbox-grid-sass/learn/lecture/13751218?start=1#overview">CSS - The Complete Guide 2020 (incl. Flexbox, Grid & Sass)</a>                      course. It is a multi-page website developed using <strong>Sass</strong> in a <strong>Node.js</strong> environment. It was created purely to develop skills in using <strong>CSS</strong> and <strong>Sass</strong>, using JavaScript
+                      only for controlling the DOM, so only has navigational and display functionality.</p>
+                  </div>
+                </div>
+                <div class="project-tile" id='uhost'>
+                  <a href='https://quirky-banach-eb7c52.netlify.app/' alt='uHost CSS Project Site'>
+                    <figure class='img-with-caption'>
+                      <img src='./img/uHost.png' class='header-images' alt='uHost CSS Project Site Image' />
+                      <figcaption class='captions'>uHost - Web Hosting Sales Site </figcaption>
+                    </figure>
+                  </a>
+                </div>
+              </div>
+          </div>
+
+          <div class="section__subheader">
+            <p>
+              The sites below are mostly pure <strong>HTML/CSS</strong> pages that were initially developed for FreeCodeCamp's "Responsive Web Design Certification". Their design is totally my own, within the requirements given for the tasks, and they
+              are all totally responsive.
+            </p>
+          </div>
+          <div class='project-container-tiles'>
+
+            <div class="project-tile" id='eratosthenes' data-tiledesc="tribute" data-animationtype="R">
+              <a href="javascript:delayURL('./eratosthenes.html', 1000)" alt='Eratosthenes Tribute Page HTML CSS Project'>
+                <figure class='img-with-caption'>
+                  <img src='./img/eratosthenes-tribute.png' class='header-images' alt='Eratosthenes HTML CSS Tribute Page Image' />
+                  <figcaption class='captions'>Eratosthenes Tribute Page</figcaption>
+                </figure>
+              </a>
+            </div>
+
+            <div class='project-tile' id='lotr-survey' data-tiledesc="survey" data-animationtype="F">
+              <a href="javascript:delayURL('./lotr-survey.html', 1500)" alt='LOTR Survey HTML CSS Project'>
+                <figure class='img-with-caption'>
+                  <img src='./img/lotr-survey.png' class='header-images' alt='LOTR HTML CSS Survey Page Image' />
+                  <figcaption class='captions'>LOTR Advanced Geek Survey</figcaption>
+                </figure>
+              </a>
+            </div>
+
+            <div class='project-tile' id='product-landing-page' data-tiledesc="landing">
+              <a href='./bright-green-machines.html' alt='Product Landing Page (Bright-Green Machines) HTML CSS Project'>
+                <figure class='img-with-caption'>
+                  <img src='./img/bright-green-machines.png' alt='Bright Green Machines Product Landing Page Image' />
+                  <figcaption class='captions' style='--caption-font-size: 14px; --caption-small-font-size: 12px'>'Bright-Green Machines' Product Landing Page</figcaption>
+                </figure>
+              </a>
+            </div>
+
+            <div class='project-tile' id='technical-documentation' data-tiledesc="techdoc">
+              <a href='./centering-text-and-images-in-html.html' alt='Technical Documentation - Centering Text and Images in HTML and CSS'>
+                <figure class='img-with-caption'>
+                  <img src='./img/centering-text-and-images.png' alt='Technical Documentation - Centering Text & Images in HTML and CSS - Image' />
+                  <figcaption class='captions' style='--caption-font-size: 12px; --caption-small-font-size: 11px'>Technical Documentation - Centering in HTML/CSS</figcaption>
+                </figure>
+              </a>
+            </div>
+
+
+            <div class='project-tile' id='portfolio' data-tiledesc="portfolio">
+              <a href='./portfolio.html' alt="Peter Roche 's Portfolio HTML CSS Project">
+                <figure class='img-with-caption '>
+                  <img src='./img/portfolio.png ' alt='Peter Roche Portfolio HTML CSS Image ' />
+                  <figcaption class='captions ' style='--caption-font-size: 12px; --caption-small-font-size: 11px '>Peter Roche Portfolio</figcaption>
+                </figure>
+              </a>
+            </div>
+          </div>
+
+          </section>
+
+          <section id="front-end-sites" class="section">
+            <div class="section__header"><span>Other Front-End Projects</span></div>
+            <div class='project-container-desc-tile '>
+              <div class="project__description">
+                <div class="project__description__content">
+                  <div class="project__description__content__header">
+                    Miscellaneous Front-End Projects</div>
+                  <p>I've also done a number of other relatively small <strong>HTML / CSS / JavaScript</strong> apps, mostly from, or extended from, the projects in Brad Traversy's "<a class="udemy-link" href="https://www.udemy.com/course/50-projects-50-days/">50 Projects In 50 Days - HTML, CSS & JavaScript</a>"
+                    and Andrei Neagoie's "<a class="udemy-link" href="https://www.udemy.com/course/javascript-web-projects-to-build-your-portfolio-resume/">JavaScript Web Projects: 20 Projects to Build Your Portfolio</a>", to implement various website
+                    tools, features, API utilizations, and novelties.</p>
+                </div>
+              </div>
+              <div class="project-tile" id='front-end'>
+                <a href='https://laughing-bassi-70109b.netlify.app/' alt='Misc Front-end HTML CSS JavaScript Site'>
+                  <figure class='img-with-caption'>
+                    <img src='./img/front-end.png' class='header-images' alt='Misc Front-End HTML CSS JavaScript Image' />
+                    <!-- <figcaption class='captions'>Miscellaneous Front-End Projects</figcaption> -->
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+
+        <div id='contact'>
+          <h2>Contact Information</h2>
+          <h3>To hire me, find out more, or just say hi:</h3>
+          <div class="contact__info">
+            <p>Peter Roche</p>
+            <p>2916-C Avenida Alamosa</p>
+            <p>Santa Fe, NM 87507</p>
+            <p>505-474-2801</p>
+            <p>paroche3@gmail.com</p>
+          </div>
+
+          <div id='contact__links'>
+            <a class='profile-link' href='https://github.com/paroche' target='_blank'>GitHub Profile</a>
+            <a class='profile-link' href='https://www.linkedin.com/in/peter-roche-3121507/' target='_blank'>LinkedIn Profile</a>
+            <!-- <a id='profile-link ' href='https://www.freecodecamp.org/fcc31eefc91-eba7-43e5-a26c-c358ba796595 ' target='_blank'>FCC Profile</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="portfolio.js"></script>
+
+  </body>
