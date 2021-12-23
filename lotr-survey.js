@@ -12,4 +12,4 @@ if (fromPortfolio) {
 }
 body.hidden=false; // seemed to be necessary to have hidden=true in html, otherwise displayed before opacity from .invisible took effect (since script is loaded after body, I guess)
 
-form.addEventListener('submit', ()=> alert("Thank you for your submission. Ha ha."));
+form.addEventListener('submit', ()=> alert("You have submitted, and your submission has been noted. Await further instructions."));

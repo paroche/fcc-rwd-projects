@@ -118,7 +118,7 @@ document.onmouseover = function (event) {
         break;
       case 'portfolio':
         popupHtml =
-          "Even this page, or at least it's primitive prototype, was an FCC project. Though of course this particular site isn't totally static -- messages like this one are brought to you courtesy of JavaScript.";
+          "This page, or at least its primitive prototype, was originally a FCC Responsive Design project.";
         popupWidthClass = 'w50';
         break;
     }
