@@ -13,6 +13,7 @@
 body {
   opacity: 1;
   transition: all 1s ease-in;
+  transition: all 1.5s linear;
 }
 
 body.invisible {
