@@ -118,7 +118,7 @@ document.onmouseover = function (event) {
         break;
       case 'portfolio':
         popupHtml =
-          "This page, or at least its primitive prototype, was originally a FCC Responsive Design project.";
+          "This page, or at least its primitive prototype, was originally an FCC Responsive Design project.";
         popupWidthClass = 'w50';
         break;
     }
