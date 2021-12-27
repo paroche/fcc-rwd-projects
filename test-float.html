@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #container {
+      /* display: flow-root; */
+      /* this works instead of clearfix hack below */
+      margin: 2em;
+      width: 100%;
+      background-color: lightgreen;
+      /* height: auto; */
+      /* height: auto works -- container contains floated elements */
+      /* overflow-y: auto; */
+      /* overflow doesn't seem to work. Cuts off float overflow, doesn't expand to fill it */
+      padding: 10px;
+    }
+    
+    #container::after {
+      content: "";
+      /* height: 100%;
+      width: 100%; */
+      /* height: 1px; */
+      /* border: 1px solid blue; */
+      clear: both;
+      display: table;
+    }
+    /* clearfix hack above didn't work when all divs were set to float: left. But when I changed selector from 'div' to 'div[class^="div"] it worked' */
+    
+    div[class^="div"] {
+      float: left;
+      padding: 15px;
+      height: 100px;
+    }
+    
+    .div1 {
+      background: red;
+    }
+    
+    .div2 {
+      background: yellow;
+    }
+    
+    .div3 {
+      background: green;
+      margin-right: 10px;
+    }
+    
+    .toright {
+      margin-left: 160px;
+      /* makes no difference */
+    }
+    
+    .toright2 {
+      /* clear: both; */
+      /* that worked (so does "clear: left";") */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h2>Float Next To Each Other</h2>
+
+    <p>In this example, the three divs will float next to each other.</p>
+
+    <div class="div1">Div 1</div>
+    <div class="div2">Div 2</div>
+    <div class="div3">Div 3</div>
+    <p class="toright">This is text to the right of the floating boxes. It goes on for a while, just to see exactly what happens</p>
+    <p class="toright2">This is more text that I'm going to try to close around float</p>
+  </div>
+</body>
+
+</html>

@@ -82,9 +82,8 @@
       <header>Horizontal Centering of Text and Images using "text-align: center"</header>
       <ul>
         <li class='sub-section' id='Using_"text-align:_center"_in_a_non-Flexbox_(typical)'>
-          <header>Using "text-align: center" in a non-Flexbox (typical)</header>
-          <p>Declaring "text-align: center" for a container will center text within it. It will also center images, though that may not be recommended procedure and may not always be supported in the future. (This method is usually useful only in a non-flexbox
-            block – see section below for possible exceptions). The following code will center the text:</p>
+
+          <p>Declaring "text-align: center" for a container will center text within it. It will also center images, though that may not be recommended procedure and may not always be supported in the future. The following code will center the text:</p>
 
           <code><pre>
 HTML:
@@ -101,41 +100,16 @@ CSS:
         </li>
 
         <li class='sub-section' id='Using_text-align_within_a_Flexbox_–_Limitations_and_Peculiarities'>
-          <header>Using text-align within a Flexbox – Limitations and Peculiarities</header>
-          <p>Under normal circumstances, "text-align" will not work if a containing element is flex, and this cannot even be overridden by changing the display value of the flex item to "block" or "inline". E.g. if the flex-direction property has its default
-            value of “row”, the following code will not center a (single) line of text:</p>
-          <code><pre>
-HTML:
-
-  &ltdiv class='flex-container'&gt
-    &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
-  &lt/div&gt
-
-CSS:
-
-  .flex-container {
-    display: flex;
-  }
-  .center-non-flex {
-    display: block; /* doesn’t matter */
-    text-align: center;
-  }</pre></code>
-
-          <p>Though “text-align: center” does not work for a single line of text directly inside a flex box that has the default flex-direction of “row”, it turns out that if the width of the text exceeds the width of the box (minus padding), so that the
-            text wraps, all the content (text), including the first line, will then center. (And “text-align: right” will similarly only right-justify after the content starts to wrap). Strange, but true.</p>
-          <p>For content within a flex item (a box within a flex box), “text-align: center” will work if the box has a fixed width, and is not itself flex (or has a flex-direction of “column”, see below). The “text-align” property value can even be inherited
-            from the containing flex box.</p>
-          <p>For a flex item with “flex-direction: column”, “text-align: center” WILL work for text, but, unlike “align-items: center”, will not horizontally center flex items (child boxes) within the box (but it WILL center text within the contained flex
-            items, by inheritance).</p>
-          <p>Usually when using flexbox one wouldn’t want to bother using text-align, and would just use the built-in centering features of flex box, as described in a later section. However, the effects are not totally identical in terms of content box
-            width, and there could conceivably be circumstances in which text-align could be useful even in a flexbox.</p>
+          <header>Note on Using text-align within a Flexbox</header>
+          <p>Under normal circumstances, "text-align" may not seem to work in a flex-item (i.e. an element whose containing element is flex). This is because, as mentioned above, flex-items by default are positioned in rows, and are only the width of their
+            contents. so any centering of their content will not be apparent (unless the item width is set manually to be wider than the content). This is not an issue if the flex-direction is column, where the flex items act more like regular blocks.
         </li>
       </ul>
     </section>
 
     <section class='main-section' id='Horizontal_Centering_of_Text_and_Images_with_Left_and_Right_Margins_set_to_Auto'>
       <header>Horizontal Centering of Text and Images with Left and Right Margins set to Auto</header>
-      <p>For a box with a width greater than that of its contents (not a flex item in row with no width set, for instance), its contents can be centered by setting the left and right margins to “auto”, e.g.</p>
+      <p>For a box with a width greater than that of its contents, its contents can be centered by setting the left and right margins to “auto”, e.g.</p>
       <code><pre>
 HTML:
 

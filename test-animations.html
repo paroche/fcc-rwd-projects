@@ -1,0 +1,67 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test</title>
+</head>
+<style>
+  #animation-container {
+    position: relative;
+    height: 500px;
+    border: 1px solid;
+  }
+  
+  #animation-content {
+    position: absolute;
+    left: 50%;
+    height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    animation: bounce 2s linear;
+    /* animation: change-color 2s linear; */
+    background-color: lightgreen;
+    border: 1px solid green;
+  }
+  
+  @keyframes bounce {
+    0% {
+      top: 0;
+      bottom: 20px;
+    }
+    50% {
+      top: 80%;
+      bottom: 0;
+    }
+    100% {
+      top: 0;
+      bottom: 20px;
+    }
+  }
+  
+  @keyframes change-color {
+    0% {
+      color: red;
+    }
+    50% {
+      color: yellow;
+    }
+    100% {
+      color: blue;
+    }
+  }
+</style>
+
+<body>
+  <div>
+    <div id="animation-container">
+      <div id="animation-content">Contents</div>
+    </div>
+  </div>
+</body>
+
+</html>
