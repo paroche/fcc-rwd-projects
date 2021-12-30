@@ -7,16 +7,26 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test</title>
+  <title>Test Centering</title>
 </head>
 <style>
   .flex-container {
     display: flex;
   }
   
-  .center-non-flex {
-    display: block;
+  #div-1 {
+    /* display: block; */
     width: 100%;
+  }
+  
+  #div-2 {
+    /* display: block; */
+    color: blue;
+  }
+  
+  .flex-item {
+    /* display: block; */
+    /* width: 100%; */
     border: 1px solid blue;
     /* doesn’t matter */
     text-align: center;
@@ -25,11 +35,11 @@
 
 <body>
   <div class='flex-container'>
-    <div class='center-non-flex'>Text to be centered</div>
-    <!-- <div class="center-non-flex">
+    <div class='flex-item' id="div-1">Text to be centered</div>
+    <div class="flex-item" id="div-2">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, neque sed magni nulla cumque recusandae eum debitis. Voluptatem ipsa omnis optio maxime quae asperiores! Recusandae laboriosam et aliquid enim inventore aspernatur aliquam atque voluptatibus
       pariatur quaerat, maxime esse non animi numquam similique iusto magnam eveniet illo, quo delectus praesentium! Sit.
-    </div> -->
+    </div>
 
 
   </div>

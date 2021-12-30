@@ -113,7 +113,7 @@ document.onmouseover = function (event) {
         break;
       case 'techdoc':
         popupHtml =
-          'We were asked to create a page of technical documentation. I chose to describe the various ways to center text and images, horizontally and vertically, in HTML and CSS. A useful reference.';
+          'We were asked to create a page of technical documentation. I chose to describe the various ways to center text and images, horizontally and vertically, in HTML and CSS (pre-grid). A useful reference.';
         popupWidthClass = 'w50';
         break;
       case 'portfolio':

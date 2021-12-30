@@ -609,6 +609,24 @@ img {
   padding: 0 3em 2em;
 }
 
+.phone {
+  position: relative;
+}
+
+.callme {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  width: 8em;
+  color: rgb(41, 41, 163);
+  text-align: left;
+  visibility: hidden;
+}
+
+.phone:hover .callme {
+  visibility: visible;
+}
+
 
 /* responsive */
 

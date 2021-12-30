@@ -9,10 +9,12 @@
       margin: 2em;
       width: 100%;
       background-color: lightgreen;
+      /* float: left; */
+      /* When container is set to float, now seems to contain floated items inside, even w/out setting overflow or using clearfix */
       /* height: auto; */
-      /* height: auto works -- container contains floated elements */
-      /* overflow-y: auto; */
-      /* overflow doesn't seem to work. Cuts off float overflow, doesn't expand to fill it */
+      /* height: auto worked WHEN container was floated, not otherwise -- container contains floated elements */
+      overflow-y: auto;
+      /* When this div was accidentally floated, overflow didn't work -- it cut off float overflow, didn't expand to cover it. But works when is regular div. Seems better (easier) than using clearfix hack below */
       padding: 10px;
     }
     
@@ -22,8 +24,8 @@
       width: 100%; */
       /* height: 1px; */
       /* border: 1px solid blue; */
-      clear: both;
-      display: table;
+      /* clear: both;
+      display: table; */
     }
     /* clearfix hack above didn't work when all divs were set to float: left. But when I changed selector from 'div' to 'div[class^="div"] it worked' */
     

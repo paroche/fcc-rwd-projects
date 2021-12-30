@@ -1,0 +1,123 @@
+.compass {
+  position: relative;
+}
+
+.compass::after {
+  position: absolute;
+  top: 250px;
+  left: 150px;
+  /* content: " "; */
+  content: url(img/074-compass.svg);
+  fill: lightblue;
+  /* background-image: url(img/074-compass.svg); */
+  filter: hue-rotate(90%);
+  /* 'inherit' doesn't seem to inherit from parent */
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+}
+
+.compass-svg {
+  width: 4px;
+  height: auto;
+  /* Doesn't work on HTML svg */
+  fill: red;
+  stroke: blue;
+  stroke: orange;
+  /* But stroke does */
+}
+
+.compass-object {
+  /* fill: red;
+  color: red; */
+  /* background-color: red; */
+  width: 64px;
+  filter: hue-rotate(270deg);
+  transform: translateX(300px);
+}
+
+path {
+  width: 32px;
+  fill: blue;
+  fill: green;
+  stroke: orange;
+}
+
+#compass {
+  width: 64px;
+  height: auto;
+  /* stroke: purple; */
+  fill: green;
+}
+
+
+/* Below works best for being able to change color here in css file while using external svg file */
+
+.icon-8 {
+  width: 8px;
+  height: auto;
+}
+
+.icon-12 {
+  width: 12px;
+  height: auto;
+}
+
+.icon-16 {
+  width: 16px;
+  height: auto;
+}
+
+.icon-24 {
+  width: 24px;
+  height: auto;
+}
+
+.icon-48 {
+  width: 48px;
+  height: auto;
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.compass-green {
+  filter: hue-rotate(180deg);
+}
+
+.compass-green-8 {
+  filter: hue-rotate(180deg);
+  width: 8px;
+  height: auto;
+}
+
+.compass-green-24 {
+  filter: hue-rotate(180deg);
+  width: 24px;
+  height: auto;
+}
+
+.compass-green-24 {
+  filter: hue-rotate(180deg);
+  width: 24px;
+  height: auto;
+}
+
+.compass-green-48 {
+  filter: hue-rotate(180deg);
+  width: 48px;
+  height: auto;
+}
+
+.compass-purple-24 {
+  filter: hue-rotate(270deg);
+  width: 48px;
+  height: auto;
+}
+
+.compass-purple-48 {
+  filter: hue-rotate(270deg);
+  width: 48px;
+  height: auto;
+}
