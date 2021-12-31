@@ -565,6 +565,7 @@ img {
 /* Contact Section */
 
 #contact {
+  font-weight: bold;
   color: #202020;
   color: #151515;
   background: url(./img/rice-paper-gray.jpg);
@@ -610,6 +611,7 @@ img {
 }
 
 .phone {
+  margin-left: 5px;
   position: relative;
 }
 
@@ -620,15 +622,17 @@ img {
   width: 8em;
   color: rgb(41, 41, 163);
   text-align: left;
-  visibility: hidden;
+  transition: opacity 0.2s linear;
+  opacity: 0;
 }
 
 .phone:hover .callme {
-  visibility: visible;
+  transition: opacity 1s linear;
+  opacity: 1;
 }
 
 
-/* responsive */
+/* Media Queries */
 
 @media (max-width: 850px) {
   .project-container-desc-tile {

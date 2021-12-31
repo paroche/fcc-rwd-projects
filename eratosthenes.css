@@ -183,10 +183,6 @@ li {
   align-items: center;
 }
 
-#main-img {
-  margin: 0 5% 10px 1%;
-}
-
 img {
   display: block;
   max-width: 100%;
@@ -308,7 +304,7 @@ a {
 }
 
 
-/* For More section */
+/* Main and For More Sections */
 
 #tribute-info-and-for-more-container {
   display: flex;
@@ -319,9 +315,6 @@ a {
 #tribute-info {
   width: 65%;
   margin: 5px 0 20px 3%;
-}
-
-article {
   font-size: 22px;
   font-size: 20px;
 }
@@ -337,6 +330,9 @@ article {
   /*border: 1px solid blue;
 border-radius: 8px;*/
 }
+
+
+/* Profile Image & Animations */
 
 #more-info-image {
   display: block;
@@ -488,6 +484,9 @@ border-radius: 8px;*/
 
 /* General media queries */
 
+
+/* Limit size of page before container background shows on sides */
+
 @media (min-width: 1655px) {
   #article-container,
   #banner-container {
@@ -501,6 +500,24 @@ border-radius: 8px;*/
     padding: 5px 0;
   }
 }
+
+
+/* @media (min-width: 1500px) {
+  #article-container,
+  #banner-container {
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 17px 8% 20px 5%;
+  }
+  #main {
+    padding-top: 20px;
+    padding: 5px 0;
+  }
+} */
+
+
+/* Other adjustments */
 
 @media (min-width: 1200px) {
   #tribute-info {
