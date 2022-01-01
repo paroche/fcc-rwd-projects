@@ -1,20 +1,9 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Muli&sidplay=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:400,800');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Heebo:400,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:400,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap'); */
-
 * {
   --test-border-width: 0px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   --welcome-background-color: #fff;
-  /* welcome background color was white */
   --projects-background-color: #EEE;
   --nav-header-height: 2.2em;
   --neg-nav-header-height: calc(- --nav-header-height);
@@ -29,22 +18,11 @@ body {
 }
 
 strong {
-  /* font-size: inherit; */
-  /* font-weight: 600; */
   color: #111;
 }
 
 body.san-serif {
-  /* font-family: 'Times New Roman', Times, serif; */
   font-family: 'Arial', sans-serif;
-  /* font-family: 'Lato', sans-serif; */
-  /* I don't see a difference between Arial and Ubuntu & Lato, at least in Chrome */
-  /* font-family: 'Ubuntu', sans-serif; */
-  /* font-family: 'Poppins', sans-serif; */
-  /* font-family: 'Montserrat', sans-serif; */
-  /* font-family: 'Heebo', sans-serif; */
-  /* font-family: 'Open Sans', sans-serif; */
-  /* font-family: 'Oswald', sans-serif; */
 }
 
 body.rice {
@@ -84,12 +62,6 @@ body.rice {
   top: 0;
   left: 0;
   background: rgba(128, 128, 128, 0.4);
-  /* background: rgba(200, 200, 200, 0.4); */
-  /* background: rgba(255, 255, 255, 0.5); */
-  /* background: rgba(128, 50, 50, 0.4); */
-  /* background: rgba(255, 150, 150, 0.4); */
-  /* background: rgba(255, 180, 180, 0.4); */
-  /* background: rgba(255, 255, 255, 0.8); */
   width: 100%;
   height: 100%;
 }
@@ -109,7 +81,6 @@ body.rice {
   right: 0;
   display: flex;
   justify-content: flex-end;
-  /* width: 100%; */
   height: var(--nav-header-height);
   background-color: var(--welcome-background-color);
   z-index: 100;
@@ -167,7 +138,7 @@ a {
 }
 
 a:visited {
-  color: #1BD;
+  color: rgb(5, 117, 139);
 }
 
 a:hover {
@@ -175,7 +146,8 @@ a:hover {
 }
 
 a:active {
-  color: #0BB;
+  color: rgb(141, 3, 130);
+  color: rgb(28, 180, 7)
 }
 
 
@@ -199,8 +171,6 @@ a:active {
   height: 100vh;
   color: rgb(66, 5, 128);
   color: rgb(83 31 136);
-  /* background-color: var(--welcome-background-color);
-    background-image: url("./img/bricktown-1.jpg"); */
   --background-cover-opacity: 0;
   --background-cover-r: 255;
   --background-cover-g: 127;
@@ -215,10 +185,6 @@ a:active {
 
 #welcome-section.poly {
   clip-path: polygon(0 0, 75% 0, 100% 100%, 25% 100%);
-  /* clip-path: circle(45% at center);
-  /* trapezoid leaning right: */
-  /* clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); */
-  /* trapezoid leaning left: */
 }
 
 #welcome-body-container {
@@ -251,53 +217,26 @@ a:active {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  /* text-shadow: 2px 2px #ccf; */
   text-shadow: calc(0.1vw + 0.8px) calc(0.1vw + 0.8px) #fff;
-  /* ? */
-  /* color: green; */
-  /* color: rgb(8, 8, 145); */
-  /* color: rgb(9, 90, 241); */
-  /* color: rgb(6, 79, 214); */
   color: rgb(8, 8, 145);
 }
 
 #welcome-body h1 {
-  /* font-size: 2.25em;
-  font-size: calc(2em + 2vh);
-  font-size: calc(2em + 2vh); */
   font-size: calc(1.5em + 2vw);
-  /* for narrower screen */
-  /* font-size: 2.4em; */
-  /* testing */
-  /* margin-bottom: .25em; */
   margin-bottom: .4em;
-  /* margin-bottom: .5em; */
-  /* margin-bottom: .55em; */
 }
 
 #welcome-body h2 {
-  /* margin-top: .2em; */
-  /* font-size: 32px;
-  font-size: calc(25px + 1vw);
-  font-size: calc(1.8em + 2vh); */
   font-size: calc(1.2em + 2vw);
-  /* font-size: calc(1.7em + 1vw); */
-  /* testing */
-  /* */
 }
 
 #welcome-body:hover {
-  /* color: black; */
   color: rgb(8, 8, 145);
-  /* background-color: #909090; */
   background-color: rgb(144, 144, 144, 0.5);
   /* some transparency */
-  box-shadow: 0 0 55px 15px rgb(144, 144, 144, 0.5);
   box-shadow: 0 0 55px 45px rgb(144, 144, 144, 0.5);
   padding: 0.8em;
-  padding: 5rem;
-  /* text-shadow: 1px 1px white; */
-  /* text-shadow: -11px 26px white; */
+  /* padding: 5rem; */
   text-shadow: calc((0.1vw + 1.0px)) calc((0.1vw + 1.0px)) #fff;
   border-radius: 7px;
   transition: all 1.2s linear;
@@ -557,12 +496,7 @@ img {
     background-color: #CCC;
   }
   
-  #portfolio {
-    background-color: #CCC;
-  } */
-
-
-/* Contact Section */
+  /* Contact Section */
 
 #contact {
   font-weight: bold;
@@ -610,15 +544,26 @@ img {
   padding: 0 3em 2em;
 }
 
-.phone {
+.contact-me {
   margin-left: 5px;
   position: relative;
 }
 
-.callme {
+.phone-icon {
+  color: rgb(58, 2, 58);
+}
+
+.email-icon {
+  color: rgb(38, 179, 226);
+  color: rgb(189, 9, 9);
+}
+
+.contact-me-message {
   position: absolute;
-  left: 50px;
-  top: 0;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
   width: 8em;
   color: rgb(41, 41, 163);
   text-align: left;
@@ -626,18 +571,19 @@ img {
   opacity: 0;
 }
 
-.phone:hover .callme {
-  transition: opacity 1s linear;
+.contact-me:hover .contact-me-message {
+  transition: opacity 0.8s linear;
   opacity: 1;
 }
 
 
-/* Media Queries */
+/* Project Sections Media Queries */
 
 @media (max-width: 850px) {
   .project-container-desc-tile {
     width: 90%;
     margin: 1.5em;
+    margin-left: 1.8em;
     flex-direction: column;
   }
   .project__description {

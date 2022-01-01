@@ -50,26 +50,64 @@
 </head>
 
 <body>
-  <h1>Testing Header</h1>
-  <nav>Testing nav</nav>
-  <div class="container">
-    <div class="inside">
-      <span>Some text in span. Actually, a LOTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
-          of text inside of
-          spannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</span
-        >
-        <p>Paragraph 1</p>
-        <p>Paragraph 2</p>
-      </div>
-      <div class="flex">
-        <div class="flex-item">flex 1</div>
-        <div>flex 2</div>
-        <div>flex 3</div>
-        <div>flex 4</div>
-      </div>
-      <svg width="200" height="300" xmlns="http://www.w3.org/2000/svg">
-        <image href="/img/lotr-survey.png" height="200" width="200" />
-      </svg>
-    </div>
-  </body>
+  <!-- /* Take 1. Preferred */ -->
+  <ul>
+    <li>Office Supplies
+      <ul>
+        <li>Stapler</li>
+        <li>Paper clips</li>
+      </ul>
+    </li>
+    <li>Groceries
+      <ul>
+        <li>Milk</li>
+      </ul>
+    </li>
+  </ul>
+  <!-- Take 2. Still works. Looks identical. Not semantically the same, though -- Stapler, etc. should be IN Office Supplies, not just following -->
+  <ul>
+    <li>Office Supplies</li>
+    <ul>
+      <li>Stapler</li>
+      <li>Paper clips</li>
+    </ul>
+    <li>Groceries</li>
+    <ul>
+      <li>Milk</li>
+    </ul>
+  </ul>
+
+  <p><b>Hmm</b>, Mary thought. <b>I wonder how I should mark up this sentence.</b></p>
+
+  <p><i>Hmm</i>, Mary thought. <i>I wonder how I should mark up this sentence.</i></p>
+
+  <p><q>Hmm</q>, Mary thought. <q>I wonder how I should mark up this sentence.</q></p>
+
+  <p><em>Hmm</em>, Mary thought. <em>I wonder how I should mark up this sentence.</em></p>
+
+  <!-- Both of these below give same output. 2nd one may make more sense semantically -->
+  <nav>
+    <ul>
+      <li><a href="#">Link 1</a></li>
+      <li><a href="#">Link 2</a></li>
+      <ul>
+        <li><a href="#">Link 2a</a></li>
+      </ul>
+      <li><a href="#">Link 3</a></li>
+    </ul>
+  </nav>
+  <!-- Below, sub list is actually INSIDE of list item, which may be more proper? -->
+  <nav>
+    <ul>
+      <li><a href="#">Link 1</a></li>
+      <li><a href="#">Link 2</a>
+        <ul>
+          <li><a href="#">Link 2a</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Link 3</a></li>
+    </ul>
+  </nav>
+</body>
+
 </html>
