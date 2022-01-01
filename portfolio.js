@@ -1,54 +1,56 @@
 /** @format */
 
+const root = document.documentElement;
 const body = document.body;
 const container = document.getElementById('container');
 const navHeader = document.getElementById('nav-header');
 const welcomeContainer = document.getElementById('welcome-container');
 const welcomeSection = document.getElementById('welcome-section');
 const tiles = document.querySelectorAll('.project-tile');
-const animationDefault = "F"; // default to fade
+const animationDefault = 'F'; // default to fade
 let animationType = animationDefault;
-
+let transparentBack = false;
 // Put flag in session storage that progs are being run from portfolio
-sessionStorage.setItem('portfolio', "true");
-
+sessionStorage.setItem('portfolio', 'true');
 
 navHeader.addEventListener('dblclick', () => {
   body.classList.toggle('rice');
   // navHeader.classList.toggle('rice');
   // welcomeContainer.classList.toggle('rice');
-})
+});
 
 welcomeSection.addEventListener('dblclick', () => {
   // welcomeSection.classList.toggle('poly');
   container.classList.toggle('back-image');
-
-})
+});
 
 body.addEventListener('dblclick', () => {
-  body.classList.toggle('san-serif');
+  // body.classList.toggle('san-serif');
+  transparentBack = !transparentBack;
+  const newBackground = transparentBack ? 'rgba(239,239,239,0.2)' : '#EEE';
+  root.style.setProperty('--projects-background-color', newBackground);
 });
 
 // Functions for active link animation and delayed linking
 
-tiles.forEach(tile => tile.addEventListener('click', (e)=> activeTile(e)));
+tiles.forEach((tile) => tile.addEventListener('click', (e) => activeTile(e)));
 
 function activeTile(e) {
-  const tile=e.target.closest('.project-tile');
+  const tile = e.target.closest('.project-tile');
   animationType = tile.dataset.animationtype;
-  console.log("tile.dataset.animationType ",tile.dataset.animationtype);
+  console.log('tile.dataset.animationType ', tile.dataset.animationtype);
 
   if (!animationType) animationType = animationDefault;
-  console.log("activeTile, tile: ",tile);
-  console.log("animation type: ", animationType);
-  tile.classList.add('active'+animationType);
+  console.log('activeTile, tile: ', tile);
+  console.log('animation type: ', animationType);
+  tile.classList.add('active' + animationType);
 
-  setTimeout(()=> tile.classList.remove('active'), 5000);
+  setTimeout(() => tile.classList.remove('active'), 5000);
 }
 
 function delayURL(URL, delay) {
   // console.log('delayURL by ',delay," ms");
-  setTimeout(()=> window.location=URL, delay);
+  setTimeout(() => (window.location = URL), delay);
 }
 
 document.addEventListener('scroll', (e) => {
@@ -57,7 +59,7 @@ document.addEventListener('scroll', (e) => {
   } else {
     navHeader.classList.add('scrolled');
   }
-})
+});
 
 let popupDiv;
 
@@ -78,7 +80,7 @@ document.onmouseover = function (event) {
     // for Udemy links
     popupHtml =
       'If you want to know more about what this course teaches, click here to see the tutorial site on Udemy.';
-      // , then scroll down and click on: <span class="underline bold">+ Show More</span>
+    // , then scroll down and click on: <span class="underline bold">+ Show More</span>
     popupUnder = true;
     waitTime = 200;
   } else {
@@ -118,7 +120,7 @@ document.onmouseover = function (event) {
         break;
       case 'portfolio':
         popupHtml =
-          "This page, or at least its primitive prototype, was originally an FCC Responsive Design project.";
+          'This page, or at least its primitive prototype, was originally an FCC Responsive Design project.';
         popupWidthClass = 'w50';
         break;
     }
@@ -126,7 +128,7 @@ document.onmouseover = function (event) {
   }
 
   popupDiv.innerHTML = popupHtml;
-  popupDiv.classList.remove('w40','w50');
+  popupDiv.classList.remove('w40', 'w50');
   popupDiv.classList.add(popupWidthClass);
   document.body.append(popupDiv);
 
@@ -156,4 +158,3 @@ document.onmouseout = function (e) {
     popupDiv = null;
   }
 };
-

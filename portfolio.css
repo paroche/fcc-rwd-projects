@@ -1,12 +1,15 @@
-* {
+:root {
   --test-border-width: 0px;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   --welcome-background-color: #fff;
   --projects-background-color: #EEE;
   --nav-header-height: 2.2em;
   --neg-nav-header-height: calc(- --nav-header-height);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -392,7 +395,6 @@ a:active {
   font-weight: bold;
   margin-top: .2em;
   margin-top: 1em;
-  /* ? */
   margin-bottom: 1em
 }
 
@@ -405,7 +407,6 @@ a:active {
   justify-content: center;
   align-items: center;
   align-items: start;
-  /* new */
   margin: 2em;
   margin-right: .5em;
 }
@@ -445,6 +446,9 @@ a:active {
     opacity: 1;
   }
 }
+
+
+/* Images & Captions */
 
 .img-with-caption {
   background-color: #DDD;
@@ -601,6 +605,9 @@ img {
   }
   .project-tile {
     width: 85%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     /* I don't know why 90% isn't right -- seems like it's aligning to a different container than it should */
   }
   .section__subheader {

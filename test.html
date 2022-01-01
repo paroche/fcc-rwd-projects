@@ -9,105 +9,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Test</title>
   <style>
-    h1 {
-      border: 1px solid black;
-    }
-    
-    span {
-      margin: 20px 0;
-      border: 1px solid green;
-    }
-    
-    nav {
-      border: 1px solid red;
-    }
-    
-    .container {
-      color: red;
-      font-size: 20px;
-    }
-    
-    p:first-of-type {
-      color: blue;
-    }
-    
-    p {
-      color: green;
-    }
-    
-    .flex {
-      display: flex;
-      height: 320px;
-      flex-flow: column wrap-reverse;
-      border: 1px inset blue;
-    }
-    
-    .flex div {
-      height: 100px;
-      border: 1px dotted orange;
+    .box {
+      width: 300px;
+      height: 300px;
+      margin: 5em;
+      border: 2em solid rgba(200, 200, 255, 0.5);
+      padding: 5em;
+      background-color: rgb(100, 123, 255);
+      background-image: url(img/meow-wolf-robot.jpg);
+      background-size: contain;
+      background-origin: border-box;
+      /* background-clip: padding-box; */
+      background-repeat: no-repeat;
     }
   </style>
 </head>
 
 <body>
-  <!-- /* Take 1. Preferred */ -->
-  <ul>
-    <li>Office Supplies
-      <ul>
-        <li>Stapler</li>
-        <li>Paper clips</li>
-      </ul>
-    </li>
-    <li>Groceries
-      <ul>
-        <li>Milk</li>
-      </ul>
-    </li>
-  </ul>
-  <!-- Take 2. Still works. Looks identical. Not semantically the same, though -- Stapler, etc. should be IN Office Supplies, not just following -->
-  <ul>
-    <li>Office Supplies</li>
-    <ul>
-      <li>Stapler</li>
-      <li>Paper clips</li>
-    </ul>
-    <li>Groceries</li>
-    <ul>
-      <li>Milk</li>
-    </ul>
-  </ul>
-
-  <p><b>Hmm</b>, Mary thought. <b>I wonder how I should mark up this sentence.</b></p>
-
-  <p><i>Hmm</i>, Mary thought. <i>I wonder how I should mark up this sentence.</i></p>
-
-  <p><q>Hmm</q>, Mary thought. <q>I wonder how I should mark up this sentence.</q></p>
-
-  <p><em>Hmm</em>, Mary thought. <em>I wonder how I should mark up this sentence.</em></p>
-
-  <!-- Both of these below give same output. 2nd one may make more sense semantically -->
-  <nav>
-    <ul>
-      <li><a href="#">Link 1</a></li>
-      <li><a href="#">Link 2</a></li>
-      <ul>
-        <li><a href="#">Link 2a</a></li>
-      </ul>
-      <li><a href="#">Link 3</a></li>
-    </ul>
-  </nav>
-  <!-- Below, sub list is actually INSIDE of list item, which may be more proper? -->
-  <nav>
-    <ul>
-      <li><a href="#">Link 1</a></li>
-      <li><a href="#">Link 2</a>
-        <ul>
-          <li><a href="#">Link 2a</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Link 3</a></li>
-    </ul>
-  </nav>
+  <div class="box">
+    this is the box content. I should probably type for a while. Just to show where the content is.
+  </div>
 </body>
 
 </html>
