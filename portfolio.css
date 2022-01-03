@@ -242,6 +242,19 @@ a:active {
   color: rgb(8, 8, 145);
 }
 
+
+/* Below was the :hover part*/
+
+#welcome-body {
+  background-color: rgb(144, 144, 144, 0.5);
+  /* some transparency */
+  box-shadow: 0 0 55px 45px rgb(144, 144, 144, 0.5);
+  padding: 0.8em;
+  text-shadow: calc((0.1vw + 1.0px)) calc((0.1vw + 1.0px)) #fff;
+  border-radius: 7px;
+  transition: all 1.2s linear;
+}
+
 #welcome-body h1 {
   font-size: calc(1.5em + 2vw);
   margin-bottom: .4em;
@@ -249,18 +262,6 @@ a:active {
 
 #welcome-body h2 {
   font-size: calc(1.2em + 2vw);
-}
-
-#welcome-body:hover {
-  color: rgb(8, 8, 145);
-  background-color: rgb(144, 144, 144, 0.5);
-  /* some transparency */
-  box-shadow: 0 0 55px 45px rgb(144, 144, 144, 0.5);
-  padding: 0.8em;
-  /* padding: 5rem; */
-  text-shadow: calc((0.1vw + 1.0px)) calc((0.1vw + 1.0px)) #fff;
-  border-radius: 7px;
-  transition: all 1.2s linear;
 }
 
 @media(min-width: 1100px) {
