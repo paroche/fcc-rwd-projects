@@ -11,24 +11,32 @@
   <style>
     .box {
       width: 300px;
-      height: 300px;
+      height: 500px;
       margin: 5em;
       border: 2em solid rgba(200, 200, 255, 0.5);
       padding: 5em;
       background-color: rgb(100, 123, 255);
       background-image: url(img/meow-wolf-robot.jpg);
       background-size: contain;
+      background-size: cover;
       background-origin: border-box;
       /* background-clip: padding-box; */
-      background-repeat: no-repeat;
+      /* background-repeat: no-repeat; */
+      /* background-position: center; */
+    }
+    
+    nav {
+      border: 1px solid black;
     }
   </style>
 </head>
 
 <body>
+
   <div class="box">
     this is the box content. I should probably type for a while. Just to show where the content is.
   </div>
+  <p>Press the <kbd>Enter</kbd> key to proceed.</p>
 </body>
 
 </html>

@@ -3,13 +3,14 @@
 const root = document.documentElement;
 const body = document.body;
 const container = document.getElementById('container');
+const main = document.getElementById('main');
 const navHeader = document.getElementById('nav-header');
 const welcomeContainer = document.getElementById('welcome-container');
 const welcomeSection = document.getElementById('welcome-section');
 const tiles = document.querySelectorAll('.project-tile');
 const animationDefault = 'F'; // default to fade
 let animationType = animationDefault;
-let transparentBack = false;
+let transparentBack = 0;
 // Put flag in session storage that progs are being run from portfolio
 sessionStorage.setItem('portfolio', 'true');
 
@@ -26,9 +27,23 @@ welcomeSection.addEventListener('dblclick', () => {
 
 body.addEventListener('dblclick', () => {
   // body.classList.toggle('san-serif');
-  transparentBack = !transparentBack;
-  const newBackground = transparentBack ? 'rgba(239,239,239,0.2)' : '#EEE';
-  root.style.setProperty('--projects-background-color', newBackground);
+  projectBacks = [
+    'var(--projects-background-standard)',
+    'var(--projects-background-transparent)',
+    'var(--projects-background-standard)',
+    'var(--projects-background-translucent)',
+  ];
+  transparentBack = ++transparentBack % 4;
+  console.log(transparentBack);
+  const newBackground = projectBacks[transparentBack];
+  root.style.setProperty('--projects-background', newBackground);
+  if (transparentBack == 1 || transparentBack == 2 || transparentBack == 3)
+    container.classList.add('back-image');
+  else container.classList.remove('back-image');
+  if (transparentBack == 2) body.classList.add('rice');
+  else body.classList.remove('rice');
+
+  // container.classList.toggle('border');
 });
 
 // Functions for active link animation and delayed linking
