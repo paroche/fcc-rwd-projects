@@ -20,6 +20,7 @@ body {
   overflow-x: hidden;
   /* This worked, but don't know why I needed it. Only very slight overflow at narrowest possible screen (in browser). Nothing in it but background. Might have to do w/ hidden popup stuff */
   border: var(--test-border-width) solid black;
+  user-select: none;
 }
 
 #container {

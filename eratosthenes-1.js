@@ -7,7 +7,8 @@
 // Made cursor revert to auto during animations, then back to pointer when eventListener restored.
 
 // Initialize
-// const container = document.getElementById('container');
+const elem = document.documentElement;
+const container = document.getElementById('container');
 const containerBackground = document.getElementById('container-background');
 // const containerAfter = document.querySelector('#container::after');
 const main = document.getElementById('main');
@@ -30,17 +31,19 @@ function containerBackgroundFadeIn() {
 }
 
 // Don't show main screen until all images loaded. Otherwise sometimes awkward transition
-Promise.all(
-  Array.from(document.images)
-    .filter((img) => !img.complete)
-    .map(
-      (img) =>
-        new Promise((resolve) => {
-          img.addEventListener('load', resolve);
-          img.addEventListener('error', resolve);
-        })
-    )
-).then(() => showMain());
+window.addEventListener('load', showMain); // I would think this would do as much or more than the below
+// Promise.all(
+//   Array.from(document.images)
+//     .filter((img) => !img.complete)
+//     .map(
+//       (img) =>
+//         new Promise((resolve) => {
+//           img.addEventListener('load', resolve);
+//           img.addEventListener('error', resolve);
+//         })
+//     )
+// ).then(() => showMain());
+
 
 // Fade in transform if coming from portfolio
 function showMain() {
@@ -54,23 +57,30 @@ function showMain() {
   main.hidden = false; // For clean transition, seemed to be necessary to have hidden=true in html, otherwise page displays before opacity from .invisible takes effect (since script is loaded after body, I guess)
 }
 
+// Switch to full screen in iframe
+elem.addEventListener('dblclick', () => {
+  elem.requestFullscreen();
+}); 
+
 linksImageEl.addEventListener('click', handleFirstClick);
 
 function handleFirstClick(e) {
   const controller = new AbortController();
-  linksImageEl.removeEventListener('click', handleFirstClick);
+  linksImageEl.removeEventListener('click', handleFirstClick); // Until timeout, are just going to listen for 2nd click
   linksImageEl.addEventListener('click', handleSecondClick, {
     signal: controller.signal,
-  });
-  const clickTimer = setTimeout(() => clickTimedOut(), clickDelay);
+  }); // But if 2nd click doesn't come in time, will abort listener and do single click function
+  const clickTimer = setTimeout(() => doubleClickTimedOut(), clickDelay);
 
-  function clickTimedOut() {
-    controller.abort(); // disable double click path
+  function doubleClickTimedOut() {
+    // So it is a single click
+    controller.abort(); // disable 2nd (double) click listener
     clearPointer();
     linksImageSingleClick(e); // just do single click function
   }
 
   function handleSecondClick() {
+    // Functional double-click
     clearTimeout(clickTimer); // or would go ahead and do 1st click handling anyway
     clearPointer();
     linksImageDoubleClick(e);

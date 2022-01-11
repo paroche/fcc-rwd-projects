@@ -12,6 +12,7 @@ body {
 /* Body fade in */
 
 body {
+  user-select: none;
   transition: all 3s linear;
   opacity: 1;
   filter: blur(0px);

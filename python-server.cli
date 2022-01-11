@@ -1,0 +1,10 @@
+python -m http.server --cgi 8000
+
+(opens server for current directory on localhost:8000)
+
+I think "-m" is for "-mod" -- run library module as a script
+
+One class, HTTPServer, is a socketserver.TCPServer subclass. It creates and listens at the HTTP socket, dispatching the requests to a handler. Code to create and run the server looks like this:
+
+'cgi' = "Common Gateway Server"
+

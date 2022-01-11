@@ -1,0 +1,110 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 500px;
+      margin: 5em;
+      border: 2em solid rgba(200, 200, 255, 0.5);
+      padding: 5em;
+      background-color: rgb(100, 123, 255);
+      background-image: url(img/meow-wolf-robot.jpg);
+      background-size: contain;
+      background-size: cover;
+      background-origin: border-box;
+      /* background-clip: padding-box; */
+      /* background-repeat: no-repeat; */
+      /* background-position: center; */
+    }
+    
+    nav {
+      border: 1px solid black;
+    }
+    
+    .flex-row {
+      display: flex;
+      justify-content: space-around;
+      list-style-type: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    this is the box content. I should probably type for a while. Just to show where the content is.
+  </div>
+  <p>Press the <kbd>Enter</kbd> key to proceed.</p>
+
+  <ul>
+    <li>Office Supplies
+      <ul>
+        <li>Stapler</li>
+        <li>Paper clips</li>
+      </ul>
+    </li>
+    <li>Groceries
+      <ul>
+        <li>Milk</li>
+      </ul>
+    </li>
+  </ul>
+
+
+  <img src="cubism.jpg" alt='Version of "Whistler\' s Mother " in cubist style'>
+  <br>
+  <img src="cubism.jpg "
+  alt="Version of ""Whistler 's Mother"" in cubist style">
+  <br>
+  <img src="cubism.jpg"
+    alt="Version of "Whistler's Mother " in cubist style">
+  <br>
+  <img src="cubism.jpg " alt="Version of \" Whistler 's Mother\" in cubist style ">
+  <br><br>
+  <p> None of the answers provided work in Chrome or FF. This does:</p>
+  <img src="cubism.jpg " alt="Version of &quot;Whistler's Mother&quot; in cubist style ">
+  <br>
+  <p>Oddly, these don't quite -- formatter inserts unwanted space:</p>
+  <img src="cubism.jpg " alt='Version of "Whistler&apos;s Mother " in cubist style'>
+  <br>
+  <img src="cubism.jpg " alt='Version of "Whistler&#39;s Mother " in cubist style'>
+
+  <p>
+
+  </p>
+  <nav>
+    <a href="index.html ">Home</a> |
+    <a href="about.html ">About</a> |
+    <a href="contact.html ">Contact</a>
+  </nav>
+  <nav>
+    <ul class="flex-row ">
+      <li><a href="index.html ">Home</a></li>
+      <li><a href="about.html ">About</a></li>
+      <li><a href="contact.html ">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <label for="ice-cream-choice ">Choose a flavor:</label>
+<input list="ice-cream-flavors " id="ice-cream-choice " name="ice-cream-choice " />
+
+<datalist id="ice-cream-flavors ">
+    <option value="Chocolate ">
+    <option value="Coconut ">
+    <option value="Mint ">
+    <option value="Strawberry ">
+    <option value="Vanilla ">
+</datalist>
+
+</body>
+
+</html>

@@ -15,6 +15,7 @@
   justify-content: center;
   position: relative;
   /* background-color: #cec9bb; */
+  user-select: none;
 }
 
 #container-background {

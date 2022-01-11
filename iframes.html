@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing iframes</title>
+  <style>
+    body {
+      background: #eee;
+    }
+    
+    h1 {
+      margin: 20px;
+      border: 10px groove rgba(200, 200, 200, 0.5);
+      padding: 10px;
+      text-align: center;
+    }
+    
+    #iframes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      background: #eee;
+    }
+    
+    iframe {
+      margin: 50px;
+      border: 15px groove rgba(200, 200, 200, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Fun with iFrames</h1>
+  <div id="iframes">
+    <iframe src="./eratosthenes.html" title="Eratosthenes Tribute" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    <iframe src="./lotr-survey.html" title="LOTR Survey" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    <iframe src="./bright-green-machines.html" title="Bright Green Machines" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    <iframe src="./centering-text-and-images.html" title="Centering Text and Images in HTML" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    <iframe src="./portfolio.html" title="Peter Roche Student Portfolio" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+  </div>
+  <script defer>
+  </script>
+</body>
+
+</html>

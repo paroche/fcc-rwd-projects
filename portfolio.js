@@ -14,6 +14,13 @@ let transparentBack = 0;
 // Put flag in session storage that progs are being run from portfolio
 sessionStorage.setItem('portfolio', 'true');
 
+const elem = document.documentElement;
+
+// Switch to full screen in iframe
+root.addEventListener('dblclick', () => {
+  root.requestFullscreen();
+}); 
+
 navHeader.addEventListener('dblclick', () => {
   body.classList.toggle('rice');
   // navHeader.classList.toggle('rice');
