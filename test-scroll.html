@@ -1,0 +1,108 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    #container {
+      top: 0;
+      height: 200vh;
+      /* border: 2px solid green; */
+      /* Adds 4 to document.body.scrollHeight */
+      margin: 0;
+      background: url(img/bricktown-1.jpg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-color: rgba(255, 200, 200, .5);
+    }
+    
+    #readouts-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 5px;
+      border: 1px solid black;
+      background-color: #ddd;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="container">
+    <div id="readouts-container">
+      <div class="readout-container">
+        <span>window.innerHeight: </span>
+        <div id="inner-height" class="readout" data-pixels="0"></div>
+      </div>
+      <div class="readout-container">
+        <span>window.pageYOffset</span>
+        <div id="page-y-offset" class="readout" data-pixels="0"></div>
+      </div>
+      <div class="readout-container">
+        <span>document.body.scrollHeight:</span>
+        <div id="document-body-scroll-height" class="readout" data-pixels="0"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const container = document.getElementById('container');
+    const readouts = document.querySelectorAll('.readout');
+    document.addEventListener('scroll', showScrollInfo); // won't work on content elements
+
+    function showScrollInfo() {
+
+      let values = [];
+      (values[0] = window.innerHeight),
+      (values[1] = window.pageYOffset),
+      (values[2] = document.body.scrollHeight);
+
+      readouts.forEach((readout, ind) => {
+        // console.log(ind);
+        // console.log(values[ind]);
+        readout.innerText = `${values[ind]}`;
+      });
+    }
+
+    function moveBackgroundImage() {
+      // Toward bottom of screen, move background image up so can see the bottom of it
+      //
+      //console.log(window.innerHeight, window.pageYOffset, document.body.offsetHeight, document.body.scrollHeight);
+      // 927, 0-2877, 1112
+      // 625 0 4365 4365 at top
+      // 625 3740 4365 4365 at bottom
+      fromBottom =
+        window.innerHeight + window.pageYOffset - document.body.scrollHeight;
+      // fromBottom = document.body.clientHeight + window.pageYOffset - document.body.scrollHeight; // document.body.clientHeight is 4365 when window.innerHeight is 625
+      let newPos;
+      // if (fromBottom > -30) {
+      //   newPos = 'bottom';
+      // } else if (fromBottom > -300) {
+      //   newPos = 'center';
+      // } else {
+      //   newPos = 'top';
+      // }
+      // more continuous, but might be smoother if checked less often...
+      if (fromBottom > -800 && firstTimeScrollDown) {
+        // console.log("unMute on Scroll Down");
+        unMuteAndPlaySong();
+        firstTimeScrollDown = false;
+      }
+      if (fromBottom < -300) newPos = 'top';
+      else {
+        newPos = `0 ${-300 - fromBottom}px`;
+      }
+      innerContainer.style.backgroundPosition = newPos;
+    }
+  </script>
+</body>
+
+</html>

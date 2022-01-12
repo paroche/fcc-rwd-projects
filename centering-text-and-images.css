@@ -29,6 +29,8 @@ body {
   /* So can see whole table of contents w/out scrolling main body? */
   z-index: -1;
   /* looking to have it under text if is overlap */
+  /* For some reason the below was neccessary to make the nav section appear in fullscreen iframe: */
+  background: #FFF;
 }
 
 #navbar header {
