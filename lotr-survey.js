@@ -16,7 +16,7 @@ body.hidden=false; // seemed to be necessary to have hidden=true in html, otherw
 
 // Switch to full screen in iframe
 elem.addEventListener('dblclick', () => {
-  elem.requestFullscreen();
+  if (window.frameElement != null) elem.requestFullscreen();
 }); 
 
 form.addEventListener('submit', ()=> alert("You have submitted, and your submission has been noted. Await further instructions."));

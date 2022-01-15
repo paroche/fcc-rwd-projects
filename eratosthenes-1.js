@@ -6,6 +6,7 @@
 // v2 of this (v1.2, I guess). Disables event listeners until animation done so won't have hybrid events.
 // Made cursor revert to auto during animations, then back to pointer when eventListener restored.
 
+
 // Initialize
 const elem = document.documentElement;
 const container = document.getElementById('container');
@@ -59,7 +60,7 @@ function showMain() {
 
 // Switch to full screen in iframe
 elem.addEventListener('dblclick', () => {
-  elem.requestFullscreen();
+  if (window.frameElement != null) elem.requestFullscreen();
 }); 
 
 linksImageEl.addEventListener('click', handleFirstClick);
