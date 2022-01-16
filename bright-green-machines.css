@@ -10,7 +10,8 @@ body {
   --test-border-width: 0px;
   --half-bold: 540;
   /* doesn't work for default font-type -- just goes to normal or bold, whichever is closer */
-  --max-container-width: 1400px;
+  --max-container-width: 1100px;
+  --max-header-width: 1300px;
   --header-height: 117px;
   --neg-header-height: calc(-1 * var(--header-height));
   background: linear-gradient(to bottom right, #ECFFEC, #DDFFDD);
@@ -37,15 +38,20 @@ body {
   background-color: #E5FFE5;
   /* fallback */
   background-color: var(--body-background-color);
+  /* background: linear-gradient(to bottom right, var(--light-green) 35%, var(--lighter-green), #CCFFAA, var(--lighter-green), var(--light-green)); */
   /* */
-  background: linear-gradient(to bottom right, var(--light-green) 35%, var(--lighter-green), #CCFFAA, var(--lighter-green), var(--light-green));
-  /* */
-  --container-border-color: lightgreen;
   --container-border-color: var(--light-green);
   /* Same as background */
   border: 5px solid #E5FFE5;
   /* fallback */
   border: 5px solid var(--container-border-color);
+}
+
+#inner-container {
+  background: linear-gradient(to bottom right, var(--light-green) 35%, var(--lighter-green), #CCFFAA, var(--lighter-green), var(--light-green));
+  /* */
+  max-width: var(--max-container-width);
+  margin: 0 auto;
 }
 
 #header {
@@ -55,14 +61,20 @@ body {
   /* */
   right: 0;
   margin: 0 0;
-  padding: 0 0 5px 0;
-  padding-bottom: 17px;
-  /* new 1/18 (10px), 1/23 */
+  padding: 0 0 17px 0;
+  display: flex;
+  justify-content: center;
+  --header-background-color: #DFD;
+  background-color: var(--body-background-color);
+  z-index: 5;
+}
+
+#inner-header {
+  width: 97%;
+  max-width: var(--max-container-width);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  --header-background-color: #DFD;
-  /* new experiment 1/18 */
   border-top: 5px solid var(--container-border-color);
   border-left: 5px solid var(--container-border-color);
   /* */
@@ -70,15 +82,12 @@ body {
   border: 5px solid var(--header-background-color);
   /* new 1/18 */
   border-bottom: 3px solid green;
-  /*border-bottom: 4px groove #0F0; /* sticking w/ solid? */
-  background-color: var(--body-background-color);
-  /* */
-  /*background-color: var(--header-background-color); /* new 1/17 */
-  z-index: 5;
 }
 
 #header-company {
   margin: 15px 0 10px 4%;
+  margin-left: 0;
+  /* n 2022 */
   display: flex;
   flex-direction: row;
   /* default */
@@ -113,18 +122,20 @@ body {
 #company-text {
   margin: 0 0 0 3px;
   font-size: 48px;
-  /* */
   font-size: 4vw;
   /* */
-  color: green;
   color: #00AA00;
+  color: #05a305;
   border: var(--test-border-width) solid;
+  text-shadow: 1.5px 1.5px 2px rgb(1, 54, 1);
   flex-wrap: wrap;
   /* ? */
 }
 
 #nav-bar {
   margin: 0px 5% 0 5px;
+  margin-right: 0;
+  /* n 2022 */
   padding-top: 10px;
   padding-bottom: 18px;
   display: flex;
@@ -151,21 +162,12 @@ body {
 }
 
 .nav-link:visited {
-  /*color: #00A700;
-  color: #00CC44;
-  color: #00CC44; */
   background-image: linear-gradient (to bottom right, #EFE, #EFE, #FF0, red);
   /* Not working? */
 }
 
 .nav-link:hover {
-  /*color: #00CC44; /* */
-  /*background: #DDFFDD; /* */
   color: #00c400;
-  /* */
-  /*border-top: 1px solid #CCFFCC; /* makes it drop a px */
-  /*border-box: 0 0 8px 8px #CCFFCC;*/
-  /*background: linear-gradient(to bottom ,#DFD, #EFE, #DFD); /* */
 }
 
 #main-body {
@@ -188,7 +190,15 @@ body {
   /* */
 }
 
-figure {}
+figure {
+  --figure-border: rgba(24, 122, 24, 1);
+  background-color: light-green;
+  border: 1px solid var(--figure-border);
+  box-shadow: inset 5px 5px 5px var(--figure-border), inset -5px -5px 5px var(--figure-border);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
 
 .image {
   margin: 5px;
@@ -679,6 +689,7 @@ https://codepen.io/imprakash/pen/GgNMXO
   font-weight: bold;
   text-decoration: none;
   color: black;
+  z-index: 20;
 }
 
 .close-popup:hover {
