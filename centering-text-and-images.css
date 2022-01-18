@@ -25,9 +25,11 @@ body {
   left: 0;
   width: var(--nav-bar-width);
   border-right: 3px solid lightgray;
-  overflow-y: auto;
+  overflow-y: scroll;
+  /* for some reason, w/ 'auto', scroll bar showed but wasn't alway active */
+  /* but now, in responsive mode, is thin and doesn't always work. */
   /* So can see whole table of contents w/out scrolling main body? */
-  z-index: -1;
+  /* z-index: -1; */
   /* looking to have it under text if is overlap */
   /* For some reason the below was neccessary to make the nav section appear in fullscreen iframe: */
   background: #FFF;
@@ -198,14 +200,10 @@ code {
   /* So when link to last items they go to top. May be a better way? */
 }
 
-@media(max-width: 850px) {
-  .nav-link-sub {
-    padding-left: 30px;
-    padding-right: 7px;
-  }
-}
 
-@media(max-width: 700px) {
+/* was 700px, but that doesn't seem to work anymore? */
+
+@media (max-width: 1090px) {
   #navbar {
     position: static;
     width: 100%;
@@ -229,5 +227,12 @@ code {
   }
   #top-of-form-link:visited {
     color: gray;
+  }
+}
+
+@media (max-width: 850px) {
+  .nav-link-sub {
+    padding-left: 30px;
+    padding-right: 7px;
   }
 }
