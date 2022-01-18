@@ -79,25 +79,22 @@
 
     <section class='main-section' id='Horizontal_Centering_of_Text_and_Images_using_"text-align:_center"'>
       <header>Horizontal Centering of Text and Images using "text-align: center"</header>
+
+      <p>Declaring "text-align: center" for a container will center text within it. It will also center images, though that may not be recommended procedure and may not always be supported in the future. The following code will center the text:</p>
+
+      <code><pre>
+        HTML:
+        
+        &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
+        
+        CSS:
+        
+        .center-non-flex {
+          text-align: center;
+        }          </pre></code>
+
+      <p>Pretty straightforward. (Side note: some other values of “text-align” besides “center” are “left” (default), “right”, and “justify” (which makes all lines the same width with even left and right margins)).</p>
       <ul>
-        <li class='sub-section' id='Using_"text-align:_center"_in_a_non-Flexbox_(typical)'>
-
-          <p>Declaring "text-align: center" for a container will center text within it. It will also center images, though that may not be recommended procedure and may not always be supported in the future. The following code will center the text:</p>
-
-          <code><pre>
-HTML:
-
-  &ltdiv class='center-non-flex'&gtText to be centered&lt/div&gt
-
-CSS:
-
-  .center-non-flex {
-    text-align: center;
-  }          </pre></code>
-
-          <p>Pretty straightforward. (Side note: some other values of “text-align” besides “center” are “left” (default), “right”, and “justify” (which makes all lines the same width with even left and right margins)).</p>
-        </li>
-
         <li class='sub-section' id='Using_text-align_within_a_Flexbox_–_Limitations_and_Peculiarities'>
           <header>Note on Using text-align within a Flexbox</header>
           <p>In a flex container with the default flex-direction of "row", "text-align" may not seem to work in the contained flex-items. This is because flex-items with flex-direction row are, by default, only the width of their contents, so any centering
