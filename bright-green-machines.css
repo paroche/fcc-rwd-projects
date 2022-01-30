@@ -299,8 +299,6 @@ figure {
   flex-direction: row;
 }
 
-.list-block {}
-
 .section-list-name {
   border: var(--test-border-width) solid yellow;
 }
