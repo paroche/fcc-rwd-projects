@@ -225,13 +225,12 @@ figure {
   /* ? */
 }
 
-.anchor {
+.section>.anchor {
   /* to compensate for fixed nav bar covering the section: */
-  display: block;
   height: var(--header-height);
   margin-top: var(--neg-header-height);
   /* Otherwise will be a header-sized gap above anchor spot. Still, such a work-around shouldn't be necessary */
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 
