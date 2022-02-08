@@ -1,0 +1,20 @@
+/** @format */
+
+#ValHeart {
+  stroke: none;
+  stroke-width: 1;
+  stroke-dasharray: none;
+  stroke-linecap: butt;
+  stroke-dashoffset: 0;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 4;
+  fill: rgb(255, 0, 0, 0.5);
+  fill: green;
+  fill-rule: nonzero;
+  opacity: 1;
+}
+
+#ValHeart:hover {
+  stroke: red;
+  fill: purple;
+}

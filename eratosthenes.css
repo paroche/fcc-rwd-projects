@@ -54,7 +54,7 @@
   opacity: 1;
 } */
 
-#main {
+#banner-and-article {
   border: 1px solid gray;
   border: 0px;
   /*wout this top margin doesn't turn lightgray?*/
@@ -63,7 +63,7 @@
   transition: all 1.5s linear;
 }
 
-#main.invisible {
+#banner-and-article.invisible {
   opacity: 0;
   transform: rotateY(90deg);
 }
@@ -488,7 +488,7 @@ border-radius: 8px;*/
     margin-right: auto;
     padding: 17px 8% 20px 5%;
   }
-  #main {
+  #banner-and-article {
     padding-top: 20px;
     padding: 5px 0;
   }
@@ -503,7 +503,7 @@ border-radius: 8px;*/
     margin-right: auto;
     padding: 17px 8% 20px 5%;
   }
-  #main {
+  #banner-and-article {
     padding-top: 20px;
     padding: 5px 0;
   }

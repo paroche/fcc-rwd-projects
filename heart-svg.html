@@ -1,0 +1,127 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>heart-svg.html</h1>
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500" height="500" viewBox="0 0 500 500" xml:space="preserve">
+      <desc>Created with Fabric.js 4.6.0</desc>
+
+      <style type="text/css">
+        /* :hover only seems to work if fill is moved here too. Otherwise can't override inline style for #ValHeart? */
+        #ValHeart {
+          fill: rgb(255, 0, 0, 0.5);
+        }
+        #ValHeart:hover {
+          stroke: red;
+          fill: red;
+        }
+
+        #ValHeartNT {
+          color: white; /* does nothing */
+        }
+        .PathText {
+          color: white;
+          font-size: 12px; /* this actually works */
+          stroke: red; /* So does this */
+        }
+        .PathText:hover {
+          stroke: green;
+        }
+        <!-- text{
+          dominant-baseline: hanging;
+        background: white;
+          font: 25px Verdana, Helvetica, Arial, sans-serif;
+        } -->
+      </style>
+
+      <defs>
+        <path
+        id="ValHeartNT"
+        vector-effect="non-scaling-stroke"
+        style="
+          stroke: none;
+          stroke-width: 1;
+          stroke-dasharray: none;
+          stroke-linecap: butt;
+          stroke-dashoffset: 0;
+          stroke-linejoin: miter;
+          stroke-miterlimit: 4;
+
+          fill-rule: nonzero;
+          opacity: 1;
+        "
+        transform=" translate(144,146)";
+        d="M 60 4.346 C 71 4.346 80 13.973 80 25.738 C 80 58.45 40 74.762 40 75.65299999999999 L 40 75.65299999999999 C 40 74.763 0 58.54 0 25.738 C 0 13.884 9 4.346 20 4.346 C 31.1 4.346 40 10.835 40 22.689 C 40 10.835 48.9 4.346 60 4.346 z"
+        stroke-linecap="round"
+      />
+      </defs>
+
+      <rect width="100%" height="100%" fill="rgb(255,0,0,0.4)" />
+      /* Added */
+      <circle
+        cx="50%"
+        cy="45%"
+        r="200"
+        fill="rgb(255,200,200)"
+        stroke="rgb(255,0,0)"
+      />
+      /* Added */
+      <!-- <text x="50%" y="50%" font-size="16" text-anchor="middle" fill="rgb(255,255,255,1)">Happy Valentines Day!</text> /* if here, gets layed over */ -->
+      <!-- <circle cx="60" cy="4.346" r="2" fill="black"/>
+    <circle cx="71" cy="4.346" r="2" fill="black"/>
+    <circle cx="80" cy="13.973" r="2" fill="black"/>
+    <circle cx="80" cy="25.738" r="2" fill="black"/> -->
+      <g
+        transform="matrix(4.38 0 0 4.46 268.31 276.15)"
+        id="MssjSHtxtHLVm4WHNMBiQ"
+      >
+        <path
+          id="ValHeart"
+          vector-effect="non-scaling-stroke"
+          style="
+            stroke: none;
+            stroke-width: 1;
+            stroke-dasharray: none;
+            stroke-linecap: butt;
+            stroke-dashoffset: 0;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 4;
+
+            fill-rule: nonzero;
+            opacity: 1;
+          "
+          transform=" translate(-44, -46)"
+          d="M 60 4.346 C 71 4.346 80 13.973 80 25.738 C 80 58.45 40 74.762 40 75.65299999999999 L 40 75.65299999999999 C 40 74.763 0 58.54 0 25.738 C 0 13.884 9 4.346 20 4.346 C 31.1 4.346 40 10.835 40 22.689 C 40 10.835 48.9 4.346 60 4.346 z"
+          stroke-linecap="round"
+        />
+        <path id="heartInG" fill="red" d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z" /><text>heartInG</text>
+      </g>
+      <path id="heartOutG" fill="red" d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z" />
+      <text>heartOutG</text>
+      <text
+        x="50%"
+        y="49%"
+        font-size="30"
+        text-anchor="middle"
+        fill="rgb(255,255,255,1)"
+      >
+        Happy Valentines Day!
+      </text>
+      <text class="PathText">
+        <textPath  href="#ValHeartNT">
+        Happy Valentine's Day  Happy Valentine's Day  Happy Valentine's Day
+        </textPath>
+      </text>
+    </svg>
+</body>
+
+</html>

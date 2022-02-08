@@ -12,7 +12,7 @@ const elem = document.documentElement;
 const container = document.getElementById('container');
 const containerBackground = document.getElementById('container-background');
 // const containerAfter = document.querySelector('#container::after');
-const main = document.getElementById('main');
+const bannerAndArticle = document.getElementById('banner-and-article');
 const linksImageEl = document.getElementById('more-info-image');
 const clickDelay = 300; // ms. Apparently 500ms is standard for a double click, but leads to more delay on singleclick function than I would like.
 let rotateClassIndex = 0;
@@ -50,12 +50,12 @@ window.addEventListener('load', showMain); // I would think this would do as muc
 function showMain() {
   if (fromPortfolio) {
     // body.style.setProperty('--transform-time', '1s')
-    main.classList.add('invisible');
+    bannerAndArticle.classList.add('invisible');
     setTimeout(() => {
-      main.classList.remove('invisible');
+      bannerAndArticle.classList.remove('invisible');
     }, 1); // wout some delay doesn't do transform
   }
-  main.hidden = false; // For clean transition, seemed to be necessary to have hidden=true in html, otherwise page displays before opacity from .invisible takes effect (since script is loaded after body, I guess)
+  bannerAndArticle.hidden = false; // For clean transition, seemed to be necessary to have hidden=true in html, otherwise page displays before opacity from .invisible takes effect (since script is loaded after body, I guess)
 }
 
 // Switch to full screen in iframe
