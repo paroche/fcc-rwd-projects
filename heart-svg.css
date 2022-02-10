@@ -15,13 +15,11 @@ body {
   background-attachment: local;
   background-repeat: no-repeat;
   background-origin: border-box;
-  height: 120vh;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
-  /* the above was actually screwing it up on small screens. Don't know why. Instead used l/r margins auto on inner-container */
+  height: 110vh;
 }
 
+
+/* 
 .heart {
   position: relative;
   width: 150px;
@@ -61,39 +59,38 @@ body {
   font-size: 20px;
   font-style: italic;
 }
+ */
 
 #svg-heart-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* align-items: flex-start; */
-  /* width: 360px;
-  height: 320px; */
   margin: 0;
   padding: 0;
-  padding-top: 10%;
+  padding-top: 2%;
   position: relative;
   /* border: 1px solid red; */
 }
 
-.svg-heart-container:before {
+
+/* .svg-heart-container:before {
   position: absolute;
   content: "I Love Lucy";
   font-size: 3em;
   font-style: italic;
   margin-bottom: 0.7em;
-  /* border: 1px solid green; */
-}
-
-#svg-heart {
-  border: 1px solid orange;
-}
-
-
-/* #inner-container {
-  border: 1px solid green;
-  border-radius: 15px;
 } */
+
+
+/* #svg-heart {
+  border: 1px solid orange;
+} */
+
+#inner-container {
+  /* border: 1px solid green; */
+  border-radius: 15px;
+  position: relative;
+}
 
 svg {
   border-radius: 10px;
@@ -105,8 +102,11 @@ svg {
   /* Below lines it up w/ svg heart, if path scale set at 4.2, but only in full-screen mode on right-hand (Samsung) screen */
   top: 16%;
   top: 31%;
-  /* after added 10% top padding to containing div */
+  /* after added top padding to containing div */
   left: 35%;
+  /* below worked once made #inner-container position relative. */
+  top: 16.2%;
+  left: 16.5%;
   animation: path-animation 40s forwards;
   width: 30px;
   height: auto;
@@ -126,6 +126,9 @@ svg {
   top: 38%;
   top: 48%;
   left: 44%;
+  /* After making #inner-container position relative */
+  top: 40%;
+  left: 37%;
   animation: path-animation 30s forwards;
   width: 30px;
   height: auto;

@@ -21,19 +21,20 @@
             <style type="text/css">
               /* :hover only seems to work if fill is moved here too. Otherwise can't override inline style for #ValHeart? */
               #ValHeart {
-                fill: red;
-                animation: 3s ease-out 0s infinite valHeartBeat
+                fill: rgb(255, 0, 0, 0.78);
+                animation: none;
               }
               #ValHeart:hover {
-                fill: rgb(255, 0, 0, 0.5);
-                animation: none;
+                fill: red;
+                animation: 3s ease-out 0s infinite valHeartBeat
               }
               @keyframes valHeartBeat {
                 0% {
                   opacity: 1;
                 }
+
                 55% {
-                  opacity: .15;
+                  opacity: .2;
                 }
                 100% {
                   opacity: 1;
@@ -113,7 +114,7 @@
     <circle cx="80" cy="13.973" r="2" fill="black"/>
     <circle cx="80" cy="25.738" r="2" fill="black"/> -->
             <g
-              transform="matrix(4.38 0 0 4.46 268.31 276.15)"
+            transform="matrix(4.38 0 0 4.46 268.31 276.15)"
               id="MssjSHtxtHLVm4WHNMBiQ"
             >
               <!-- transform above:  x = x + 4.38x + 0y + 268.31, 

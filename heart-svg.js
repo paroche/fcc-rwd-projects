@@ -1,7 +1,8 @@
 /** @format */
 
 const song = document.getElementById('song');
-const heartContainer = document.getElementById('svg-heart-container');
+// const heartContainer = document.getElementById('svg-heart-container');
+const heartContainer = document.getElementById('inner-container');
 const heartPath = window
   .getComputedStyle(document.documentElement)
   .getPropertyValue('--d');
