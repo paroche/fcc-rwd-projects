@@ -1,12 +1,10 @@
 /** @format */
-/*
-ideas:
-1) Click me in body, disappears when music starts
-2) Fade out after a while at end, start over if you click on screen
-*/
+
+
 const song = document.getElementById('song');
 // const heartContainer = document.getElementById('svg-heart-container');
 const container = document.getElementById('container');
+const clickMessage = document.getElementById('click-me');
 const heartContainer = document.getElementById('inner-container');
 const heartInG = document.getElementById('heartInG');
 const heartOutG = document.getElementById('heartOutG');
@@ -15,6 +13,7 @@ const heartPath = window
   .getComputedStyle(document.documentElement)
   .getPropertyValue('--d');
 const origPath = heartPath;
+// Create Heart Path for little hearts going around and inside big heart
 scalePath(heartPath, '--d', 5.1);
 scalePath(heartPath, '--d2', 2);
 
@@ -43,6 +42,8 @@ window.addEventListener('load', () => {
   heartContainer.hidden = false; // gives cleaner load
   setTimeout(scrollTop, 1);
 });
+
+//
 
 function scalePath(path, pathVar, scale) {
   let pathArray = path.split(' ');
@@ -89,7 +90,8 @@ function createHeart(id) {
   // frag.classList.add('moving-heart'); // apparently this doesn't work
   heartContainer.appendChild(frag);
   setTimeout(() => document.getElementById(id).remove(), 20000);
-  if (id == hearts-1) setHeartInOutBeats(); // After last little heart created, set side hearts beating
+  if (id == hearts / 2) setHeartInOutBeats(); // After half little heart created, set side hearts beating
+  if (id == hearts - 1) fadeOutIn(); // When last heart made, set times to fade out, then fade back in
 }
 
 function svgHeart(color, className, id) {
@@ -105,13 +107,38 @@ function svgHeart(color, className, id) {
 `;
 }
 
+// Event Listeners
+
 container.addEventListener('dblclick', toggleSong);
 heartContainer.addEventListener('click', toggleSong);
 heartContainer.addEventListener('click', toggleBeatInPlace);
+heartContainer.addEventListener('click', hideClickMessage);
 
-function setHeartInOutBeats () {
-  const heartInGInterval = setInterval(() => toggleBeat(heartInG, heartBeat * 2.5, 1000), heartBeat);
-  const heartOutGInterval = setInterval(() => toggleBeat(heartOutG, heartBeat * 2, 1000), heartBeat);
+//
+
+function setHeartInOutBeats() {
+  const heartInGInterval = setInterval(
+    () => toggleBeat(heartInG, heartBeat * 2.5, 1000),
+    heartBeat
+  );
+  const heartOutGInterval = setInterval(
+    () => toggleBeat(heartOutG, heartBeat * 2, 1000),
+    heartBeat
+  );
+}
+
+function fadeOutIn() {
+  setTimeout(fadeOut, 30000);
+  setTimeout(fadeIn, 50000);
+}
+
+function fadeOut() {
+  heartContainer.classList.add('faded');
+}
+
+function fadeIn() {
+  heartContainer.classList.remove('faded');
+  heartContainer.addEventListener('click', () => location.reload());
 }
 
 function toggleSong() {
@@ -122,20 +149,22 @@ function toggleSong() {
 }
 
 function toggleBeatInPlace() {
-  // console.log("in toggleBeatInPlace..");
-  // console.log("valHeart.className.baseVal: ",valHeart.className.baseVal, valHeart.className.baseVal.length);
   valHeart.className.baseVal =
     valHeart.className.baseVal == 'beatInPlace' ? '' : 'beatInPlace';
 }
 
 function toggleBeat(el, delay, duration) {
-  setTimeout(()=> {
-    el.className.baseVal = (el.className.baseVal == 'beat') ? "" : "beat";
+  setTimeout(() => {
+    el.className.baseVal = el.className.baseVal == 'beat' ? '' : 'beat';
   }, delay);
   // setTimeout(() => {
   //   el.className.baseVal = 'beat';
   //   setTimeOut(() => (el.className.baseVal = ''), duration);
   // }, delay);
+}
+
+function hideClickMessage() {
+  clickMessage.classList.add('hidden');
 }
 
 function scrollTop() {

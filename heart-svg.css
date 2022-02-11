@@ -32,6 +32,12 @@ body {
 #inner-container {
   border-radius: 15px;
   position: relative;
+  opacity: 1;
+  transition: opacity 10s;
+}
+
+#inner-container.faded {
+  opacity: 0;
 }
 
 svg {
@@ -100,6 +106,22 @@ svg {
   opacity: 0.1;
 }
 
+#click-me {
+  position: fixed;
+  bottom: 5em;
+  left: 5%;
+  /* transform: translateX(-50%); */
+  /* font-family: 'Dancing Script', Loto; */
+  font-weight: bold;
+  font-size: 24px;
+  opacity: 0.4;
+}
+
+#click-me.hidden {
+  display: none;
+  color: green;
+}
+
 
 /* SVG styling moved to css file */
 
@@ -107,12 +129,6 @@ svg {
   fill: rgb(255, 0, 0, 0.78);
   animation: none;
 }
-
-
-/* #ValHeart:hover {
-  fill: red;
-  animation: 3s ease-out 0s infinite valHeartBeat
-} */
 
 #ValHeart.beatInPlace {
   fill: red;
