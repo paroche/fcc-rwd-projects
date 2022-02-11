@@ -14,9 +14,66 @@
 <body>
   <div id="container">
     <div id="svg-heart-container">
-      <div id="inner-container" hidden>
+      <div id="inner-container">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600" height="600" viewBox="0 0 500 500" xml:space="preserve">
             <desc>Created with Fabric.js 4.6.0</desc>
+
+            <style type="text/css">
+              /* :hover only seems to work if fill is moved here too. Otherwise can't override inline style for #ValHeart? */
+              #ValHeart {
+                fill: rgb(255, 0, 0, 0.78);
+                animation: none;
+              }
+              #ValHeart:hover {
+                fill: red;
+                animation: 3s ease-out 0s infinite valHeartBeat
+              }
+              @keyframes valHeartBeat {
+                0% {
+                  opacity: 1;
+                }
+
+                55% {
+                  opacity: .2;
+                }
+                100% {
+                  opacity: 1;
+                }
+              }
+              #ValHeartNT {
+                color: white; /* does nothing */
+              }
+              #heartOutG:hover,
+              #heartInG:hover {
+                  animation: 1.2s ease-in-out 0s infinite beat
+              }
+
+              @keyframes beat {
+                0% {
+                  transform: scale(1.2) translate(-1%, -1%);
+                }
+                100% {
+                  transform: scale(1) translate(0,0);
+                }
+              }
+              .PathText {
+                color: white;
+                font-size: 12px; /* this actually works */
+                stroke: red; /* So does this */
+                text-shadow: 0.5px 0.5px rgb(255,100,100);
+                transform: translate(-15px, -15px);
+              }
+              .PathText:hover {
+                stroke: violet;
+              }
+              <!-- text{
+                dominant-baseline: hanging;
+              background: white;
+                font: 25px Verdana, Helvetica, Arial, sans-serif;
+              } -->
+
+            </style>
+
             <defs>
               <path
                 id="ValHeartNT"
@@ -29,6 +86,7 @@
                   stroke-dashoffset: 0;
                   stroke-linejoin: miter;
                   stroke-miterlimit: 4;
+
                   fill-rule: nonzero;
                   opacity: 1;
                 "
@@ -49,11 +107,20 @@
               stroke="rgb(255,0,0)"
 
             />
-
+            /* Added */
+            <!-- <text x="50%" y="50%" font-size="16" text-anchor="middle" fill="rgb(255,255,255,1)">Happy Valentine's Day!</text> /* if here, gets layed over */ -->
+            <!-- <circle cx="60" cy="4.346" r="2" fill="black"/>
+    <circle cx="71" cy="4.346" r="2" fill="black"/>
+    <circle cx="80" cy="13.973" r="2" fill="black"/>
+    <circle cx="80" cy="25.738" r="2" fill="black"/> -->
             <g
             transform="matrix(4.38 0 0 4.46 268.31 276.15)"
               id="MssjSHtxtHLVm4WHNMBiQ"
             >
+              <!-- transform above:  x = x + 4.38x + 0y + 268.31, 
+          y = y + 0y + 4.46x + 276.15 
+        Seems like would make slant down and would compress a bit vertically relative to horizontally. 
+        Origin would be 7.84 lower, slope -4.46? -->
               <path
                 id="ValHeart"
                 vector-effect="non-scaling-stroke"
@@ -65,6 +132,7 @@
                   stroke-dashoffset: 0;
                   stroke-linejoin: miter;
                   stroke-miterlimit: 4;
+
                   fill-rule: nonzero;
                   opacity: 1;
                 "

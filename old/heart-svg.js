@@ -1,16 +1,8 @@
 /** @format */
-/*
-ideas:
-1) Click me in body, disappears when music starts
-2) Fade out after a while at end, start over if you click on screen
-*/
+
 const song = document.getElementById('song');
 // const heartContainer = document.getElementById('svg-heart-container');
-const container = document.getElementById('container');
 const heartContainer = document.getElementById('inner-container');
-const heartInG = document.getElementById('heartInG');
-const heartOutG = document.getElementById('heartOutG');
-const valHeart = document.getElementById('ValHeart');
 const heartPath = window
   .getComputedStyle(document.documentElement)
   .getPropertyValue('--d');
@@ -33,16 +25,8 @@ const colors = [
 ];
 const classNames = ['moving-heart', 'moving-heart-2'];
 // let printed = false; // t
-
+ 
 const startTime = Date.now();
-let prevInterval = 0;
-const hearts = 300;
-const heartBeat = 1200;
-
-window.addEventListener('load', () => {
-  heartContainer.hidden = false; // gives cleaner load
-  setTimeout(scrollTop, 1);
-});
 
 function scalePath(path, pathVar, scale) {
   let pathArray = path.split(' ');
@@ -58,28 +42,20 @@ function scalePath(path, pathVar, scale) {
 
 // Create additional moving hearts
 
-for (let i = 0; i < hearts; i++) {
-  setTimeout(() => createHeart(i), createInterval(i));
+for (let i = 0; i < 200; i++) {
+  setTimeout(() => createHeart(i), i * 500);
 }
 
-function createInterval(i) {
-  // total time before next element creation
-  const p1 = 15,
-    t1 = 100,
-    p2 = 45,
-    t2 = 300;
-  let interval = prevInterval;
-  if (i <= p1) {
-    interval += t1;
-  } else if (i < p2) {
-    interval += t1 + t2 * (1 - (p2 - i) / (p2 - p1)); // gradual transition
-  } else {
-    interval += t2;
-  }
-  // console.log("(interval - prevInterval): ", (interval - prevInterval));
-  prevInterval = interval;
-  return interval;
-}
+// function createHeart(id) {
+//   const image = document.createElement('img');
+//   image.src = 'img/heart.svg';
+//   image.style.fill = 'green'; // doesn't work
+//   image.style.stroke = 'blue'; // doesn't work
+//   image.id = 'heart' + id;
+//   image.classList.add('moving-heart');
+//   heartContainer.appendChild(image);
+//   setTimeout(()=> image.remove(), 30000);
+// }
 
 function createHeart(id) {
   const color = colors[id % colors.length];
@@ -89,7 +65,6 @@ function createHeart(id) {
   // frag.classList.add('moving-heart'); // apparently this doesn't work
   heartContainer.appendChild(frag);
   setTimeout(() => document.getElementById(id).remove(), 20000);
-  if (id == hearts-1) setHeartInOutBeats(); // After last little heart created, set side hearts beating
 }
 
 function svgHeart(color, className, id) {
@@ -105,40 +80,11 @@ function svgHeart(color, className, id) {
 `;
 }
 
-container.addEventListener('dblclick', toggleSong);
-heartContainer.addEventListener('click', toggleSong);
-heartContainer.addEventListener('click', toggleBeatInPlace);
+heartContainer.addEventListener('click', playSong);
+heartContainer.addEventListener('hover', playSong);
 
-function setHeartInOutBeats () {
-  const heartInGInterval = setInterval(() => toggleBeat(heartInG, heartBeat * 2.5, 1000), heartBeat);
-  const heartOutGInterval = setInterval(() => toggleBeat(heartOutG, heartBeat * 2, 1000), heartBeat);
-}
-
-function toggleSong() {
+function playSong() {
   song.muted = false;
-  if (song.paused) song.play();
-  else song.pause();
-  // console.log('trying to play song...');
-}
-
-function toggleBeatInPlace() {
-  // console.log("in toggleBeatInPlace..");
-  // console.log("valHeart.className.baseVal: ",valHeart.className.baseVal, valHeart.className.baseVal.length);
-  valHeart.className.baseVal =
-    valHeart.className.baseVal == 'beatInPlace' ? '' : 'beatInPlace';
-}
-
-function toggleBeat(el, delay, duration) {
-  setTimeout(()=> {
-    el.className.baseVal = (el.className.baseVal == 'beat') ? "" : "beat";
-  }, delay);
-  // setTimeout(() => {
-  //   el.className.baseVal = 'beat';
-  //   setTimeOut(() => (el.className.baseVal = ''), duration);
-  // }, delay);
-}
-
-function scrollTop() {
-  document.body.scrollTop = 5;
-  document.documentElement.scrollTop = 5;
+  song.play();
+  console.log("trying to play song...")
 }
