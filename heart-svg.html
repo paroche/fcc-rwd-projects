@@ -14,8 +14,8 @@
 <body>
   <div id="container">
     <div id="svg-heart-container">
-      <div id="inner-container" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600" height="600" viewBox="0 0 500 500" xml:space="preserve">
+      <div id="heart-container" hidden>
+        <svg id="svg-card" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 500 500" xml:space="preserve">
             <desc>Created with Fabric.js 4.6.0</desc>
             <defs>
               <path
@@ -85,7 +85,7 @@
               d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z"
             />
 
-            <text
+            <text id="happy-main"
               x="50%"
               y="49%"
               font-size="38"
@@ -104,8 +104,9 @@
             </text>
           </svg>
       </div>
+      <!-- <span id="recipient">Sweetheart</span> -->
     </div>
-    <div id="click-me">Click on card for sound</div>
+    <span id="click-me">Click on card for sound</span>
   </div>
   <audio controls muted id="song">
     <source

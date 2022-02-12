@@ -16,7 +16,8 @@ body {
   background-attachment: local;
   background-repeat: no-repeat;
   background-origin: border-box;
-  height: 110vh;
+  height: 120vh;
+  width: 100%;
 }
 
 #svg-heart-container {
@@ -27,26 +28,116 @@ body {
   padding: 0;
   padding-top: 2%;
   position: relative;
+  border: 1px solid green;
 }
 
-#inner-container {
+#heart-container {
   border-radius: 15px;
   position: relative;
   opacity: 1;
   transition: opacity 10s;
+  /* border: 1px solid rgba(223, 8, 8, 1); */
 }
 
-#inner-container.faded {
+#heart-container.faded {
   opacity: 0;
 }
 
-svg {
+#svg-card {
+  width: 600px;
+  height: 600px;
   border-radius: 10px;
   box-shadow: 2px 2px 6px #444;
+  /* border: 1px solid rgb(221, 11, 11); */
 }
+
+#ValHeart {
+  fill: rgb(255, 0, 0, 0.78);
+  animation: none;
+}
+
+#ValHeart.beatInPlace {
+  fill: red;
+  animation: 9s ease-out 1s infinite valHeartBeat
+}
+
+@keyframes valHeartBeat {
+  0% {
+    opacity: 1;
+  }
+  55% {
+    opacity: .2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#happy-main {
+  z-index: 10;
+  /* doesn't work, here or inline */
+}
+
+#heartOutG,
+#heartInG {
+  animation: none;
+}
+
+#heartOutG:hover,
+#heartInG:hover {
+  animation: 1.2s ease-in-out 0s infinite beat;
+}
+
+#heartOutG.beat,
+#heartInG.beat {
+  animation: 1.2s ease-in-out 0s infinite beat;
+}
+
+@keyframes beat {
+  0% {
+    transform: scale(1.2) translate(-1%, -1%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.PathText {
+  color: white;
+  font-size: 12px;
+  /* this actually works */
+  stroke: red;
+  /* So does this */
+  text-shadow: 0.5px 0.5px rgb(255, 100, 100);
+  transform: translate(-15px, -15px);
+}
+
+.PathText:hover {
+  stroke: violet;
+}
+
+
+/* text {
+  dominant-baseline: hanging;
+  background: white;
+  font: 25px Verdana, Helvetica, Arial, sans-serif;
+}
+
+*/
+
+#recipient {
+  position: fixed;
+  bottom: 0.3em;
+  right: 2.8em;
+  font-size: 4em;
+}
+
+
+/* Below are for little hearts appended to heart-container */
 
 .moving-heart {
   position: absolute;
+  /* below (top 15.8%, left 16.0%) works for svg-card (and therefore heart-container) of width 600px w/ 5.1 scale heart path*/
   top: 15.8%;
   left: 16.0%;
   animation: path-animation 40s forwards;
@@ -60,6 +151,7 @@ svg {
 
 .moving-heart-2 {
   position: absolute;
+  /* 40%/36% works for svg-card of 500px w/ 2 scale heart path*/
   top: 40%;
   left: 36%;
   animation: path-animation 30s forwards;
@@ -69,6 +161,21 @@ svg {
   background-color: rgba(255, 200, 200, 0.05);
   border-radius: 50%;
   box-shadow: none;
+}
+
+@media (max-width: 730px) {
+  #svg-card {
+    width: 500px;
+    height: 500px;
+  }
+  .moving-heart {
+    top: 10%;
+    left: 8.2%;
+  }
+  .moving-heart-2 {
+    top: 38%;
+    left: 33%;
+  }
 }
 
 @keyframes path-animation {
@@ -124,72 +231,3 @@ svg {
 
 
 /* SVG styling moved to css file */
-
-#ValHeart {
-  fill: rgb(255, 0, 0, 0.78);
-  animation: none;
-}
-
-#ValHeart.beatInPlace {
-  fill: red;
-  animation: 9s ease-out 1s infinite valHeartBeat
-}
-
-@keyframes valHeartBeat {
-  0% {
-    opacity: 1;
-  }
-  55% {
-    opacity: .2;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-#heartOutG,
-#heartInG {
-  animation: none;
-}
-
-#heartOutG:hover,
-#heartInG:hover {
-  animation: 1.2s ease-in-out 0s infinite beat;
-}
-
-#heartOutG.beat,
-#heartInG.beat {
-  animation: 1.2s ease-in-out 0s infinite beat;
-}
-
-@keyframes beat {
-  0% {
-    transform: scale(1.2) translate(-1%, -1%);
-  }
-  100% {
-    transform: scale(1) translate(0, 0);
-  }
-}
-
-.PathText {
-  color: white;
-  font-size: 12px;
-  /* this actually works */
-  stroke: red;
-  /* So does this */
-  text-shadow: 0.5px 0.5px rgb(255, 100, 100);
-  transform: translate(-15px, -15px);
-}
-
-.PathText:hover {
-  stroke: violet;
-}
-
-
-/* text {
-  dominant-baseline: hanging;
-  background: white;
-  font: 25px Verdana, Helvetica, Arial, sans-serif;
-}
-
-*/

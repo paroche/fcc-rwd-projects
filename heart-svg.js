@@ -5,7 +5,7 @@ const song = document.getElementById('song');
 // const heartContainer = document.getElementById('svg-heart-container');
 const container = document.getElementById('container');
 const clickMessage = document.getElementById('click-me');
-const heartContainer = document.getElementById('inner-container');
+const heartContainer = document.getElementById('heart-container');
 const heartInG = document.getElementById('heartInG');
 const heartOutG = document.getElementById('heartOutG');
 const valHeart = document.getElementById('ValHeart');
@@ -43,6 +43,13 @@ window.addEventListener('load', () => {
   setTimeout(scrollTop, 1);
 });
 
+
+// ******** Create moving hearts ********
+
+for (let i = 0; i < hearts; i++) {
+  setTimeout(() => createHeart(i), createInterval(i));
+}
+
 //
 
 function scalePath(path, pathVar, scale) {
@@ -55,12 +62,6 @@ function scalePath(path, pathVar, scale) {
   pathArray.shift(); // for some reason was an element 0 added
   const newPath = pathArray.join(' ');
   document.documentElement.style.setProperty(pathVar, newPath);
-}
-
-// Create additional moving hearts
-
-for (let i = 0; i < hearts; i++) {
-  setTimeout(() => createHeart(i), createInterval(i));
 }
 
 function createInterval(i) {
@@ -90,7 +91,7 @@ function createHeart(id) {
   // frag.classList.add('moving-heart'); // apparently this doesn't work
   heartContainer.appendChild(frag);
   setTimeout(() => document.getElementById(id).remove(), 20000);
-  if (id == hearts / 2) setHeartInOutBeats(); // After half little heart created, set side hearts beating
+  if (id == Math.floor(hearts / 2)) setHeartInOutBeats(); // After half little heart created, set side hearts beating
   if (id == hearts - 1) fadeOutIn(); // When last heart made, set times to fade out, then fade back in
 }
 
@@ -107,7 +108,7 @@ function svgHeart(color, className, id) {
 `;
 }
 
-// Event Listeners
+// ******** Event Listeners ********
 
 container.addEventListener('dblclick', toggleSong);
 heartContainer.addEventListener('click', toggleSong);
