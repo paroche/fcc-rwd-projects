@@ -207,11 +207,12 @@ body {
 #curved-message {
   position: absolute;
   left: 50%;
-  top: 6.5%;
+  top: 8%;
+  top: 9%;
   transform: translateX(-45%);
   opacity: 1;
   transition: opacity 7s;
-  font: 28px Verdana, Helvetica, Arial, sans-serif;
+  font: 32px Verdana, Helvetica, Arial, sans-serif;
   /* font-size: 32px; */
   text-shadow: 1px 1px rgb(139, 4, 4);
 }
