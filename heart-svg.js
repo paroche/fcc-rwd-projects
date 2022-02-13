@@ -50,6 +50,7 @@ window.addEventListener('load', () => {
   setTimeout(unhideCurvedMessage, 2500);
   setTimeout(unhideCard, 5000);
   setTimeout(unhideLowerRText, 7500);
+  const message = sessionStorage.getItem('message') ;
 });
 
 
