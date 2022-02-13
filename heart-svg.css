@@ -45,11 +45,18 @@ body {
 }
 
 #svg-card {
+  opacity: 1;
+  transition: opacity 4s ease-in;
+  transition-timing-function: cubic-bezier(0.0, 0.1, .50, 0.0);
   width: 600px;
   height: 600px;
   border-radius: 10px;
   box-shadow: 2px 2px 6px #444;
   /* border: 1px solid rgb(221, 11, 11); */
+}
+
+#svg-card.hidden {
+  opacity: 0;
 }
 
 #ValHeart {
@@ -134,14 +141,14 @@ body {
 }
 
 
-/* Below are for little hearts appended to heart-container */
+/* Below are for little moving hearts appended to heart-container */
 
 .moving-heart {
   position: absolute;
   /* below (top 15.8%, left 16.0%) works for svg-card (and therefore heart-container) of width 600px w/ 5.1 scale heart path*/
   top: 15.8%;
   left: 16.0%;
-  animation: path-animation 40s forwards;
+  animation: path-animation 40s alternate;
   width: 30px;
   height: auto;
   offset-path: path(var(--d));
@@ -150,12 +157,18 @@ body {
   box-shadow: none;
 }
 
+.moving-heart.b {
+  /* animation-direction: reverse; */
+  /* this doesn't seem to work as desired */
+}
+
 .moving-heart-2 {
   position: absolute;
-  /* 40%/36% works for svg-card of 500px w/ 2 scale heart path*/
+  /* 38-40%/36% works for svg-card of 500px w/ 2 scale heart path*/
   top: 40%;
-  left: 36%;
-  animation: path-animation 30s forwards;
+  top: 38%;
+  left: 36.2%;
+  animation: path-animation 30s normal;
   width: 30px;
   height: auto;
   offset-path: path(var(--d2));
@@ -164,6 +177,12 @@ body {
   box-shadow: none;
 }
 
+
+/* below assumes heart paths stay same size (5.1 & 2) */
+
+
+/* To be able to adjust paths, would have to have JS monitor screen width and adjust d & d1 and also update some vars saying how large they are so can use for a calculation below */
+
 @media (max-width: 730px) {
   #svg-card {
     width: 500px;
@@ -171,7 +190,7 @@ body {
   }
   .moving-heart {
     top: 10%;
-    left: 8.4%;
+    left: 8.6%;
   }
   .moving-heart-2 {
     top: 38%;
@@ -204,6 +223,19 @@ body {
     offset-rotate: 0;
     opacity: 0;
   }
+}
+
+#curved-message {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-45%);
+  opacity: 1;
+  transition: opacity 3s;
+}
+
+#curved-message.hidden {
+  opacity: 0;
 }
 
 #song {

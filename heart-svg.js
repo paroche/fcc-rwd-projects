@@ -8,6 +8,8 @@ const clickMessage = document.getElementById('click-me');
 const heartContainer = document.getElementById('heart-container');
 const heartInG = document.getElementById('heartInG');
 const heartOutG = document.getElementById('heartOutG');
+const svgCard = document.getElementById('svg-card');
+const curvedMessage = document.getElementById('curved-message');
 const valHeart = document.getElementById('ValHeart');
 const heartPath = window
   .getComputedStyle(document.documentElement)
@@ -29,8 +31,10 @@ const colors = [
   'red',
   'rgb(255,50,150)',
   'rgb(50,200,100)',
+  'red',
+  'rgb(255,50,200)',
 ];
-const classNames = ['moving-heart', 'moving-heart-2'];
+const classNames = ['moving-heart', 'moving-heart', 'moving-heart-2', 'moving-heart-2'];
 // let printed = false; // t
 
 const startTime = Date.now();
@@ -41,6 +45,8 @@ const heartBeat = 1200;
 window.addEventListener('load', () => {
   heartContainer.hidden = false; // gives cleaner load
   setTimeout(scrollTop, 1);
+  setTimeout(unhideCurvedMessage, 2500);
+  setTimeout(unhideCard, 5000);
 });
 
 
@@ -90,6 +96,8 @@ function createHeart(id) {
   const frag = document.createRange().createContextualFragment(tagString);
   // frag.classList.add('moving-heart'); // apparently this doesn't work
   heartContainer.appendChild(frag);
+  const newHeart = document.getElementById(id);
+  newHeart.classList.add('b');
   setTimeout(() => document.getElementById(id).remove(), 20000);
   if (id == Math.floor(hearts / 2)) setHeartInOutBeats(); // After half little heart created, set side hearts beating
   if (id == hearts - 1) fadeOutIn(); // When last heart made, set times to fade out, then fade back in
@@ -106,6 +114,13 @@ function svgHeart(color, className, id) {
 </g>
 </svg>
 `;
+}
+
+function unhideCard() {
+svgCard.classList.remove('hidden');
+}
+function unhideCurvedMessage() {
+  curvedMessage.classList.remove('hidden');
 }
 
 // ******** Event Listeners ********

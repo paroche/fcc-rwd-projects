@@ -15,7 +15,7 @@
   <div id="container">
     <div id="svg-heart-container">
       <div id="heart-container" hidden>
-        <svg id="svg-card" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 500 500" xml:space="preserve">
+        <svg id="svg-card" class="hidden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 500 500" xml:space="preserve">
             <desc>Created with Fabric.js 4.6.0</desc>
             <defs>
               <path
@@ -103,12 +103,28 @@
               </textPath>
             </text>
           </svg>
+
+        <svg id="curved-message" class="hidden" width="200" height="100" xmlns="http://www.w3.org/2000/svg">
+            <path id="curve_path" d="M 20,20 C 0,40 100,50 180,20" fill="transparent" />
+            <text fill="rgba(255,100,100,1)" >
+              <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#curve_path">
+                Dear Joyce...
+              </textPath>
+            </text>
+            
+            <style><![CDATA[
+              text{
+                font: 28px Verdana, Helvetica, Arial, sans-serif;
+              }
+            ]]></style>
+            </svg>
+
       </div>
       <!-- <span id="recipient">Sweetheart</span> -->
     </div>
     <span id="click-me">Click on card for sound</span>
   </div>
-  <audio controls muted id="song">
+  <audio controls muted loop id="song">
     <source
       src="./audio/snowfall.mp3"
       type="audio/mpeg"
