@@ -43,6 +43,7 @@ let prevInterval = 0;
 const hearts = 300;
 const heartBeat = 1200;
 
+// ******** Set up loading events ******** //
 window.addEventListener('load', () => {
   heartContainer.hidden = false; // gives cleaner load
   setTimeout(scrollTop, 1);
@@ -52,13 +53,13 @@ window.addEventListener('load', () => {
 });
 
 
-// ******** Create moving hearts ********
+// ******** Create moving hearts ******** //
 
 for (let i = 0; i < hearts; i++) {
   setTimeout(() => createHeart(i), createInterval(i));
 }
 
-//
+// ******** heartpath functions ******** //
 
 function scalePath(path, pathVar, scale) {
   let pathArray = path.split(' ');
@@ -118,6 +119,8 @@ function svgHeart(color, className, id) {
 `;
 }
 
+// **** Fade-in Functions for startup ******** //
+
 function unhideCard() {
 svgCard.classList.remove('hidden');
 }
@@ -128,14 +131,15 @@ function unhideLowerRText() {
   lowerRText.classList.remove('hidden');
 }
 
-// ******** Event Listeners ********
+// ******** Event Listeners ******** //
 
 container.addEventListener('dblclick', toggleSong);
 heartContainer.addEventListener('click', toggleSong);
 heartContainer.addEventListener('click', toggleBeatInPlace);
 heartContainer.addEventListener('click', hideClickMessage);
 
-//
+
+// ******** Heartbeat Functions ******** //
 
 function setHeartInOutBeats() {
   const heartInGInterval = setInterval(
@@ -162,28 +166,25 @@ function fadeIn() {
   heartContainer.addEventListener('click', () => location.reload());
 }
 
-function toggleSong() {
-  song.muted = false;
-  if (song.paused) song.play();
-  else song.pause();
-  // console.log('trying to play song...');
-}
 
 function toggleBeatInPlace() {
   valHeart.className.baseVal =
-    valHeart.className.baseVal == 'beatInPlace' ? '' : 'beatInPlace';
+  valHeart.className.baseVal == 'beatInPlace' ? '' : 'beatInPlace';
 }
 
 function toggleBeat(el, delay, duration) {
   setTimeout(() => {
     el.className.baseVal = el.className.baseVal == 'beat' ? '' : 'beat';
   }, delay);
-  // setTimeout(() => {
-  //   el.className.baseVal = 'beat';
-  //   setTimeOut(() => (el.className.baseVal = ''), duration);
-  // }, delay);
 }
 
+// ******** Song/Click Message/Scroll Top ******** //
+
+function toggleSong() {
+  song.muted = false;
+  if (song.paused) song.play();
+  else song.pause();
+}
 function hideClickMessage() {
   clickMessage.classList.add('hidden');
 }
