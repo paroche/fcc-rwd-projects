@@ -10,6 +10,7 @@ const heartInG = document.getElementById('heartInG');
 const heartOutG = document.getElementById('heartOutG');
 const svgCard = document.getElementById('svg-card');
 const curvedMessage = document.getElementById('curved-message');
+const lowerRText = document.getElementById('lowerRText');
 const valHeart = document.getElementById('ValHeart');
 const heartPath = window
   .getComputedStyle(document.documentElement)
@@ -47,6 +48,7 @@ window.addEventListener('load', () => {
   setTimeout(scrollTop, 1);
   setTimeout(unhideCurvedMessage, 2500);
   setTimeout(unhideCard, 5000);
+  setTimeout(unhideLowerRText, 7500);
 });
 
 
@@ -121,6 +123,9 @@ svgCard.classList.remove('hidden');
 }
 function unhideCurvedMessage() {
   curvedMessage.classList.remove('hidden');
+}
+function unhideLowerRText() {
+  lowerRText.classList.remove('hidden');
 }
 
 // ******** Event Listeners ********

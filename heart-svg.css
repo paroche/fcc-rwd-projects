@@ -125,22 +125,6 @@ body {
 }
 
 
-/* text {
-  dominant-baseline: hanging;
-  background: white;
-  font: 25px Verdana, Helvetica, Arial, sans-serif;
-}
-
-*/
-
-#recipient {
-  position: fixed;
-  bottom: 0.3em;
-  right: 2.8em;
-  font-size: 4em;
-}
-
-
 /* Below are for little moving hearts appended to heart-container */
 
 .moving-heart {
@@ -228,13 +212,24 @@ body {
 #curved-message {
   position: absolute;
   left: 50%;
-  top: 5%;
+  top: 6%;
   transform: translateX(-45%);
+  opacity: 1;
+  transition: opacity 7s;
+  text-shadow: 1px 1px rgb(139, 4, 4);
+}
+
+#curved-message.hidden {
+  opacity: 0;
+}
+
+#lowerRText {
+  font-size: 10px;
   opacity: 1;
   transition: opacity 3s;
 }
 
-#curved-message.hidden {
+#lowerRText.hidden {
   opacity: 0;
 }
 
