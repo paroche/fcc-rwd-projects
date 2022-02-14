@@ -1,6 +1,5 @@
 /** @format */
 
-
 const song = document.getElementById('song');
 // const heartContainer = document.getElementById('svg-heart-container');
 const container = document.getElementById('container');
@@ -9,8 +8,12 @@ const heartContainer = document.getElementById('heart-container');
 const heartInG = document.getElementById('heartInG');
 const heartOutG = document.getElementById('heartOutG');
 const svgCard = document.getElementById('svg-card');
+const gems = document.getElementById('gems');
+const cornerGems = document.querySelectorAll('.corner-gem');
 const curvedMessage = document.getElementById('curved-message');
-const curvedMessageTextpath = document.getElementById('curved-message-textpath');
+const curvedMessageTextpath = document.getElementById(
+  'curved-message-textpath'
+);
 const lowerRText = document.getElementById('lowerRText');
 const valHeart = document.getElementById('ValHeart');
 const heartPath = window
@@ -49,12 +52,12 @@ window.addEventListener('load', () => {
   heartContainer.hidden = false; // gives cleaner load
   setTimeout(scrollTop, 1);
   setTimeout(unhideCurvedMessage, 2500);
+  setTimeout(unhideGems, 2000);
   setTimeout(unhideCard, 5000);
   setTimeout(unhideLowerRText, 7500);
-  const greeting = sessionStorage.getItem('greeting') ;
+  const greeting = sessionStorage.getItem('greeting');
   curvedMessageTextpath.textContent = greeting;
 });
-
 
 // ******** Create moving hearts ******** //
 
@@ -125,8 +128,19 @@ function svgHeart(color, className, id) {
 // **** Fade-in Functions for startup ******** //
 
 function unhideCard() {
-svgCard.classList.remove('hidden');
+  svgCard.classList.remove('hidden');
 }
+function unhideGems() {
+  gems.classList.remove('hidden');
+  console.log(cornerGems);
+  cornerGems.forEach((gem, i) => {
+    const base = 100;
+    let interval = (i==1)? base*3 : (i==0)? base*2: (i==2)? base : base*4; // klugy, but gets order I want
+    setTimeout(() => gem.classList.add('beat'), 5000 + interval);
+    console.log(gem, i);
+  });
+}
+
 function unhideCurvedMessage() {
   curvedMessage.classList.remove('hidden');
 }
@@ -140,7 +154,6 @@ container.addEventListener('dblclick', toggleSong);
 heartContainer.addEventListener('click', toggleSong);
 heartContainer.addEventListener('click', toggleBeatInPlace);
 heartContainer.addEventListener('click', hideClickMessage);
-
 
 // ******** Heartbeat Functions ******** //
 
@@ -169,10 +182,9 @@ function fadeIn() {
   heartContainer.addEventListener('click', () => location.reload());
 }
 
-
 function toggleBeatInPlace() {
   valHeart.className.baseVal =
-  valHeart.className.baseVal == 'beatInPlace' ? '' : 'beatInPlace';
+    valHeart.className.baseVal == 'beatInPlace' ? '' : 'beatInPlace';
 }
 
 function toggleBeat(el, delay, duration) {

@@ -59,6 +59,67 @@ body {
   opacity: 0;
 }
 
+#gems {
+  opacity: 1;
+  transition: opacity 8s;
+}
+
+#gems.hidden {
+  opacity: 0;
+}
+
+.corner-gem.beat {
+  animation: 0.4s ease-in-out 0s infinite gem-beat;
+}
+
+@keyframes gem-beat {
+  0% {
+    transform: scale(1.05) translate(-1%, -1%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.fa-gem {
+  position: absolute;
+  color: silver;
+}
+
+#gem-l {
+  top: 8%;
+  left: 36%;
+}
+
+#gem-r {
+  top: 8%;
+  left: 62.5%;
+}
+
+#gem-ur {
+  top: 3%;
+  right: 3%;
+  color: blue;
+}
+
+#gem-ur3 {
+  top: 3%;
+  right: 7%;
+  color: red;
+}
+
+#gem-ur2 {
+  top: 5.5%;
+  right: 5%;
+  color: rgb(3, 153, 3);
+}
+
+#gem-ur4 {
+  top: 5.5%;
+  right: 1%;
+  color: rgb(85, 2, 85);
+}
+
 #ValHeart {
   fill: rgb(255, 0, 0, 0.78);
   animation: none;
@@ -209,7 +270,7 @@ body {
   left: 50%;
   top: 8%;
   /* top: 9%; */
-  transform: translateX(-50%);
+  transform: translateX(-51.5%);
   opacity: 1;
   transition: opacity 7s;
   font: 32px Verdana, Helvetica, Arial, sans-serif;
