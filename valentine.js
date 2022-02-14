@@ -52,7 +52,7 @@ window.addEventListener('load', () => {
   heartContainer.hidden = false; // gives cleaner load
   setTimeout(scrollTop, 1);
   setTimeout(unhideCurvedMessage, 2500);
-  setTimeout(unhideGems, 2000);
+  setTimeout(unhideGems, 4000);
   setTimeout(unhideCard, 5000);
   setTimeout(unhideLowerRText, 7500);
   const greeting = sessionStorage.getItem('greeting');
@@ -65,7 +65,7 @@ for (let i = 0; i < hearts; i++) {
   setTimeout(() => createHeart(i), createInterval(i));
 }
 
-// ******** heartpath functions ******** //
+// ******** Heartpath functions ******** //
 
 function scalePath(path, pathVar, scale) {
   let pathArray = path.split(' ');
@@ -136,7 +136,7 @@ function unhideGems() {
   cornerGems.forEach((gem, i) => {
     const base = 100;
     let interval = (i==1)? base*3 : (i==0)? base*2: (i==2)? base : base*4; // klugy, but gets order I want
-    setTimeout(() => gem.classList.add('beat'), 5000 + interval);
+    setTimeout(() => gem.classList.add('beat'), 10000 + interval);
     console.log(gem, i);
   });
 }
