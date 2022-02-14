@@ -49,8 +49,7 @@ const heartBeat = 1200;
 
 // ******** Set up loading events ******** //
 window.addEventListener('load', () => {
-  let greeting = sessionStorage.getItem('greeting');
-  if (!greeting) greeting="For You";
+  const greeting = sessionStorage.getItem('greeting');
   heartContainer.hidden = false; // gives cleaner load
   setTimeout(scrollTop, 1);
   setTimeout(unhideCurvedMessage, 2500);
