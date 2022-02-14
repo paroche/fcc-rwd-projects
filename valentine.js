@@ -49,13 +49,13 @@ const heartBeat = 1200;
 
 // ******** Set up loading events ******** //
 window.addEventListener('load', () => {
+  const greeting = sessionStorage.getItem('greeting');
   heartContainer.hidden = false; // gives cleaner load
   setTimeout(scrollTop, 1);
   setTimeout(unhideCurvedMessage, 2500);
   setTimeout(unhideGems, 4000);
   setTimeout(unhideCard, 5000);
   setTimeout(unhideLowerRText, 7500);
-  const greeting = sessionStorage.getItem('greeting');
   curvedMessageTextpath.textContent = greeting;
 });
 
@@ -130,6 +130,7 @@ function svgHeart(color, className, id) {
 function unhideCard() {
   svgCard.classList.remove('hidden');
 }
+
 function unhideGems() {
   gems.classList.remove('hidden');
   console.log(cornerGems);
@@ -144,6 +145,7 @@ function unhideGems() {
 function unhideCurvedMessage() {
   curvedMessage.classList.remove('hidden');
 }
+
 function unhideLowerRText() {
   lowerRText.classList.remove('hidden');
 }
@@ -168,6 +170,21 @@ function setHeartInOutBeats() {
   );
 }
 
+
+function toggleBeatInPlace() {
+  valHeart.className.baseVal =
+    valHeart.className.baseVal == 'beatInPlace' ? '' : 'beatInPlace';
+}
+
+function toggleBeat(el, delay, duration) {
+  setTimeout(() => {
+    el.className.baseVal = el.className.baseVal == 'beat' ? '' : 'beat';
+  }, delay);
+}
+
+// ******** Fade Out/In Functions for End ******** //
+
+
 function fadeOutIn() {
   setTimeout(fadeOut, 30000);
   setTimeout(fadeIn, 50000);
@@ -182,16 +199,6 @@ function fadeIn() {
   heartContainer.addEventListener('click', () => location.reload());
 }
 
-function toggleBeatInPlace() {
-  valHeart.className.baseVal =
-    valHeart.className.baseVal == 'beatInPlace' ? '' : 'beatInPlace';
-}
-
-function toggleBeat(el, delay, duration) {
-  setTimeout(() => {
-    el.className.baseVal = el.className.baseVal == 'beat' ? '' : 'beat';
-  }, delay);
-}
 
 // ******** Song/Click Message/Scroll Top ******** //
 
