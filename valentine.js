@@ -171,7 +171,6 @@ function setHeartInOutBeats() {
   );
 }
 
-
 function toggleBeatInPlace() {
   valHeart.className.baseVal =
     valHeart.className.baseVal == 'beatInPlace' ? '' : 'beatInPlace';
@@ -183,8 +182,8 @@ function toggleBeat(el, delay, duration) {
   }, delay);
 }
 
-// ******** Fade Out/In Functions for End ******** //
 
+// ******** Fade Out/In Functions for End ******** //
 
 function fadeOutIn() {
   setTimeout(fadeOut, 30000);
@@ -229,6 +228,6 @@ function createNotification(message, type) {
   }
 
 function scrollTop() {
-  document.body.scrollTop = 5;
-  document.documentElement.scrollTop = 5;
+  // document.body.scrollTop = 5;
+  // document.documentElement.scrollTop = 5;
 }

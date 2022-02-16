@@ -272,6 +272,9 @@ document.documentElement.clientWidth
   }
 }
 
+
+/* Note: My Moto 5G is 432px */
+
 @media (max-width: 450px) {
   #svg-card {
     width: 400px;
