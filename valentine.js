@@ -1,8 +1,9 @@
 /** @format */
 
 const song = document.getElementById('song');
-// const heartContainer = document.getElementById('svg-heart-container');
+const svgHeartContainer = document.getElementById('svg-heart-container');
 const backgroundContainer = document.getElementById('background-container');
+const toasts = document.getElementById('toasts');
 const clickMessage = document.getElementById('click-me');
 const heartContainer = document.getElementById('heart-container');
 const heartInG = document.getElementById('heartInG');
@@ -134,12 +135,10 @@ function unhideCard() {
 
 function unhideGems() {
   gems.classList.remove('hidden');
-  console.log(cornerGems);
   cornerGems.forEach((gem, i) => {
     const base = 100;
     let interval = (i==1)? base*3 : (i==0)? base*2: (i==2)? base : base*4; // klugy, but gets order I want
     setTimeout(() => gem.classList.add('beat'), 10000 + interval);
-    console.log(gem, i);
   });
 }
 
@@ -154,6 +153,7 @@ function unhideLowerRText() {
 // ******** Event Listeners ******** //
 
 backgroundContainer.addEventListener('dblclick', toggleSong);
+svgHeartContainer.addEventListener('click', (e) => showWidth(e));
 heartContainer.addEventListener('click', toggleSong);
 heartContainer.addEventListener('click', toggleBeatInPlace);
 heartContainer.addEventListener('click', hideClickMessage);
@@ -211,6 +211,22 @@ function toggleSong() {
 function hideClickMessage() {
   clickMessage.classList.add('hidden');
 }
+
+function showWidth(e) {
+  // console.log(e.target);
+  // console.log(e.currentTarget);
+if (e.target != e.currentTarget) return; // apparently I still don't know how to stop bubbling on the listener itself
+const message = 'width: '+document.documentElement.clientWidth;
+createNotification(message, 'info');
+}
+function createNotification(message, type) {
+  const notif = document.createElement('dir');
+  notif.classList.add('toast');
+  notif.classList.add(type);
+  notif.innerText = message;
+  toasts.appendChild(notif);
+  setTimeout(()=> notif.remove(), 3000);
+  }
 
 function scrollTop() {
   document.body.scrollTop = 5;

@@ -406,3 +406,37 @@ document.documentElement.clientWidth
 #click-me.hidden {
   display: none;
 }
+
+
+/* Toasts (from 50 projects) */
+
+#toasts {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.toast {
+  background-color: #fff;
+  color: rebeccapurple;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  opacity: 0.7;
+  background: rgb(226, 11, 226. 0.5)
+}
+
+.toast.info {
+  color: blue;
+}
+
+.toast.success {
+  color: green;
+}
+
+.toast.error {
+  color: red;
+}
