@@ -246,10 +246,29 @@ document.documentElement.clientWidth
   .moving-heart {
     top: 10%;
     left: 8.6%;
+    width: 28px;
   }
   .moving-heart-2 {
     top: 38%;
     left: 33%;
+    width: 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  #svg-card {
+    width: 450px;
+    height: 450px;
+  }
+  .moving-heart {
+    top: 6%;
+    left: 4.5%;
+    width: 25px;
+  }
+  .moving-heart-2 {
+    top: 33%;
+    left: 31.5%;
+    width: 25px;
   }
 }
 
