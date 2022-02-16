@@ -272,7 +272,7 @@ document.documentElement.clientWidth
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 450px) {
   #svg-card {
     width: 400px;
     height: 400px;
@@ -289,7 +289,7 @@ document.documentElement.clientWidth
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   #svg-card {
     width: 360px;
     height: 360px;
@@ -306,7 +306,7 @@ document.documentElement.clientWidth
   }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 360px) {
   #svg-card {
     width: 270px;
     height: 270px;
