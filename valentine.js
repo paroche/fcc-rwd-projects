@@ -2,7 +2,7 @@
 
 const song = document.getElementById('song');
 // const heartContainer = document.getElementById('svg-heart-container');
-const container = document.getElementById('container');
+const backgroundContainer = document.getElementById('background-container');
 const clickMessage = document.getElementById('click-me');
 const heartContainer = document.getElementById('heart-container');
 const heartInG = document.getElementById('heartInG');
@@ -153,7 +153,7 @@ function unhideLowerRText() {
 
 // ******** Event Listeners ******** //
 
-container.addEventListener('dblclick', toggleSong);
+backgroundContainer.addEventListener('dblclick', toggleSong);
 heartContainer.addEventListener('click', toggleSong);
 heartContainer.addEventListener('click', toggleBeatInPlace);
 heartContainer.addEventListener('click', hideClickMessage);

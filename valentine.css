@@ -10,7 +10,7 @@ body {
   text-align: center;
 }
 
-#container {
+#background-container {
   background-image: linear-gradient(to bottom right, #ffaaaa, #ffeeee, #ffaaaa, #fdd, #ffaaaa, #ffeeee, #ffaaaa, #fdd);
   background-size: cover;
   background-attachment: local;
@@ -232,7 +232,11 @@ body {
 /* below assumes heart paths stay same size (5.1 & 2) */
 
 
-/* To be able to adjust paths, would have to have JS monitor screen width and adjust d & d1 and also update some vars saying how large they are so can use for a calculation below */
+/* To be able to adjust paths, would have to have JS monitor screen width and adjust d & d1 and also update some vars saying how large they are so can use for a calculation below 
+window.addEventListener('resize', handlingFunction);
+document.documentElement.clientHeight
+document.documentElement.clientWidth
+*/
 
 @media (max-width: 730px) {
   #svg-card {
