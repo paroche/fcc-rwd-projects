@@ -16,7 +16,7 @@ const curvedMessageTextpath = document.getElementById(
   'curved-message-textpath'
 );
 const lowerRText = document.getElementById('lowerRText');
-const valHeart = document.getElementById('ValHeart');
+const valHeart = document.getElementById('val-heart');
 const heartPath = window
   .getComputedStyle(document.documentElement)
   .getPropertyValue('--d');
@@ -215,9 +215,11 @@ function showWidth(e) {
   // console.log(e.target);
   // console.log(e.currentTarget);
 if (e.target != e.currentTarget) return; // apparently I still don't know how to stop bubbling on the listener itself
+// would it work to add an event handler to the heart card on click sto .stopPropagation? Seems like there should be an easy way to say you want the event to only occur directly on the element..
 const message = 'width: '+document.documentElement.clientWidth;
 createNotification(message, 'info');
 }
+
 function createNotification(message, type) {
   const notif = document.createElement('dir');
   notif.classList.add('toast');

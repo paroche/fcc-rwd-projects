@@ -8,6 +8,20 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
   />
+  <style>
+    .arctext-container {
+      display: inline-flex;
+      position: relative;
+      border: 1px solid black;
+      border-radius: 0 0 50% 50%;
+    }
+    
+    .arctext {
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -18,6 +32,14 @@
   <p>In <cite>Example One</cite>, he writes <q>The man
     said <q>Things that are impossible just take longer</q>. I disagreed with him</q>. Well, I disagree even more!</p>
   <i class="fa fa-solid fa-gem"></i>
+  <br><br>
+  <div class="arctext-container">
+    <span class="" arctext ">
+      Hey!
+      <!-- I don't think there's an easy way to make curved text w/out SVG or separating/transforming each character.
+      There is this: https://circletype.labwire.ca/ -->
+    </span>
+  </div>
 </body>
 
 </html>

@@ -131,12 +131,12 @@ body {
 
 /* end Gems */
 
-#ValHeart {
+#val-heart {
   fill: rgb(255, 0, 0, 0.78);
   animation: none;
 }
 
-#ValHeart.beatInPlace {
+#val-heart.beatInPlace {
   fill: red;
   animation: 9s ease-out 1s infinite valHeartBeat
 }
@@ -208,6 +208,10 @@ body {
   width: 30px;
   height: auto;
   offset-path: path(var(--d));
+  /* offset-path: url(#val-heart-text); */
+  /* offset-path: url(#val-heart); */
+  /* above w/ url doesn't work, at least in Chrome or Edge*/
+  /* apparently neither method works in Firefox */
   background-color: rgba(255, 200, 200, 0.05);
   border-radius: 50%;
   box-shadow: none;
