@@ -1,0 +1,22 @@
+span {
+  background-color: palevioletred;
+  /* strangely, when had two inline elements together, got a gap between them, but inline in middle of block, no gap */
+  border: 1px solid black;
+  padding: 50px;
+}
+
+span.normal {
+  background-color: aliceblue;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  background-color: paleturquoise;
+  border: 1px solid black;
+  width: 300px;
+}
+
+p {
+  width: 800px;
+}
