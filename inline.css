@@ -12,8 +12,8 @@ span.normal {
 }
 
 h1 {
-  background-color: paleturquoise;
-  border: 1px solid black;
+  background-color: rgba(175, 238, 238, 0.877);
+  border: 1px solid rgb(0, 0, 0);
   width: 300px;
 }
 
@@ -25,6 +25,6 @@ div {
   height: 200px;
   width: 200px;
   background-color: olivedrab;
-  border: 5px solid black;
+  border: 5px solid #fc0303fb;
   display: inline-block;
 }
