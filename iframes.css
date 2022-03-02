@@ -7,7 +7,7 @@ h1 {
   /* display: flex;
   justify-content: center; */
   margin: 20px auto;
-  border: 25px groove rgba(200, 200, 200, 0.5);
+  border: 25px groove rgba(200, 200, 225, 0.5);
   padding: 10px;
   text-align: center;
 }
@@ -21,8 +21,23 @@ h1 {
 
 iframe {
   margin: 50px;
-  border: 15px groove rgba(200, 200, 200, 0.5);
+  border: 15px groove rgba(200, 200, 210, 0.5);
 }
+
+
+/* a:hover {
+  cursor: pointer;
+  opacity: .95;
+  transform: scale(0.98);
+  transition: all .5s ease;
+} */
+
+
+/* a:focus {
+  opacity: .95;
+  transform: scale(0.98);
+  transition: all .5s ease;
+} */
 
 
 /* Toasts (from 50 projects) */
@@ -30,7 +45,9 @@ iframe {
 #toasts {
   position: fixed;
   bottom: 10px;
-  right: 10px;
+  /* right: 10px; */
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
