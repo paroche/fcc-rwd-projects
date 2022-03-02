@@ -5,46 +5,52 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Testing iframes</title>
-  <style>
-    body {
-      background: #eee;
-    }
-    
-    h1 {
-      width: 10em;
-      /* display: flex;
-      justify-content: center; */
-      margin: 20px auto;
-      border: 25px groove rgba(200, 200, 200, 0.5);
-      padding: 10px;
-      text-align: center;
-    }
-    
-    #iframes {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      background: #eee;
-    }
-    
-    iframe {
-      margin: 50px;
-      border: 15px groove rgba(200, 200, 200, 0.5);
-    }
-  </style>
+  <title>iframes Menu</title>
+  <link rel="stylesheet" href="iframes.css">
 </head>
 
 <body>
   <h1>Fun with iFrames</h1>
   <div id="iframes">
-    <iframe src="./eratosthenes.html" title="Eratosthenes Tribute" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
-    <iframe src="./lotr-survey.html" title="LOTR Survey" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
-    <iframe src="./bright-green-machines.html" title="Bright Green Machines" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
-    <iframe src="./centering-text-and-images.html" title="Centering Text and Images in HTML" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
-    <iframe src="./portfolio.html" title="Peter Roche Student Portfolio" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    <a href="./eratosthenes.html">
+      <iframe src="./eratosthenes.html" title="Eratosthenes Tribute" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    </a>
+
+    <a href="./lotr-survey.html">
+      <iframe src="./lotr-survey.html" title="LOTR Survey" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    </a>
+    <a href="./bright-green-machines.html">
+      <iframe src="./bright-green-machines.html" title="Bright Green Machines" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    </a>
+
+    <a href="./centering-text-and-images.html">
+      <iframe src="./centering-text-and-images.html" title="Centering Text and Images in HTML" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    </a>
+
+    <a href="./portfolio.html">
+      <iframe src="./portfolio.html" title="Peter Roche Student Portfolio" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    </a>
+
+    <a href="./joyce.html">
+      <iframe src="./joyce.html" title="Joyce Birthday Card" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    </a>
+
+    <a href="./vjoyce.html">
+      <iframe src="./vjoyce.html" title="Joyce Valentine Card" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    </a>
+
+    <a href="https://github.com/javascript-tutorial/en.javascript.info/graphs/contributors">
+      <iframe src="jsinfo.html" title="Javascript.info Contributors" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+      <!-- <a href="https://github.com/javascript-tutorial/en.javascript.info/graphs/contributors">If GitHub Refused to Connect, Click Here!</a> -->
+    </a>
+
+    <a href="./inline.html">
+      <iframe src="./inline.html" title="Inline is Weird" frameborder="1" width="500px" height="500px" allowfullscreen></iframe>
+    </a>
+
+    <div id="toasts"></div>
   </div>
-  <script defer>
+  <script src="iframes.js" defer>
   </script>
 </body>
 
