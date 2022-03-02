@@ -21,7 +21,14 @@ p {
   width: 800px;
 }
 
-div {
+
+/* div.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+} */
+
+div.inline-block {
   height: 200px;
   width: 200px;
   background-color: olivedrab;
