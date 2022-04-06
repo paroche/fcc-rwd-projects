@@ -495,6 +495,8 @@ a:active {
 
 .img-with-caption {
   background-color: #DDD;
+  background-color: #EEE;
+  background-color: rgba(219, 223, 219, 0.308);
   border: 1px solid #8A8;
   display: flex;
   flex-direction: column;
@@ -509,6 +511,7 @@ img {
   margin-top: 5.1px;
   margin-top: .32em;
   font-size: var(--caption-font-size);
+  text-shadow: 0.2px 0.2px #111;
   color: #306;
   color: #104;
   /* */
