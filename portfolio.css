@@ -17,6 +17,7 @@
   --project-container-desc-tile-background: rgba(239, 239, 239, 0.85);
   --rice-background: url(./img/rice-paper-gray.jpg);
   --contact-background: rgba(240, 240, 240, 0.9);
+  --caption-font-size: 1em;
 }
 
 * {
@@ -514,6 +515,7 @@ img {
   text-shadow: 0.2px 0.2px #111;
   color: #306;
   color: #104;
+  text-align: center;
   /* */
 }
 
