@@ -527,6 +527,15 @@ img {
   transition: all .5s ease;
 }
 
+.hidden-link-misc-projects-la {
+  margin-left: 2em;
+  opacity: 0;
+}
+
+.hidden-link-misc-projects-la:hover {
+  opacity: 0.2;
+}
+
 
 /* Project specific styling */
 
