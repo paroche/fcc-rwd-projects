@@ -53,6 +53,12 @@ body.addEventListener('dblclick', () => {
   // container.classList.toggle('border');
 });
 
+// See if will work when come back from link
+window.addEventListener('load', ()=> {
+  sessionStorage.removeItem('load-all-first'); 
+  sessionStorage.removeItem('greeting');
+})
+
 // Functions for active link animation and delayed linking
 
 tiles.forEach((tile) => tile.addEventListener('click', (e) => activeTile(e)));

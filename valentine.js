@@ -52,6 +52,8 @@ const heartBeat = 1200;
 window.addEventListener('load', () => {
   let greeting = sessionStorage.getItem('greeting');
   if (!greeting) greeting="For You";
+  // sessionStorage.removeItem('greeting'); // Would like this to happen only on exit, but not on refresh, but don't know if can
+  
   heartContainer.hidden = false; // gives cleaner load
   setTimeout(scrollTop, 1);
   setTimeout(unhideCurvedMessage, 2500);
