@@ -53,7 +53,7 @@ body.addEventListener('dblclick', () => {
   // container.classList.toggle('border');
 });
 
-// See if will work when come back from link
+// See if will work when come back from link. This doesn't seem to work
 window.addEventListener('load', ()=> {
   sessionStorage.removeItem('load-all-first'); 
   sessionStorage.removeItem('greeting');
