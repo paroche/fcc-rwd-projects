@@ -10,10 +10,11 @@
   --section__header--background: rgba(239, 239, 239, 0.25);
   --section__subheader-background: rgba(239, 239, 239, 0.95);
   --section__footer-background: rgba(239, 239, 239, 0.45);
+  --projects-background-white: #FFF;
   --projects-background-standard: #EEE;
   --projects-background-transparent: rgba(239, 239, 239, 0.0);
   --projects-background-translucent: rgba(239, 239, 239, 0.25);
-  --projects-background: var(--projects-background-standard);
+  --projects-background: var(--projects-background-white);
   --project-container-desc-tile-background: rgba(239, 239, 239, 0.85);
   --rice-background: url(./img/rice-paper-gray.jpg);
   --contact-background: rgba(240, 240, 240, 0.9);
@@ -591,7 +592,7 @@ address {
 .contact__info {
   color: #101010;
   color: black;
-  font-family: "Times New Roman", Times, serif;
+  /* font-family: "Times New Roman", Times, serif; */
   font-weight: bold;
   font-size: 22px;
   margin: 30px;

@@ -1,7 +1,5 @@
 /** @format */
 
-// *** TO DO: Not always changing formats on doubleclick **
-
 const root = document.documentElement;
 const body = document.body;
 const container = document.getElementById('container');
@@ -12,18 +10,7 @@ const welcomeSection = document.getElementById('welcome-section');
 const tiles = document.querySelectorAll('.project-tile');
 const animationDefault = 'F'; // default to fade
 let animationType = animationDefault;
-
 let projectBack = 0;
-// Import background colors from CSS
-let projectsBackground = getComputedStyle(root).getPropertyValue('--projects-background');
-let sectionHeaderBackground = getComputedStyle(root).getPropertyValue('--section__header--background');
-let sectionSubheaderBackground = getComputedStyle(root).getPropertyValue('--section__subheader-background');
-let sectionFooterBackground = getComputedStyle(root).getPropertyValue('--section__footer-background');
-let projectContainerDescTileBackground = getComputedStyle(root).getPropertyValue('--project-container-desc-tile-background');
-let contactBackground = getComputedStyle(root).getPropertyValue('--contact-background');
-
-setBackgroundsWhite();
-
 // Put flag in session storage that progs are being run from portfolio
 sessionStorage.setItem('portfolio', 'true');
 
@@ -59,37 +46,30 @@ body.addEventListener('dblclick', () => {
   console.log(projectBack);
   const newBackground = projectBacks[projectBack];
   root.style.setProperty('--projects-background', newBackground);
-  if (projectBack == 1 || projectBack == 2 || projectBack == 3 || projectBack == 4 || projectBack==5)
-  container.classList.add('back-image');
+  if (projectBack == 2 || projectBack == 3 || projectBack == 4 || projectBack==5)
+    container.classList.add('back-image');
   else container.classList.remove('back-image');
-  if (projectBack == 3) body.classList.add('rice');
+  if (projectBack == 4) body.classList.add('rice');
   else body.classList.remove('rice');
-  
+
   // container.classList.toggle('border');
-  if (projectBack==0 || projectBack==3) setBackgroundsWhite(); else resetBackgrounds();
+
+  /*
+  --section__header--background: #fff;
+  /* rgba(239, 239, 239, 0.25); */
+  --section__subheader-background: #FFF;
+  /* rgba(239, 239, 239, 0.95); */
+  --section__footer-background: #FFF;
+  /* rgba(239, 239, 239, 0.45); */
+  --projects-background-white: #FFF;
+  --projects-background-standard: #EEE;
+  --projects-background-transparent: rgba(239, 239, 239, 0.0);
+  --projects-background-translucent: rgba(239, 239, 239, 0.25);
+  --projects-background: var(--projects-background-white);
+  --project-container-desc-tile-background: #FFF;
+  /* rgba(239, 239, 239, 0.85); */
+  */
 });
-
-function setBackgroundsWhite() {
-  // Set all backgrounds to white
-    let backgroundWhite = '#FFFFFF';
-    root.style.setProperty('--projects-background', backgroundWhite);
-    root.style.setProperty('--section__header--background', backgroundWhite);
-    root.style.setProperty('--section__subheader-background', backgroundWhite);
-    root.style.setProperty('--section__footer-background', backgroundWhite);
-    root.style.setProperty('--project-container-desc-tile-background', backgroundWhite);
-    root.style.setProperty('--projects-background', backgroundWhite);
-    root.style.setProperty('--contact-background', backgroundWhite);
-}
-
-function resetBackgrounds() {
-  root.style.setProperty('--projects-background', projectsBackground);
-  root.style.setProperty('--section__header--background', sectionHeaderBackground);
-  root.style.setProperty('--section__subheader-background', sectionSubheaderBackground);
-  root.style.setProperty('--section__footer-background', sectionFooterBackground);
-  root.style.setProperty('--project-container-desc-tile-background', projectContainerDescTileBackground);
-  root.style.setProperty('--contact-background', contactBackground);
-}
-
 
 // See if will work when come back from link. This doesn't seem to work
 window.addEventListener('load', ()=> {
