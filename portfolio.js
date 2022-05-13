@@ -13,7 +13,7 @@ const tiles = document.querySelectorAll('.project-tile');
 const animationDefault = 'F'; // default to fade
 let animationType = animationDefault;
 
-let projectBack = 0;
+let projectBack = -1;
 // Import background colors from CSS
 let projectsBackground = getComputedStyle(root).getPropertyValue('--projects-background');
 let sectionHeaderBackground = getComputedStyle(root).getPropertyValue('--section__header--background');
@@ -48,25 +48,25 @@ welcomeSection.addEventListener('dblclick', () => {
 body.addEventListener('dblclick', () => {
   // body.classList.toggle('san-serif');
   projectBacks = [
-    'var(--projects-background-white)',
-    'var(--projects-background-standard)',
-    'var(--projects-background-transparent)',
-    'var(--projects-background-white)',
-    'var(--projects-background-standard)',
+    // 'var(--projects-background-standard)',
+    'var(--projects-background-transparent)', // good
+    'var(--projects-background-white)', // good
+    // 'var(--projects-background-standard)',
     'var(--projects-background-translucent)',
+    'var(--projects-background-white)', // good
   ];
-  projectBack = ++projectBack % 6;
+  projectBack = ++projectBack % 4;
   console.log(projectBack);
   const newBackground = projectBacks[projectBack];
   root.style.setProperty('--projects-background', newBackground);
-  if (projectBack == 1 || projectBack == 2 || projectBack == 3 || projectBack == 4 || projectBack==5)
+  if (projectBack <= 2)
   container.classList.add('back-image');
   else container.classList.remove('back-image');
   if (projectBack == 3) body.classList.add('rice');
   else body.classList.remove('rice');
   
   // container.classList.toggle('border');
-  if (projectBack==0 || projectBack==3) setBackgroundsWhite(); else resetBackgrounds();
+  if (newBackground == projectsBackgroundWhite) setBackgroundsWhite(); else resetBackgrounds();
 });
 
 function setBackgroundsWhite() {
