@@ -52,7 +52,7 @@ body.addEventListener('dblclick', () => {
     'var(--projects-background-transparent)', // good
     'var(--projects-background-white)', // good
     // 'var(--projects-background-standard)',
-    'var(--projects-background-translucent)',
+    'var(--projects-background-translucent)', // good
     'var(--projects-background-white)', // good
   ];
   projectBack = ++projectBack % 4;
@@ -156,7 +156,7 @@ document.onmouseover = function (event) {
     switch (tileDescContent) {
       case 'natours':
         popupHtml =
-          'Caveats: Not all features have yet been implemented in the front end (even if they are in the API). Also, it may take a few seconds for heroku to wake up and serve the site.';
+          'Caveats: Not all features have yet been implemented in the front end (even if they are in the API). Also, it may take a few seconds for Render to wake up and serve the site.';
         popupWidthClass = 'w40';
         break;
       case 'fictional-university':
