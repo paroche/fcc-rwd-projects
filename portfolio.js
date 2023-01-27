@@ -156,7 +156,7 @@ document.onmouseover = function (event) {
     switch (tileDescContent) {
       case 'natours':
         popupHtml =
-          'Caveats: Not all features have yet been implemented in the front end (even if they are in the API). Currently Heroku back end is not up, working on a solution...';
+          'Caveats: Not all features have yet been implemented in the front end (even if they are in the API).';
         popupWidthClass = 'w40';
         break;
       case 'fictional-university':
