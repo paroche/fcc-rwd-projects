@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lato&display=swap');
 :root {
-  --d: "M 60 4.346 C 71 4.346 80 13.973 80 25.738 C 80 58.45 40 74.762 40 75.65299999999999 L 40 75.65299999999999 C 40 74.763 0 58.54 0 25.738 C 0 13.884 9 4.346 20 4.346 C 31.1 4.346 40 10.835 40 22.689 C 40 10.835 48.9 4.346 60 4.346 z";
+  --d: 'M 60 4.346 C 71 4.346 80 13.973 80 25.738 C 80 58.45 40 74.762 40 75.65299999999999 L 40 75.65299999999999 C 40 74.763 0 58.54 0 25.738 C 0 13.884 9 4.346 20 4.346 C 31.1 4.346 40 10.835 40 22.689 C 40 10.835 48.9 4.346 60 4.346 z';
   /* heart - original */
-  --d2: "";
+  --d2: '';
   user-select: none;
 }
 
@@ -11,7 +11,17 @@ body {
 }
 
 #background-container {
-  background-image: linear-gradient(to bottom right, #ffaaaa, #ffeeee, #ffaaaa, #fdd, #ffaaaa, #ffeeee, #ffaaaa, #fdd);
+  background-image: linear-gradient(
+    to bottom right,
+    #ffaaaa,
+    #ffeeee,
+    #ffaaaa,
+    #fdd,
+    #ffaaaa,
+    #ffeeee,
+    #ffaaaa,
+    #fdd
+  );
   background-size: cover;
   background-attachment: local;
   background-repeat: no-repeat;
@@ -40,7 +50,7 @@ body {
 #heart-container {
   border-radius: 15px;
   position: relative;
-  opacity: 1;
+  opacity: 1; 
   transition: opacity 17s ease-in-out;
   /* border: 3px solid rgba(223, 8, 8, 1); */
 }
@@ -52,7 +62,7 @@ body {
 #svg-card {
   opacity: 1;
   transition: opacity 4s ease-in;
-  transition-timing-function: cubic-bezier(0.0, 0.1, .50, 0.0);
+  transition-timing-function: cubic-bezier(0, 0.1, 0.5, 0);
   width: 600px;
   height: 600px;
   border-radius: 10px;
@@ -64,6 +74,14 @@ body {
   opacity: 0;
 }
 
+/* From CHATs */
+.moving-heart {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+/* End CHATs */
 
 /* Gems */
 
@@ -128,7 +146,6 @@ body {
   color: rgb(226, 11, 226);
 }
 
-
 /* end Gems */
 
 #val-heart {
@@ -138,7 +155,7 @@ body {
 
 #val-heart.beatInPlace {
   fill: red;
-  animation: 9s ease-out 1s infinite valHeartBeat
+  animation: 9s ease-out 1s infinite valHeartBeat;
 }
 
 @keyframes valHeartBeat {
@@ -146,7 +163,7 @@ body {
     opacity: 1;
   }
   55% {
-    opacity: .2;
+    opacity: 0.2;
   }
   100% {
     opacity: 1;
@@ -181,21 +198,41 @@ body {
     transform: scale(1) translate(0, 0);
   }
 }
+/* Revised for smoothness */
+/* @keyframes beat {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.1) translate(-0.5%, -0.5%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+ */}
+
+/* CHATs recommendation for more smoothing */
+#heartOutG.beat {
+  animation: beat 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
 
 .PathText {
   color: white;
   font-size: 12px;
   /* this actually works */
-  stroke: red;
+  stroke: rgb(255, 100, 100);
+  /*   stroke-width: 0.0; */
   /* So does this */
-  text-shadow: 0.5px 0.5px rgb(255, 100, 100);
-  transform: translate(-15px, -15px);
+  text-shadow: 0.8px 0.8px rgb(255, 100, 100);
+/*   filter: drop-shadow(0.5px 0.5px 1px rgba(255, 100, 100, 0.7)); */
+/*   transform: translate(-15px, -15px); */
+  transform: translate(-20px, -15px);
+  opacity: 1;
 }
 
 .PathText:hover {
   stroke: violet;
 }
-
 
 /* Below are for little moving hearts appended to heart-container */
 
@@ -203,7 +240,7 @@ body {
   position: absolute;
   /* below (top 15.8%, left 16.0%) works for svg-card (and therefore heart-container) of width 600px w/ 5.1 scale heart path*/
   top: 15.8%;
-  left: 16.0%;
+  left: 16%;
   animation: path-animation 40s alternate;
   width: 30px;
   height: auto;
@@ -232,9 +269,7 @@ body {
   box-shadow: none;
 }
 
-
 /* below assumes heart paths stay same size (5.1 & 2) */
-
 
 /* To be able to adjust paths, would have to have JS monitor screen width and adjust d & d1 and also update some vars saying how large they are so can use for a calculation below 
 window.addEventListener('resize', handlingFunction);
@@ -275,7 +310,6 @@ document.documentElement.clientWidth
     width: 28px;
   }
 }
-
 
 /* Note: My Moto 5G is 432px */
 
@@ -414,7 +448,6 @@ document.documentElement.clientWidth
   display: none;
 }
 
-
 /* Toasts (from 50 projects) */
 
 #toasts {
@@ -433,7 +466,7 @@ document.documentElement.clientWidth
   padding: 1rem 2rem;
   margin: 0.5rem;
   opacity: 0.7;
-  background: rgb(226, 11, 226. 0.5)
+  background: rgb(226, 11, 226 0.5);
 }
 
 .toast.info {
