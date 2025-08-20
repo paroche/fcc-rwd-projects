@@ -19,7 +19,9 @@
   <body>
     <div id="background-container">
       <div id="svg-heart-container">
+        <!-- The whole outer box-->
         <div id="heart-container" hidden>
+          <!-- The inner box -->
           <div id="gems" class="hidden">
             <i id="gem-l" class="fa fa-solid fa-gem"></i>
             <i id="gem-r" class="fa fa-solid fa-gem"></i>
@@ -28,7 +30,7 @@
             <i id="gem-ur3" class="fa fa-solid fa-gem corner-gem"></i>
             <i id="gem-ur4" class="fa fa-solid fa-gem corner-gem"></i>
           </div>
-
+          <!-- Curved Top message (e.g. "For You")-->
           <svg
             id="curved-message"
             class="hidden"
@@ -47,7 +49,7 @@
                 xlink:href="#curved_path"></textPath>
             </text>
           </svg>
-
+          <!-- Also main square container -->
           <svg
             id="svg-card"
             class="hidden"
@@ -58,6 +60,7 @@
             xml:space="preserve">
             <desc>Created with Fabric.js 4.6.0</desc>
             <defs>
+              <!-- Heart in upper left w/ text border -->
               <path
                 id="val-heart-text"
                 vector-effect="non-scaling-stroke"
@@ -87,9 +90,8 @@
               fill="rgb(255,200,200)"
               stroke="rgb(255,0,0)" />
 
-            <g
-              transform="matrix(4.38 0 0 4.46 268.31 276.15)"
-              id="MssjSHtxtHLVm4WHNMBiQ">
+            <g transform="matrix(4.38 0 0 4.46 268.31 276.15)">
+              <!-- Main Central Heart for moving heart path -->
               <path
                 id="val-heart"
                 vector-effect="non-scaling-stroke"
@@ -115,7 +117,7 @@
                 id="lowerRText"
                 class="hidden"
                 fill="rgb(150,6,255)"
-                y="25px">
+                y="40px">
                 Sweetheartbeat
               </text>
             </g>
