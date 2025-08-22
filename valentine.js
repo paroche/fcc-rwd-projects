@@ -58,7 +58,7 @@ window.addEventListener('load', () => {
   // sessionStorage.removeItem('greeting'); // Would like this to happen only on exit, but not on refresh, but don't know if can
 
   heartContainer.hidden = false // gives cleaner load
-  setTimeout(scrollTop, 1)
+  // setTimeout(scrollTop, 1)
   setTimeout(unhideCurvedMessage, 2500)
   setTimeout(unhideGems, 4000)
   setTimeout(unhideCard, 5000)
@@ -109,7 +109,7 @@ function createInterval(i) {
 function svgHeart(color, id) {
   return `
     <svg id="heart-${id}" class="moving-heart" xmlns="http://www.w3.org/2000/svg"
-         width="24" height="24" viewBox="0 0 100 100">
+         viewBox="0 0 100 100">
       <path fill="${color}" d="M 60 4.346 C 71 4.346 80 13.973 80 25.738 
         C 80 58.45 40 74.762 40 75.653 
         C 40 74.763 0 58.54 0 25.738 
@@ -177,8 +177,9 @@ function createHeart(id) {
   heartContainer.appendChild(frag)
   const heart = document.getElementById(`heart-${id}`)
 
-  const tx = 85 // horizontal offset to align with big heart
-  const ty = 85 // vertical offset
+  const cardScale = Math.min(window.innerWidth * 0.9, 600) / 600 // How much the card is shrunk
+  const tx = 85 * cardScale // horizontal offset to align with big heart
+  const ty = 85 * cardScale // vertical offset
 
   const duration = 20000 + Math.random() * 5000
   const start = performance.now()
@@ -187,10 +188,11 @@ function createHeart(id) {
     const elapsed = now - start
     const progress = (elapsed % duration) / duration
     const point = pathEl.getPointAtLength(pathLength * progress)
-    heart.style.left = `${point.x}px`
-    heart.style.top = `${point.y}px`
-    heart.style.left = `${point.x + tx}px` // ⬅ PATCHED
-    heart.style.top = `${point.y + ty}px` // ⬅ PATCHED
+    heart.style.left = `${point.x * cardScale + tx}px`
+    heart.style.top = `${point.y * cardScale + ty}px`
+    //heart.style.left = `${point.x + tx}px` // â¬… PATCHED
+    //heart.style.top = `${point.y + ty}px` // â¬… PATCHED
+    heart.style.width = `${30 * cardScale}px`
     requestAnimationFrame(animate)
   }
 
@@ -221,18 +223,6 @@ function createHeart(id) {
 
 /* CHATs Version */
 // === SVG Heart Builder ===
-function svgHeart(color, id) {
-  return `
-    <svg id="heart-${id}" class="moving-heart" xmlns="http://www.w3.org/2000/svg"
-         width="24" height="24" viewBox="0 0 100 100">
-      <path fill="${color}" d="M 60 4.346 C 71 4.346 80 13.973 80 25.738 
-        C 80 58.45 40 74.762 40 75.653 
-        C 40 74.763 0 58.54 0 25.738 
-        C 0 13.884 9 4.346 20 4.346 
-        C 31.1 4.346 40 10.835 40 22.689 
-        C 40 10.835 48.9 4.346 60 4.346 z" />
-    </svg>`
-}
 
 // **** Fade-in Functions for startup ******** //
 
@@ -269,14 +259,8 @@ heartContainer.addEventListener('click', hideClickMessage)
 // ******** Heartbeat Functions ******** //
 
 function setHeartInOutBeats() {
-  const heartInGInterval = setInterval(
-    () => toggleBeat(heartInG, heartBeat * 2.5, 1000),
-    heartBeat
-  )
-  const heartOutGInterval = setInterval(
-    () => toggleBeat(heartOutG, heartBeat * 2, 1000),
-    heartBeat
-  )
+  setInterval(() => toggleBeat(heartInG, heartBeat * 2.5, 1000), heartBeat)
+  setInterval(() => toggleBeat(heartOutG, heartBeat * 2, 1000), heartBeat)
 }
 
 function toggleBeatInPlace() {
@@ -284,22 +268,11 @@ function toggleBeatInPlace() {
     valHeart.className.baseVal == 'beatInPlace' ? '' : 'beatInPlace'
 }
 
-// Old version
 function toggleBeat(el, delay, duration) {
   setTimeout(() => {
     el.className.baseVal = el.className.baseVal == 'beat' ? '' : 'beat'
   }, delay)
 }
-// CHATs version
-/* function toggleBeat(el, delay, duration) {
-  setTimeout(() => {
-    const current = el.className.baseVal || '';
-    if (current.includes('beat')) {
-      el.className.baseVal = current.replace('beat', '').trim();
-    } else {
-      el.className.baseVal += ' beat';
-    }
-  }, delay); */
 
 // ******** Fade Out/In Functions for End ******** //
 
@@ -338,15 +311,15 @@ function showWidth(e) {
 }
 
 function createNotification(message, type) {
-  const notif = document.createElement('div')
-  notif.classList.add('toast')
-  notif.classList.add(type)
-  notif.innerText = message
-  toasts.appendChild(notif)
-  setTimeout(() => notif.remove(), 3000)
+  const notification = document.createElement('div')
+  notification.classList.add('toast')
+  notification.classList.add(type)
+  notification.innerText = message
+  toasts.appendChild(notification)
+  setTimeout(() => notification.remove(), 3000)
 }
 
-function scrollTop() {
+/* function scrollTop() {
   // document.body.scrollTop = 5;
   // document.documentElement.scrollTop = 5;
-}
+} */
