@@ -6,6 +6,13 @@
   user-select: none;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   text-align: center;
 }
@@ -27,11 +34,18 @@ body {
   background-repeat: no-repeat;
   background-origin: border-box;
   height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 0;
-  padding: 0;
+  padding: 0 /* 10% 10% */;
+  /* from Claude to fix card size */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 #svg-heart-container {
   display: flex;
@@ -39,10 +53,7 @@ body {
   align-items: center;
   margin: 0;
   padding: 0;
-  /* padding-top: 8%;
-  padding-bottom: 8%; */
   position: relative;
-  /* height: 100%; */
   height: 100%;
   /* border: 5px solid green; */
 }
@@ -59,36 +70,19 @@ body {
   opacity: 0;
 }
 
-/* This version preserves SVG heart path alignment with big heart, but gets cutoff below 691px or so */
 #svg-card {
   opacity: 1;
   transition: opacity 4s ease-in;
   transition-timing-function: cubic-bezier(0, 0.1, 0.5, 0);
-  /* width: 600px;
-  height: 600px; */
   width: min(600px, 90vw);
   height: min(600px, 90vw);
-
+  max-width: 600px;
   border-radius: 10px;
   box-shadow: 2px 2px 6px #444;
   /* border: 1px solid rgb(221, 11, 11); */
 }
 
-/* This version, from Claude, shrinks the card properly, but then the moving hearts don't align any more */
-/* #svg-card {
-  opacity: 1;
-  transition: opacity 4s ease-in;
-  transition-timing-function: cubic-bezier(0, 0.1, 0.5, 0);
-  /* Make it responsive instead of fixed width */ /*
-  width: min(600px, 90vw);
-  height: min(600px, 90vw);
-  max-width: 600px;
-  max-height: 600px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 6px #444;
-} */
 
-/* Remove or comment out all the media queries that set fixed widths for #svg-card */
 #svg-card.hidden {
   opacity: 0;
 }
@@ -129,7 +123,7 @@ body {
 
 #gem-r {
   top: 8%;
-  left: 62.5%;
+  right: 36%;
 }
 
 #gem-ur {
@@ -317,6 +311,8 @@ body {
   font-size: 8.5px;
   opacity: 1;
   transition: opacity 3s;
+  transform: translateX(var(--firefox-text-offset, 0px));
+}
 }
 
 #lowerRText.hidden {
@@ -335,10 +331,8 @@ body {
   position: fixed;
   bottom: 5em;
   left: 5%;
-  /* transform: translateX(-50%); */
-  /* font-family: 'Dancing Script', Loto; */
   font-weight: bold;
-  font-size: 24px;
+  font-size: calc(24px * min(90vw, 600px) / 600px); /* Scale with card size */
   opacity: 0.4;
 }
 

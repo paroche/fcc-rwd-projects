@@ -19,10 +19,15 @@ const cornerGems = document.querySelectorAll('.corner-gem')
 const curvedMessage = document.getElementById('curved-message')
 const curvedMessageTextpath = document.getElementById('curved-message-textpath')
 const lowerRText = document.getElementById('lowerRText')
+// For adjusting lower heart text in Firefox. Referenced in CSS
+if (navigator.userAgent.includes('Firefox')) {
+  document.documentElement.style.setProperty('--firefox-text-offset', '-37px')
+}
 const valHeart = document.getElementById('val-heart')
 const heartPath = window
   .getComputedStyle(document.documentElement)
   .getPropertyValue('--d')
+
 const origPath = heartPath
 // Create Heart Path for little hearts going around and inside big heart
 scalePath(heartPath, '--d', 5.1)
