@@ -182,7 +182,9 @@ function createHeart(id) {
   heartContainer.appendChild(frag)
   const heart = document.getElementById(`heart-${id}`)
 
-  const cardScale = Math.min(window.innerWidth * 0.9, 600) / 600 // How much the card is shrunk
+  //const cardScale = Math.min(window.innerWidth * 0.9, 600) / 600 // How much the card is shrunk
+  const actualWidth = svgCard.getBoundingClientRect().width
+  const cardScale = actualWidth / 600
   const tx = 85 * cardScale // horizontal offset to align with big heart
   const ty = 85 * cardScale // vertical offset
 
